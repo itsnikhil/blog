@@ -1,0 +1,14 @@
+{
+  "list": [
+    {
+      "name":"Journal Fitbit App",
+      "url":"https://gallery.fitbit.com/details/54e930eb-bec8-4697-ab40-0147a43a6da2",
+      "desc":"Record your day on your smartwatch!"
+    },
+    {
+      "name":"Gmbot",
+      "url":"https://gmbot.co/",
+      "desc":"A complete clan war system built for gamers in form of a discord chatbot."
+    }
+  ]
+}
