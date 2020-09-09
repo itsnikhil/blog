@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>notes on ItsNikhil</title>
+    <link>https://itsnikhil.github.io/blog/categories/notes/</link>
+    <description>Recent content in notes on ItsNikhil</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>ItsNikhil</copyright>
+    <lastBuildDate>Wed, 09 Sep 2020 09:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://itsnikhil.github.io/blog/categories/notes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Gmbot - Chatbot for gamers</title>
+      <link>https://itsnikhil.github.io/blog/projects/gmbot/</link>
+      <pubDate>Wed, 09 Sep 2020 09:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/projects/gmbot/</guid>
+      <description>Key Features  Clan Wars - Create your clan, Challenge others and Grow  After adding chatbot to your server, your server becomes a Clan. After joining a clan you can create or participate in &amp;ldquo;Clan Wars&amp;rdquo;. Team up with your allies and fight other clans! Each win grants you a certain amount of Glory points. These clans wars are played in many types of formats:  1x1 match 2x2 match 3x3 match 4x4 match     Create Tournament or League  While clan war is played between 2 clans.</description>
+    </item>
+    
+  </channel>
+</rss>
