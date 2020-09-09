@@ -87,7 +87,7 @@ For Windows
      - ```chatbot``` (all in small letters)
      - discord client secret token
  
- It would look something like ```secretkey;localhost;python_user;mysqlpassword;chatbot;vgVsJzVyuAuVJKhfuyVUvvbU```
+ It would look something like ```secretkey;localhost;python_user;mysqlpassword;chatbot;vgVsJzVyuAuVJKhfuyVUvbU```
 
 Last step
 ```bash
