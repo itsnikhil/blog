@@ -14,14 +14,22 @@ hugo
 
 echo "Updating master branch"
 cd public
-git init
 
+echo "Configuring git"
 git config --global push.default matching
 git config --global user.email "${GitHubEMail}"
 git config --global user.name "${GitHubUser}"
 
-git add --all .
-git commit -m "Publishing to master (deploy.sh)"
+echo "Add changes to git"
+git add .
+
+if [ -n "$*" ]; then
+	msg="$*"
+fi
+
+echo "Commit changes"
+msg="rebuilding site $(date)"
+
 
 echo "Pushing to github"
-git push --quiet --force https://${GitHubKEY}@github.com/${GitHubUser}/${GitHubRepo}.git master
+git push https://${GitHubKEY}@github.com/${GitHubUser}/${GitHubRepo}.git master
