@@ -16,9 +16,9 @@ enhance my knowledge about new and emerging trends and technology.
 
 | Degree/Exam | Year | Institute | Score |
 | --- | --- | --- | --- |
-| Bachelor of Technology (CSE) | 2017-2021 | The NorthCap University, Gurugram | CGPA 9.^27 |
+| Bachelor of Technology (CSE) | 2017-2021 | The NorthCap University, Gurugram | CGPA 9.27 |
 | CBSE (Class XII) | 2017 | Sherwood Convent School, Gurugram | 79% |
-| CBSE (Class X) | 2015 | Sherwood Convent School, Gurugram | CGPA 9.27 |
+| CBSE (Class X) | 2015 | Sherwood Convent School, Gurugram | CGPA 9.4 |
 
 ## INTERNSHIPS
 
