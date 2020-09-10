@@ -6,6 +6,8 @@
 #     exit 1;
 # fi
 
+ls
+
 echo "Deleting old publication"
 rm -rf public
 
@@ -14,13 +16,16 @@ hugo
 
 echo "Updating master branch"
 cd public
+
+ls
+
 git init
 
 git config --global push.default matching
 git config --global user.email "${GitHubEMail}"
 git config --global user.name "${GitHubUser}"
 
-git add --all .
+git add .
 git commit -m "Publishing to master (deploy.sh)"
 
 echo "Pushing to github"
