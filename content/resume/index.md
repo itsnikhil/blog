@@ -1,5 +1,5 @@
 ---
-title: About me
+title: Resume
 date: 2020-09-08 17:51:42
 ---
 
@@ -7,8 +7,7 @@ date: 2020-09-08 17:51:42
 
 ## 4th Year, Computer Science Undergraduate
 
-Dedicated individual with extensive knowledge in the field of engineering. Seeking a position as an engineer
-to utilize my technical expertise and management skills for the growth of the organization as well as to
+Dedicated individual with extensive knowledge in the field of engineering. Seeking a position as an engineer to utilize my technical expertise and management skills for the growth of the organization as well as to
 enhance my knowledge about new and emerging trends and technology.
 
 ## EDUCATION

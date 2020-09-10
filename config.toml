@@ -4,7 +4,7 @@ title = "ItsNikhil"
 theme = "hugo-theme-cactus"
 copyright = "ItsNikhil" # cactus will use title if copyright is not set
 disqusShortname = "itsnikhil" # Used when comments is enabled. Cactus will use site title if not set
-# googleAnalytics = "UA-119427755-1"
+googleAnalytics = "UA-119427755-1"
 
 
 # summaryLength = 2
@@ -26,8 +26,8 @@ url = "/tags"
 weight = 3
 
 [[menu.main]]
-name = "About"
-url = "/about"
+name = "Resume"
+url = "/resume"
 weight = 4
 
 [markup]
