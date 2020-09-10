@@ -18,6 +18,7 @@ echo "Updating master branch"
 cd public
 
 ls
+cat data/projects.json
 
 git init
 
