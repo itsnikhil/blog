@@ -101,11 +101,3 @@ offered a pre-placement offer (PPO) after the internship. In the end, I would co
 Internships are often seen as something very important and a must for students before they Graduate.
 I do agree with the reason behind it. A trial version of a life which most of us may end up living all our
 life.
-
-## REFERENCES
-
-https://medium.com/@MLSDevCom/blockchain-architecture-basics-components-structure-
-benefits-creation-beace17c8e
-
-https://medium.com/@Crowdwiz.io/how-does-a-cryptocurrency-wallet-work-and-how-to-create-
-one-f234c6ec076f

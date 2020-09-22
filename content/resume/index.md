@@ -115,8 +115,8 @@ Algorithm Design, and Analysis, Cloud Computing.
 - **Itch.io:** [https://nikhil-taneja.itch.io/](https://nikhil-taneja.itch.io/)
 
 ```
-Phone: +91 9555390727
 Email ID: taneja.nikhil03@gmail.com
+Phone: Just use email
 ```
 
 ## DECLARATION

@@ -1,4 +1,9 @@
 {{ define "main" }}
+  <style>
+    .content a {
+      color: #383838;
+    }
+  </style>
   <section id="about">
   {{ if isset .Site.Params "description" }}
     {{ .Site.Params.description }}
