@@ -70,7 +70,7 @@ IFTTT is a freeware web based service which can be used to automate lot of stuff
 ![Example image](/blog/img/16.png)
 
 ## 2) Setup google sheet template
-1. Make a copy of **[Journal Stories google sheet](https://docs.google.com/spreadsheets/d/1LOESqkXC_Kj3wDzoxpCziA8EK4SHSmoY3Zl9Y8M1Gc8/copy)**
+1. Make a copy of **[Journal Stories google sheet](https://www.google.com/url?q=https://docs.google.com/spreadsheets/d/1bIL64_YKdZj1kya-PvUZ96bLhh7sKHUXAyuXQmoWcOc/copy)**
 
 ![Example image](/blog/img/17.png)
 
