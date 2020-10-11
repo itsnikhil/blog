@@ -45,7 +45,7 @@ git clone https://github.com/itsnikhil/auto-form-submitter.git
 2. Hit **Ctrl+Shift+F** or Click on the extension icon 
 3. **Set a deadline**
 4. Click **Save**
-5. By default you have to form auto submitter is disabled. **Enable the toggle!**
+5. By default form auto submitter is disabled. **Enable the toggle!**
 6. Count down timer will appear
 
 Extension will automatically submit the form for you at that given time in the background even if you are not on that tab
