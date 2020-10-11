@@ -10,7 +10,7 @@ tags:
     - Chrome
     - Extension
 categories:
-- Browser Extenasion
+- Extension
 keywords:
     - privacy policy
 ---
