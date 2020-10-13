@@ -17,15 +17,15 @@ keywords:
 
 ![Form Auto Submitter banner](/blog/img/promo2.png)
 
-> Worried about missing the deadline of your online exam? 
+> Worried about missing the deadline to submit your online exam? 
 >
-> This extension will help you auto submit Microsoft Office forms at your set time and never miss your deadline again!
+> This extension will help you auto submit Microsoft Office forms at your set time and so that you never miss your deadline again!
 
 ## Installation
 
 ![Installed extension](/blog/img/installed.png)
 
-**Get it form Microsoft Edge Extensions Store** - Coming soon
+**Get it from Microsoft Edge Extensions Store** - Coming soon
 
 ### Manual Installation
 * First clone the project
@@ -41,7 +41,7 @@ git clone https://github.com/itsnikhil/auto-form-submitter.git
 
 ## Steps to use:
 
-1. Open a office form [for example](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAANAAdCUielUNDlXQ09NUkJBTU5QT0IxR1lWNUZKTk1VNy4u)
+1. Open an office form [for example](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAANAAdCUielUNDlXQ09NUkJBTU5QT0IxR1lWNUZKTk1VNy4u)
 2. Hit **Ctrl+Shift+F** or Click on the extension icon 
 3. **Set a deadline**
 4. Click **Save**
