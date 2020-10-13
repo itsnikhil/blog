@@ -18,7 +18,7 @@ keywords:
 Privacy Policy
 ==============
 
-`Last revised on 2020-10-11`
+`Last revised on 2020-10-13`
 
 This Privacy Policy describes the handling of user data by the **Auto Form Submitter** (“Extension”) for Chrome and Chromium based browsers like Edge. Details about the functions of the Extension and the user data each function will process are described in paragraphs.
 
@@ -31,6 +31,7 @@ This extension will help you auto submit Microsoft Office forms at your set time
 ### 1. Permissions Required
 
 - **Tabs:** Used to get access to specific tab where office form is opened and modify DOM
+- **Alarms** Used to schedule code to run at a specified time in the future
 - **Storage:** Used to save the state of extention locally
 - **Background:** Used to execute code in the background even when you are not on the window
 

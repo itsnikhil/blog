@@ -19,7 +19,7 @@ keywords:
 
 > Worried about missing the deadline to submit your online exam? 
 >
-> This extension will help you auto submit Microsoft Office forms at your set time and so that you never miss your deadline again!
+> This extension will help you auto submit Microsoft Office forms at your set time so that you never miss your deadline again!
 
 ## Installation
 
