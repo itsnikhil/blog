@@ -23,11 +23,13 @@ keywords:
 
 ## Installation
 
-![Installed extension](/blog/img/installed.png)
 
-**Get it from Microsoft Edge Extensions Store** - Coming soon
+**Get it from Microsoft Edge Extensions Store**:
+
+https://microsoftedge.microsoft.com/addons/detail/office-form-auto-submit/plnfbbohkagpfojbbdmjachggboeakpo
 
 ### Manual Installation
+![Installed extension](/blog/img/installed.png)
 * First clone the project
 ```bash
 git clone https://github.com/itsnikhil/auto-form-submitter.git

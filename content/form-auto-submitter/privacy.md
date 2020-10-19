@@ -31,7 +31,7 @@ This extension will help you auto submit Microsoft Office forms at your set time
 ### 1. Permissions Required
 
 - **Tabs:** Used to get access to specific tab where office form is opened and modify DOM
-- **Alarms** Used to schedule code to run at a specified time in the future
+- **Alarms:** Used to schedule code to run at a specified time in the future
 - **Storage:** Used to save the state of extention locally
 - **Background:** Used to execute code in the background even when you are not on the window
 
