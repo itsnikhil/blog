@@ -10,11 +10,11 @@ tags:
     - Chrome
     - Extension
 categories:
-- Extension
+    - Miscellaneous
 keywords:
     - form auto submitter
 cover: /blog/img/promo2.png
-description: This extension will help you auto submit Microsoft Office forms at your set time so that you never miss your deadline again!
+description: An extension that help you auto submit Microsoft Office forms at your set time so that you never miss form deadline!
 ---
 
 ![Form Auto Submitter banner](/blog/img/promo2.png)

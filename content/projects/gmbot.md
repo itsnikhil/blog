@@ -5,19 +5,21 @@ tags:
     - python
     - discord
 categories:
-- notes
+- Miscellaneous
 keywords:
     - gmbot
-description: Chabot for gamers to organize clan wars. Deployed the project on Microsoft Azure
+cover: /blog/img/gmbot/gmbot.png
+description: A complete clan war system built for gamers in form of a discord chatbot
 ---
 
 ## INTRODUCTION
 
 I used to play Clash of Clans (COC) which had a system of clan wars. Then on April 2016 I quitted from the COC and started playing Doodle Army 2: Mini Militia (DA2) and I played it a lot, so much so that I made friends from Kerala, Rajasthan, Delhi and even outside India. We friends created a group over WhatsApp and named our group Headshot Killers (HSK) and every player in that group had to put HSK after their in-game name (IGN). Similarly, other people created their own groups. Our group used to practice together and challenge other groups.
 
-In a way, I found that if we had a clan war system like the one in the Clash of Clans for Doodle Army 2: Mini Militia it would have been so nice. We requested appsomniacs developers over their Beta testers google group, they did add a friend system in one of their updates, but it was far from what we requested. Thus, this GMBot is my gift to the community, a feature what we gamers wanted.
+> In a way, I found that if we had a clan war system like the one in the Clash of Clans for Doodle Army 2: Mini Militia it would have been so nice. We requested appsomniacs developers over their Beta testers google group, they did add a friend system in one of their updates, but it was far from what we requested. Thus, this Gmbot is my gift to the community, a feature what we gamers wanted.
 
 ### Overview
+![](/blog/img/gmbot/gmbot.png)
 
 Create your clan, challenge others and grow
 
@@ -93,15 +95,15 @@ After clicking add to server, user will be taken to discord's official website w
 
 **Step 2 – Subscribe game(s)**
 
-![](/blog/img/gmbot/Picture5.png)
+![](/blog/img/gmbot/Picture4.png)
 
 **Step 3 – Create war request**
 
-![](/blog/img/gmbot/Picture6.png)
+![](/blog/img/gmbot/Picture5.png)
 
 **Step 4 – Accept Incoming war**
 
-![](/blog/img/gmbot/Picture7.png)
+![](/blog/img/gmbot/Picture6.png)
 
 **Step 5 – Communicate**
 
@@ -186,7 +188,6 @@ Based upon query response, it calls success response or error response
 |**roles**|<ul><li>Lists all the players along with their role</li>|Anyone|
 |**available**|<ul><li>Mark yourself available to take part in clan war</li>|Anyone|
 |**unavailable**|<ul><li>Mark yourself unavailable to take part in clan war</li>|Anyone|
-|**stats**|<ul><li>Returns list of wars logs of a particular group</li><li>Please enter player(s) name for their specific information [OPTIONAL, DEFAULT=everyone]</li><li>Include stats of wars [OPTIONAL, DEFAULT=True]</li><li>Include stats of knockouts [OPTIONAL, DEFAULT=True]</li><li>Include stats of leagues [OPTIONAL, DEFAULT=True]</li><li>Show details before this date [OPTIONAL, DEFAULT=date when the bot was added to group]</li><li>Include wins only [OPTIONAL, DEFAULT=False]</li><li>Include losses only [OPTIONAL, DEFAULT=False]</li>|Anyone|
 
 ## DATABASE SCHEMA
 ![](/blog/img/gmbot/Picture13.png)
