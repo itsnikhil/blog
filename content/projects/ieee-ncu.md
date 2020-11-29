@@ -15,3 +15,5 @@ description: Webapp for IEEE NCU Student Branch with API for managing Team, Even
 ---
 
 https://ieee.ncuindia.edu/
+
+![](/blog/img/ieeencuindia.png)

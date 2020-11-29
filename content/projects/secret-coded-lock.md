@@ -10,8 +10,6 @@ categories:
 - Electronics
 keywords:
     - Secret Coded Lock digital electronics project
-cover: /blog/img/ieee_ncu_sb.png
-description: Webapp for IEEE NCU Student Branch with API for managing Team, Events, Blog, etc. Hosted on cloud!
+cover: 
+description: 
 ---
-
-https://ieee.ncuindia.edu/
