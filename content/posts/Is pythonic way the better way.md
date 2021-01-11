@@ -13,26 +13,26 @@ keywords:
     - style
 ---
 
-Here I have share some of my thoughts on some of the pythonic way coding style. These are not design patterns (which are best practices used by experienced object-oriented software developers) of any sort, just some ways of writing code differently or I should say more pythonic. 
+Here I have shared some of my thoughts on some of the pythonic way coding style. These do not design patterns (which are best practices used by experienced object-oriented software developers) of any sort, just some ways of writing code differently or I should say more pythonic. 
 
 If you might not already know - Python is an interpreted, interactive, object-oriented programming language. But more importantly, Python is a programming language that lets you work more quickly and integrate your systems more effectively.
 
 If you want to learn all the recommended python style conventions/guidelines, you can learn [here](https://pep8.org/). So with that, let's start with something which you might already know.
 
 ## Swapping of values
-This is cool way swapping values among two variables. Python does not create any temporary variables. It is all done on the stack.
+This is a cool way of swapping values among two variables. Python does not create any temporary variables. It is all done on the stack. 
 ```py
 a, b = b, a
 ```
-This an tuple unpacking not only makes code more readable but also handles the state better.
+This tuple unpacking not only makes code more readable but also handles the state better.
 
 ## List comprehension
-Most people working with python at certain point of time discover about list comprehensions which is shorthand syntax of writing for loop. 
-Shorter pythonic way using list comprehension.
+Most people working with python at a certain point of time discover about list comprehensions which are shorthand syntax of writing for a loop. 
+The shorter pythonic way using list comprehension.
 ```py
 a = [i**2 for i in range(10)]
 ```
-Awesome right, short and simple. If you use round brackets `()` instead of square brackets `[]` instead of returning a completely new list, it returns a generator object. Generators are in python are super cool which instead of returning a whole array, it yields one value at a time which requires less memory. Any python function with a keyword "yield" may be called as generator. When generator encounters a yield keyword the state of the function is frozen and all the variables are stored in memory until the generator is called again.
+Awesome right, short and simple. If you use round brackets `()` instead of square brackets `[]` instead of returning a completely new list, it returns a generator object. Generators in python are super cool, they yields one value at a time which requires less memory. Any python function with a keyword "yield" may be called a generator. When the generator encounters a yield keyword the state of the function is frozen and all the variables are stored in memory until the generator is called again.
 ```py
 >>> a = (i**2 for i in range(10))
 >>> print(a)
@@ -40,7 +40,7 @@ Awesome right, short and simple. If you use round brackets `()` instead of squar
 >>> print(sum(a))
 285
 ```
-This is where the short comings of pythonic ways are prevalent amongst beginners, most beginners often use square brackets even when not required.
+This is where the shortcomings of pythonic ways are prevalent amongst beginners, most beginners often use square brackets even when not required.
 
 ## Compound comparison statements
 A compound statement consists of one or more 'clauses.' An example for this will be 
@@ -54,9 +54,8 @@ True
 >>> x = 25
 >>> 10 < x < 20
 False
->>>
 ```
-A compound comparison is a neat feature in python. In other languages, you would need to express this as two different comparison joined with an `and` operation
+A compound comparison is a neat feature in python. In other languages, you would need to express this as two different comparisons joined with an `and` operation
 ```py
 >>> x = 15
 >>> (10 < x) and (x < 20)
@@ -79,7 +78,7 @@ This is sort of like a replacement for flag values. There are two ways you can e
 >>> find([3,4,5], 6)
 -1
 ```
-I do not think there is any reason not to use this except the poor naming of else. I have not seen this used in many codebases maybe because it has a very niche use case unlike list comprehension.
+I do not think there is any reason not to use this except the poor naming of else. I have not seen this used in many codebases maybe because it has a very niche use case, unlike list comprehension.
 
 ## Ternary operator
 Blueprint of general syntax
@@ -90,7 +89,7 @@ Example usage
 ```py
 a = ('Odd', 'Even')[num//2 == 0]
 ```
-This sounds a lot useful and you wonder why you might not have heard of this before or seen something like this in some codebase. Actually, there is a reason behind this, to understand consider this example
+This sounds a lot useful and you wonder why you might not have heard of this before or seen something like this in some codebase. There is a reason behind this, to understand consider this example
 ```py
 >>> (print('isFalse'), print('isTrue'))[True]
 isFalse
@@ -139,7 +138,7 @@ True
 ```
 
 ## Some good reads
-- This article has been inspired from a talk from PyCon US 2013 by Raymond Hettinger [go watch it here](https://www.youtube.com/watch?v=OSGv2VnC0go)
+- This article has been inspired by a talk from PyCon US 2013 by Raymond Hettinger [go watch it here](https://www.youtube.com/watch?v=OSGv2VnC0go)
 - Mind-bending edge cases in python that make you say "Wat‽" [go watch it here](https://www.youtube.com/watch?v=qjk2pWY4RP0)
 - There is a fun project attempting to explain what exactly is happening under the hood for some counter-intuitive snippets and lesser-known features in Python which you can [read here](https://github.com/satwikkansal/wtfpython)
 
