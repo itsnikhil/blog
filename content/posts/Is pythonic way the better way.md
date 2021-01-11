@@ -27,8 +27,7 @@ a, b = b, a
 This tuple unpacking not only makes code more readable but also handles the state better.
 
 ## List comprehension
-Most people working with python at a certain point of time discover about list comprehensions which are shorthand syntax of writing for a loop. 
-The shorter pythonic way using list comprehension.
+Most people working with python at a certain point of time discover about list comprehensions which are shorthand syntax of writing for a loop.
 ```py
 a = [i**2 for i in range(10)]
 ```
@@ -43,7 +42,7 @@ Awesome right, short and simple. If you use round brackets `()` instead of squar
 This is where the shortcomings of pythonic ways are prevalent amongst beginners, most beginners often use square brackets even when not required.
 
 ## Compound comparison statements
-A compound statement consists of one or more 'clauses.' An example for this will be 
+A compound statement consists of one or more 'clauses'. An example for this will be 
 ```py
 >>> x = 5
 >>> 10 < x < 20
@@ -63,7 +62,7 @@ True
 ```
 
 ## Distinguishing multiple exit points in loops
-This is sort of like a replacement for flag values. There are two ways you can exit out of the for loop 1) You hit the break; or 2) You did not in that case else block after the for loop will execute.    
+This is sort of like a replacement for flag variables. There are two ways you can exit out of the for loop 1) You hit the break; or 2) You did not. In the second case, `else block` will get executed.    
 ```py
 >>> def find(seq, target):
 ... 	for i, value in enumerate(seq):
@@ -95,7 +94,7 @@ This sounds a lot useful and you wonder why you might not have heard of this bef
 isFalse
 isTrue
 ```
-As you can see it prints both cases. Because of this not only extra processing is wasted but it can introduce some bugs. Ternary if else cannot be used to handle None values (or null for non-python world).
+As you can see it prints both cases. Because of this not only extra processing is wasted but it can introduce some bugs. Ternary if else cannot be used to handle None value (or null value for non-python world).
 ```py
 >>> import re
 >>> message = 'Is pythonic way the better way?'
@@ -108,8 +107,8 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 AttributeError: 'NoneType' object has no attribute 'group'
 ```
-We received this error because if re.search fails it returns `None` and we called a `method` on the something which was `None`. This happens because with the tupled ternary technique, the tuple is first built, then an index is found as a result both `True` case along with `False` gets executed.
-So use this with a lot of care because the way I see this, it not an if-else replacement!
+We received this error because when re.search fails, it returns `None` and we called a `method` on the something which was `None`. This happens because with the tupled ternary technique, the tuple is first built, then an index is found as a result both `True` case along with `False` gets executed.
+So use this with a lot of care because the way I see this, it not a replacemrnt for if-else!
 
 ## Walrus operator available from Python 3.8 (PEP 572) 
 Walrus operator can be used to consolidate an assignment statement and a boolean expression when both assignment and expression would utilize a similar statement. 
