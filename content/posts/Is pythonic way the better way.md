@@ -2,8 +2,9 @@
 title: Is pythonic way the better way?
 date: 2021-01-11 09:00:00
 tags:
+    - code
+    - technology
     - programming
-    - wat
 categories:
 - python
 keywords:
