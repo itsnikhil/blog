@@ -1,6 +1,6 @@
 ---
 title: Is pythonic way the better way?
-date: 2020-09-09 09:00:00
+date: 2021-01-11 09:00:00
 tags:
     - programming
     - wat
