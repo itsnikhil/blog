@@ -14,7 +14,7 @@ keywords:
     - style
 ---
 
-Here I have shared some of my thoughts on some of the pythonic way coding style. These do not design patterns (which are best practices used by experienced object-oriented software developers) of any sort, just some ways of writing code differently or I should say more pythonic. 
+Here I have shared my thoughts on some of the pythonic way coding style. These are not design patterns (which are best practices used by experienced object-oriented software developers) of any sort, just some ways of writing code differently or I should say more pythonic. 
 
 If you might not already know - Python is an interpreted, interactive, object-oriented programming language. But more importantly, Python is a programming language that lets you work more quickly and integrate your systems more effectively.
 
