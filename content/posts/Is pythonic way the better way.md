@@ -4,9 +4,9 @@ date: 2021-01-11 09:00:00
 tags:
     - code
     - technology
-    - programming
+    - python
 categories:
-- python
+- programming
 keywords:
     - python
     - pythonic
