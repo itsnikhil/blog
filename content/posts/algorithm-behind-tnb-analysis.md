@@ -43,7 +43,7 @@ Task was to read each object in the JSON one by one and sum up balance for each 
 ```js
 const backup = require("path/to/backup/file.json");
 let totalBalance = 0;
-for (let account in backup) totalBalance += a[account].balance;
+for (let account in backup) totalBalance += backup[account].balance;
 console.log(totalBalance);
 ```
 
