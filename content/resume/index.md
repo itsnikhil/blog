@@ -1,13 +1,13 @@
 ---
 title: Resume
-date: 2020-09-08 17:51:42
+date: 2021-05-10 17:51:42
 ---
 
 # NIKHIL TANEJA
 
 ## 4th Year, Computer Science Undergraduate
 
-Seeking a position as an engineer to utilize my technical expertise and personal skills for the growth of the organization as well as to enhance my knowledge and kick-start my career
+Engineer at Rapido - India's largest bike taxi hailing service. Problem solver and a believer in emerging technology like AR/VR, Blockchain, Cloud, Data science.
 
 ## EDUCATION
 
@@ -20,10 +20,14 @@ Seeking a position as an engineer to utilize my technical expertise and personal
 
 ## INTERNSHIPS
 
+**RAPIDO ** | `Product Engineering Intern`
+: _Bangalore, India_
+: _March 2021 – Present_ 
+
 **FTC TECHNOLOGY INTERN** | `Fidelity International Limited`
 : _Gurugram, India_
 : _June 2020 – July 2020_
-
+---
 - Developed and dealt with the concepts of **Blockchain** to provide solutions to reduce error handling
     and reconciliation, in turn, enhancing security.
 - Implemented **Finance Mathematics Portfolio Theory** in python for AI-enabled Fund Manager (bot)
@@ -56,7 +60,7 @@ Seeking a position as an engineer to utilize my technical expertise and personal
 
 - [**JOURNAL**](https://gallery.fitbit.com/details/54e930eb-bec8-4697-ab40-0147a43a6da2) - `JavaScript Fitbit SDK`
     
-    A personal tool to motivate and to look back and analyze one’s life events. Evolving project which receives feature updates regularly. Journal app has been appreciated by hundreds of Fitbit users (300+ 5-star rating as of September 2020)
+    A personal tool to motivate and to look back and analyze one’s life events. Evolving project which receives feature updates regularly. Journal app has been appreciated by hundreds of Fitbit users (450+ 5-star rating as of May 2021)
 
 
 - [**GMBOT**](https://itsnikhil.github.io/gmbot-site) - `Python, MySQL, Discord.py, AsyncIO, Scheduling`
@@ -78,7 +82,7 @@ Article, etc. It uses the KNN machine learning algorithm for OCR from image
 
 ## TECHNICAL SKILLS
 
-- **Programming Languages:** JavaScript, Java (Moderate), **Python** (Proficient), C++
+- **Programming Languages:** JavaScript, Java (Moderate), **Python** (Proficient), C++, Golang
 - **Web Technologies:** HTML5, CSS3, Bootstrap, Spring MVC, Django (Moderate), PostgreSQL, MySQL.
 - **Game Dev/ AR – VR:** Unity 3D, Vuforia, ARCore, Sceneform, VRTK, Blender, Photoshop.
 - **Blockchain Technology:** R3 Corda
