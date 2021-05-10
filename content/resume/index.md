@@ -11,7 +11,6 @@ Engineer at Rapido - India's largest bike taxi hailing service. Problem solver a
 
 ## EDUCATION
 
-
 | Degree/Exam | Year | Institute | Score |
 | --- | --- | --- | --- |
 | Bachelor of Technology (CSE) | 2017-2021 | The NorthCap University, Gurugram | CGPA 9.27 |
@@ -20,9 +19,10 @@ Engineer at Rapido - India's largest bike taxi hailing service. Problem solver a
 
 ## INTERNSHIPS
 
-**RAPIDO ** | `Product Engineering Intern`
+**Product Engineering Intern** | `RAPIDO`
 : _Bangalore, India_
-: _March 2021 – Present_ 
+: _March 2021 – Present_
+---
 
 **FTC TECHNOLOGY INTERN** | `Fidelity International Limited`
 : _Gurugram, India_
