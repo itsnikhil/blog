@@ -72,3 +72,6 @@ weight = 4
   [[params.social]]
     name = "email"
     link = "taneja.nikhil03@gmail.com"  # no need for "mailto:" in the head
+    
+  [context.production.environment]
+    HUGO_VERSION = "0.83.1"
