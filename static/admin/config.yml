@@ -76,3 +76,83 @@ collections:
       - { label: "Description", name: "description", widget: "string", required: false }
       - { label: "Draft", name: "draft", widget: "boolean", default: true, required: true }
       - { label: "Body", name: "body", widget: "markdown" }
+  - name: "project"
+    label: "Project"
+    folder: "content/projects"
+    create: true
+    slug: "{{slug}}"
+    editor:
+      preview: true
+    fields:
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - { label: "Publish Date", name: "date", widget: "datetime", required: true }
+      - {
+          label: "Categories",
+          name: "categories",
+          widget: "select",
+          default: "Programming",
+          multiple: true,
+          required: true,
+          options:
+            [
+              "App",
+              "Electronics",
+              "Extension",
+              "Miscellaneous",
+              "Programming",
+              "Web",
+              "Science",
+              "Engineering",
+              "Python",
+              "Golang",
+              "Java",
+              "Technology",
+              "Tutorial",
+              "Nodejs",
+              "Javascript",
+              "HTML",
+              "CSS",
+              "Unity",
+              "Beginners",
+              "React",
+              "Productivity",
+              "Android",
+              "Career",
+              "Algorithm",
+              "Github",
+              "Open source",
+              "Linux",
+              "Project",
+              "Security",
+              "Docker",
+              "Cloud",
+              "Artificial Intelligence",
+              "AWS",
+              "Azure",
+              "Firebase",
+              "Database",
+              "Blockchain",
+            ],
+          min: 1,
+        }
+      - {
+          label: "Tags",
+          name: "tags",
+          widget: "list",
+          required: false,
+          default: ['Programming'],
+          min: 2,
+          max: 5,
+        }
+      - { label: "Keywords", name: "keywords", widget: "list", min: 2, max: 7, required: false }
+      - label: "Featured Image"
+        name: "cover"
+        widget: "image"
+        required: true
+        media_library:
+          config:
+            multiple: false
+      - { label: "Description", name: "description", widget: "string", required: false }
+      - { label: "Draft", name: "draft", widget: "boolean", default: true, required: true }
+      - { label: "Body", name: "body", widget: "markdown" }
+
