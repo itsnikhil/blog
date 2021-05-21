@@ -72,31 +72,29 @@
   {{ partial "footer.html" . }}
 
   </div>
-  
-  <script src="/blog/js/main.js"></script>
-  <!-- Include the script that builds the page and powers Netlify CMS -->
-  <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
-  <link rel="stylesheet" href="/blog/lib/font-awesome/css/all.min.css" media="print" onload="this.media='all'">
-  {{ $mathjax := false }}
-  {{ if isset .Params "mathjax" }}
+</body>
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/all.min.css" media="print" onload="this.media='all'">
+<script src="/blog/js/main.js"></script>
+{{ $mathjax := false }}
+{{ if isset .Params "mathjax" }}
   {{ $mathjax = .Params.mathjax }}
-  {{ else if isset .Site.Params "mathjax" }}
+{{ else if isset .Site.Params "mathjax" }}
   {{ $mathjax = .Site.Params.mathjax }}
-  {{ end }}
-  {{ if $mathjax }}
-  <script>
-    MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']]
-      },
-      svg: {
-        fontCache: 'global'
-      }
-    };
-  </script>
+{{ end }}
+{{ if $mathjax }}
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+</script>
 <script type="text/javascript" id="MathJax-script" async
-src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
 {{ end }}
-</body>
 </html>
