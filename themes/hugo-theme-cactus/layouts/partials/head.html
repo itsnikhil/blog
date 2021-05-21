@@ -20,18 +20,19 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   ` | safeHTML }}
-
   {{ partial "favicon.html" . }}
   {{ if .Site.Params.rss }}
   {{ with .OutputFormats.Get "RSS" }}
-    {{ printf `<link href="%s" rel="%s" type="%s" title="%s" />` .Permalink .Rel .MediaType.Type $.Site.Title | safeHTML }}
+  {{ printf `<link href="%s" rel="%s" type="%s" title="%s" />` .Permalink .Rel .MediaType.Type $.Site.Title | safeHTML }}
   {{ end }}
   {{ end }}
   {{ if .Site.GoogleAnalytics }}
-    {{ if .Site.Params.googleAnalyticsAsync }}
-      {{ template "_internal/google_analytics_async.html" . }}
-    {{ else }}
-      {{ template "_internal/google_analytics.html" . }}
-    {{ end }}
+  {{ if .Site.Params.googleAnalyticsAsync }}
+  {{ template "_internal/google_analytics_async.html" . }}
+  {{ else }}
+  {{ template "_internal/google_analytics.html" . }}
   {{ end }}
+  {{ end }}
+  <!-- Include the script that enables Netlify Identity on this page. -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>

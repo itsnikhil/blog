@@ -12,8 +12,10 @@
     {{ partial "footer.html" . }}
 
   </div>
+  
+  <script src="/blog/js/main.js"></script>
+  <!-- Include the script that builds the page and powers Netlify CMS -->
+  <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+  <link rel="stylesheet" href="/blog/lib/font-awesome/css/all.min.css" media="print" onload="this.media='all'">
 </body>
-
-<link rel="stylesheet" href="/blog/lib/font-awesome/css/all.min.css" media="print" onload="this.media='all'">
-<script src="/blog/js/main.js"></script>
 </html>
