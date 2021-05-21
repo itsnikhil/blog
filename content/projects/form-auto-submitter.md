@@ -13,11 +13,11 @@ categories:
     - Miscellaneous
 keywords:
     - form auto submitter
-cover: /blog/img/promo2.png
+cover: /img/promo2.png
 description: An extension that help you auto submit Microsoft Office forms at your set time so that you never miss form deadline!
 ---
 
-![Form Auto Submitter banner](/blog/img/promo2.png)
+![Form Auto Submitter banner](/img/promo2.png)
 
 > Worried about missing the deadline to submit your online exam? 
 >
@@ -31,7 +31,7 @@ description: An extension that help you auto submit Microsoft Office forms at yo
 https://microsoftedge.microsoft.com/addons/detail/office-form-auto-submit/plnfbbohkagpfojbbdmjachggboeakpo
 
 ### Manual Installation
-![Installed extension](/blog/img/installed.png)
+![Installed extension](/img/installed.png)
 * First clone the project
 ```bash
 git clone https://github.com/itsnikhil/auto-form-submitter.git

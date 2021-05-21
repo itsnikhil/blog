@@ -108,7 +108,7 @@
       {{ $projectsUrl = .Site.Params.projectsUrl }}
     {{ end }}
   <section id="projects">
-    <span class="h1"><a href="/blog/{{ $projectsUrl }}">Projects</a></span>
+    <span class="h1"><a href="/{{ $projectsUrl }}">Projects</a></span>
     <ul class="project-list">
         {{ range (first 5 .Site.Data.projects.list) }}
         <li class="project-item">
@@ -116,7 +116,7 @@
         </li>
         {{ end }}
     </ul>
-    <h3><a href="/blog/{{ $projectsUrl }}">See all projects</a></h3>
+    <h3><a href="/{{ $projectsUrl }}">See all projects</a></h3>
   </section>
   {{ end }}
 {{ end }}

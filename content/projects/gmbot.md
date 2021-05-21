@@ -8,7 +8,7 @@ categories:
 - Miscellaneous
 keywords:
     - gmbot
-cover: /blog/img/gmbot/gmbot.png
+cover: /img/gmbot/gmbot.png
 description: A complete clan war system built for gamers in form of a discord chatbot
 ---
 
@@ -19,7 +19,7 @@ I used to play Clash of Clans (COC) which had a system of clan wars. Then on Apr
 > In a way, I found that if we had a clan war system like the one in the Clash of Clans for Doodle Army 2: Mini Militia it would have been so nice. We requested appsomniacs developers over their Beta testers google group, they did add a friend system in one of their updates, but it was far from what we requested. Thus, this Gmbot is my gift to the community, a feature what we gamers wanted.
 
 ### Overview
-![](/blog/img/gmbot/gmbot.png)
+![](/img/gmbot/gmbot.png)
 
 Create your clan, challenge others and grow
 
@@ -91,32 +91,32 @@ After clicking add to server, user will be taken to discord's official website w
 
 | | |
 |-|-|
-|![](/blog/img/gmbot/Picture2.png)|![](/blog/img/gmbot/Picture3.png)|
+|![](/img/gmbot/Picture2.png)|![](/img/gmbot/Picture3.png)|
 
 **Step 2 – Subscribe game(s)**
 
-![](/blog/img/gmbot/Picture4.png)
+![](/img/gmbot/Picture4.png)
 
 **Step 3 – Create war request**
 
-![](/blog/img/gmbot/Picture5.png)
+![](/img/gmbot/Picture5.png)
 
 **Step 4 – Accept Incoming war**
 
-![](/blog/img/gmbot/Picture6.png)
+![](/img/gmbot/Picture6.png)
 
 **Step 5 – Communicate**
 
-![](/blog/img/gmbot/Picture8.png)
+![](/img/gmbot/Picture8.png)
 
 **Step 6 – Ask for results**
 
-![](/blog/img/gmbot/Picture9.png)
+![](/img/gmbot/Picture9.png)
 
 ## DIAGRAMS
 ### Flow diagram
 
-![](/blog/img/gmbot/Picture10.png)
+![](/img/gmbot/Picture10.png)
 
 ### Tree diagram
 ```bash
@@ -160,11 +160,11 @@ Based upon query response, it calls success response or error response
 
 `COGS/status.py`
 
-![](/blog/img/gmbot/Picture11.png)
+![](/img/gmbot/Picture11.png)
 
 `DAO/communicateQuery.py`
 
-![](/blog/img/gmbot/Picture12.png)
+![](/img/gmbot/Picture12.png)
 
 ### List of Commands
 
@@ -190,16 +190,16 @@ Based upon query response, it calls success response or error response
 |**unavailable**|<ul><li>Mark yourself unavailable to take part in clan war</li>|Anyone|
 
 ## DATABASE SCHEMA
-![](/blog/img/gmbot/Picture13.png)
+![](/img/gmbot/Picture13.png)
 
 ## ANALYTICS
 
 ### Google Analytics
-![](/blog/img/gmbot/Picture14.png)
-![](/blog/img/gmbot/Picture15.png)
+![](/img/gmbot/Picture14.png)
+![](/img/gmbot/Picture15.png)
 
 ### Play Testing
 
 The setup command was used to provide clan name, language, location and required game ids to subscribe for a game. But most alpha testers ignored to subscribe to games as the command wasn't as descriptive and started creating clan war requests. Which lead to a separate command to subscribe and unsubscribe. Also, Testers did not like long commands name especially communication command which was shortened to "gmbot say".
 
-![Play Test and Feedback](/blog/img/gmbot/Picture1.png)
+![Play Test and Feedback](/img/gmbot/Picture1.png)

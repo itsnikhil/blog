@@ -1,4 +1,4 @@
-baseURL = "https://itsnikhil.github.io/blog/"
+baseURL = "https://itsnikhil.journalapp.tech/"
 languageCode = "en-us"
 title = "ItsNikhil"
 theme = "hugo-theme-cactus"

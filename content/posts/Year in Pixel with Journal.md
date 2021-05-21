@@ -32,66 +32,66 @@ IFTTT is a freeware web based service which can be used to automate lot of stuff
 ## 1) Connect to Journal IFTTT Applet 
 1. Connect Journal applet by going to **[Journal Google Sheet Logging](https://ifttt.com/applets/qx5mK2Sa)**
 
-![Example image](/blog/img/1.png)
+![Example image](/img/1.png)
 
 2. If you are not logged in, **please login/ signup to IFTTT account**
 
-![Example image](/blog/img/2.png)
+![Example image](/img/2.png)
 
 3. Journal Year in Pixel Applet needs Google Sheets and Maker Webook to work
 
-![Example image](/blog/img/4.png)
+![Example image](/img/4.png)
 
 4. After clicking connect, you will see IFTTT going to google and will ask for permission __"IFTTT wants to access your Google Account"__ in-order to read/write to Google Sheets on your behalf - **Click Allow**
 
-![Example image](/blog/img/5.png)
+![Example image](/img/5.png)
 
 5. Wait a couple of seconds untill you see **"Connected"**
 
-![Example image](/blog/img/9.png)
+![Example image](/img/9.png)
 
 6. Now you need to copy API key by going to **[IFTTT Maker Webook](https://ifttt.com/maker_webhooks)**
 7. **Click on Setting** present at the top right corner
 
-![Example image](/blog/img/11.png)
+![Example image](/img/11.png)
 
 8. **Copy API KEY** which is the last part of the URL. For example: 
 ```https://maker.ifttt.com/use/{API-KEY}```
 
-![Example image](/blog/img/13.png)
+![Example image](/img/13.png)
 
 9. Open Fitbit app on your phone and **go to Journal App settings**
 10. Click on API Key and **paste/type the key** you have copied from the IFTTT website and click save.
 
-![Example image](/blog/img/15.png)
+![Example image](/img/15.png)
 
 11. Under IFTTT settings, **enable "Send to IFTTT"** toggle
 
-![Example image](/blog/img/16.png)
+![Example image](/img/16.png)
 
 ## 2) Setup google sheet template
 1. Make a copy of **[Journal Stories google sheet](https://docs.google.com/spreadsheets/d/1bIL64_YKdZj1kya-PvUZ96bLhh7sKHUXAyuXQmoWcOc/copy)**
 
-![Example image](/blog/img/17.png)
+![Example image](/img/17.png)
 
 2. **Rename to exactly "Journal Stories"** for IFTTT to discover.
 
-![Example image](/blog/img/19.png)
+![Example image](/img/19.png)
 
 3. You have to create the following folders named exactly "IFTTT". Then inside that folder create another folder "MakerWebooks". Then inside that create another folder "mood_log".
 
-![Example image](/blog/img/20.png)
+![Example image](/img/20.png)
 
 4. Move Journal Stoies google sheet inside mood_log folder. Make sure the file is exactly located here **"IFTTT/MakerWebooks/mood_log/Journal Stories"** for IFTTT to discover properly.
 
 | | |
 ------------------------- | -------------------------
-| ![Example image](/blog/img/21.png) | ![Example image](/blog/img/22.png) |
-| ![Example image](/blog/img/23.png) | ![Example image](/blog/img/24.png) |
+| ![Example image](/img/21.png) | ![Example image](/img/22.png) |
+| ![Example image](/img/23.png) | ![Example image](/img/24.png) |
 
 5. From the  Menu click on **Tools > Script Editor**. This will open script editor in new tab
 
-![Example image](/blog/img/25.png)
+![Example image](/img/25.png)
 
 6. Copy the specific code in your language provided here:
     + **[CHINESE (SIMPLIFIED) sheets code.gs](https://gist.github.com/itsnikhil/69c3478f19e9cc33e96659a90f27d458#file-chinese_simple_journal_ifttt_sheets_code-gs)**
@@ -139,29 +139,29 @@ function updateData(e){
 }
 ```
 
-![Example image](/blog/img/26.png)
+![Example image](/img/26.png)
 
 7. After pasting the code at script editor, click on "Select function" which will open a drop-down and select **setUpTrigger**
 
-![Example image](/blog/img/27.png)
+![Example image](/img/27.png)
 
 8. From the Menu **Hit run**. A pop-up will appear asking "Authorization required". Click on **Review Permissions** 
 
-![Example image](/blog/img/28.png)
+![Example image](/img/28.png)
 
 9. "Journal wants to access your Google Account". This is required to listen for insert row event - **Click Allow**
 
-![Example image](/blog/img/29.png)
-![Example image](/blog/img/31.png)
+![Example image](/img/29.png)
+![Example image](/img/31.png)
 
 10. From the Menu click on **View > Executions**. This will open admin panel in new tab
 
-![Example image](/blog/img/32.png)
+![Example image](/img/32.png)
 
 11. Then, from the side navigation go to **My Triggers**
 12. **Make sure "Journal" is present in the list only one time**
 
-![Example image](/blog/img/34.png)
+![Example image](/img/34.png)
 
 ## 3) Test everything is working
 1. Make sure your **fitbit watch is connected to Phone**
@@ -170,22 +170,22 @@ function updateData(e){
 
 | | |
 ------------------------- | -------------------------
-| ![Example image](/blog/img/35.png) | ![Example image](/blog/img/36.png) |
+| ![Example image](/img/35.png) | ![Example image](/img/36.png) |
 
 4. Select **your mood**
 5. Select **most memorable thing**
 
 | | |
 ------------------------- | -------------------------
-| ![Example image](/blog/img/37.png) | ![Example image](/blog/img/38.png) |
+| ![Example image](/img/37.png) | ![Example image](/img/38.png) |
 
 6. **Open google sheets** and confirm new record automatically inserted
 
-![Example image](/blog/img/39.png)
+![Example image](/img/39.png)
 
 7. Explore different sheets to see **Year in Pixel**
 
-![Example image](/blog/img/40.png)
+![Example image](/img/40.png)
 
 
 That was it... definitely it takes some time to setup but I hope steps were clear enough. If you still confused please comment below and I would be happy to help. IFTTT is not necessary to use Journal, but I would recommend it as it allows you to persist, analyze and export your data which was not possible before. 
