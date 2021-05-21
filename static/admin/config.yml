@@ -108,7 +108,7 @@ collections:
           name: "tags",
           widget: "list",
           required: false,
-          default: ['Programming']
+          default: ['Programming'],
           min: 2,
           max: 5,
         }
