@@ -7,7 +7,7 @@ collections:
   - name: 'blog'
     label: 'Blog'
     folder: 'content/posts'
-    create: false
+    create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     editor:
       preview: false
