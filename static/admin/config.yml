@@ -161,8 +161,9 @@ collections:
     label: Resume
     files:
       - name: resume
+        label: Resume
         file: content/resume/index.md
         preview_path: resume
-    fields:
-      - { label: "Body", name: "body", widget: "markdown" }
+        fields:
+          - { label: "Body", name: "body", widget: "markdown" }
 
