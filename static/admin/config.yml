@@ -11,6 +11,7 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     editor:
       preview: true
+      preview_path: posts/{{slug}}
     fields:
       - { label: "Title", name: "title", widget: "string", required: true }
       - { label: "Publish Date", name: "date", widget: "datetime", required: true }
@@ -83,6 +84,7 @@ collections:
     slug: "{{slug}}"
     editor:
       preview: true
+      preview_path: projects/{{slug}}
     fields:
       - { label: "Title", name: "title", widget: "string", required: true }
       - { label: "Publish Date", name: "date", widget: "datetime", required: true }
@@ -155,4 +157,10 @@ collections:
       - { label: "Description", name: "description", widget: "string", required: false }
       - { label: "Draft", name: "draft", widget: "boolean", default: true, required: true }
       - { label: "Body", name: "body", widget: "markdown" }
+  - name: resume
+    files:
+      - name: resume
+        label: Resume
+        file: content/resume/index.md
+        preview_path: resume
 
