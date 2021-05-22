@@ -1,24 +1,24 @@
 ---
-title: Hugo with Netlify CMS
-date: 2021-05-21T18:59:16.831Z
+title: 'My '
+date: 2021-05-21T18:59:16.831+00:00
 categories:
-  - Tutorial
-  - Web
-  - Beginners
+- Tutorial
+- Web
+- Beginners
 tags:
-  - Hugo
-  - Netlify
-  - CRM
-  - Github
-  - CICD
+- Hugo
+- Netlify
+- CRM
+- Github
+- Forestry
 keywords:
-  - Hugo
-  - Netlify
-  - CRM
-  - Github
-  - CICD
-description: Setting up a full fledged CMS using Hugo static site generator
-  using Github and Netlify
-draft: true
+- Hugo
+- Netlify
+- CRM
+- Foretry
+- Github
+description: Setting up a full fledged CMS using Hugo static site generator using
+  Github and Netlify
+
 ---
-To be added!
+Static site generators are perfect fit for blogs!
