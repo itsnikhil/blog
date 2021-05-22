@@ -163,4 +163,6 @@ collections:
       - name: resume
         file: content/resume/index.md
         preview_path: resume
+    fields:
+      - { label: "Body", name: "body", widget: "markdown" }
 
