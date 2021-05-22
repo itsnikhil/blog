@@ -1,0 +1,12 @@
+{{ define "main"}}
+    <main id="main">
+      <div>
+       <h1 id="title"><a id="link" href="{{ "/" | relURL }}">Go Home</a></h1>
+       <script>
+           if (document.location.pathname.startsWith("/blog/")){
+               document.getElementById("link").href = document.location.pathname.substr(5)
+           }
+       </script>
+      </div>
+    </main>
+{{ end }}
