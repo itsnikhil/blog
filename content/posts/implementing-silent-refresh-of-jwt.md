@@ -1,9 +1,9 @@
 +++
-categories = ["Tutorial", "Technology", "Web"]
+categories = ["Tutorial", "Web", "Technology"]
 date = 2021-05-30T15:30:00Z
 description = "Understanding the aspects of access tokens and refresh tokens can be a bit tricky. This post tries to go through short lived tokens and best ways of storing token and implementation of silent refresh"
 keywords = ["refresh tokens", "Storing token", "Silent refresh implementation", "JWT", "Authorization"]
-tags = ["Authorization", "Silent refresh", "Guide", "JWT"]
+tags = ["JWT", "Authorization", "Guide"]
 title = "Implementing silent refresh of JWT  "
 
 +++
@@ -25,20 +25,20 @@ JSON Web Token (JWT) token seen from flow diagram looks similar to Session like 
 
 ![](/img/screenshot-2021-05-31-021417.png)
 
-Each separated by period (dot) and encoded in Base64. Payload is the JSON object containing this data. This token is then stored in the client either in cookie or on browser's localStorage. JWT tokens are signed with a secret key (generally HMACSecret key) following digital signature cryptography, it invalidates the token when tampered by the malicious user. 
+Each separated by period (dot) and encoded in Base64. Payload is the JSON object containing this data. This token is then stored in the client either in cookie or on browser's localStorage. JWT tokens are signed with a secret key (generally HMACSecret key) following digital signature cryptography, it invalidates the token when tampered by the malicious user.
 
 JWTs are "stateless", which unlocks some benefits like:
 
 * No re-login required for separate services, as same JWT token can be used to authorize as long as all services share same signing secret key. The data is stored in client JWT's payload and not in a particular service's database.
 * The details is stored on the client, that's really the import thing about JWT so no matter if there is load balancer or multiple micro services, the user can authenticate with any of those servers as long as they share same secret key.
 
-But with stateless nature, we do not any mechanism to logout/ stop the access of the user. Typically this token is dropped from localStorage or cookie from their browser but we are trusting the client here, another approach can be to implement a blacklist of restricted tokens which essentially defeats the purpose of stateless. Also, client storing token on localStorage can be vulnerable to XSS attacks or CSRF attack if JWT is stored in cookies. 
+But with stateless nature, we do not any mechanism to logout/ stop the access of the user. Typically this token is dropped from localStorage or cookie from their browser but we are trusting the client here, another approach can be to implement a blacklist of restricted tokens which essentially defeats the purpose of stateless. Also, client storing token on localStorage can be vulnerable to XSS attacks or CSRF attack if JWT is stored in cookies.
 
 _All this leads to the gist of this post, following a better approach of having 2 tokens - one short lived access token and another long lived refresh token._
 
-### Introduction
+### Introduction to short lived token
 
-Understanding the aspects of access tokens and refresh tokens can be a bit tricky. Whenever a user "authenticate", server sends 2 tokens - access token and refresh token to the client. The specialty of having 2 tokens is they we can have expiry on these tokens as part of JWT's payload. Expiry duration of access token is significantly shorter of \~10mins to 24 hours than that of refresh tokens \~months to years or even no expiry. When user want to access any private resource they require access token to "authorize" and everything else works just like with a single token. We can generate new access tokens from refresh tokens. 
+Understanding the aspects of access tokens and refresh tokens can be a bit tricky. Whenever a user "authenticate", server sends 2 tokens - access token and refresh token to the client. The specialty of having 2 tokens is they we can have expiry on these tokens as part of JWT's payload. Expiry duration of access token is significantly shorter of \~10mins to 24 hours than that of refresh tokens \~months to years or even no expiry. When user want to access any private resource they require access token to "authorize" and everything else works just like with a single token. We can generate new access tokens from refresh tokens.
 
 ### Where to store the token?
 
@@ -75,6 +75,6 @@ Silent refresh is a mechanism to generate new access token from refresh token au
 
 [JSON Web Tokens - jwt.io](https://jwt.io/)
 
-[https://www.youtube.com/watch?v=iD49_NIQ-R4](https://www.youtube.com/watch?v=iD49_NIQ-R4 "https://www.youtube.com/watch?v=iD49_NIQ-R4") 
+[https://www.youtube.com/watch?v=iD49_NIQ-R4](https://www.youtube.com/watch?v=iD49_NIQ-R4 "https://www.youtube.com/watch?v=iD49_NIQ-R4")
 
 [https://hasura.io/blog/best-practices-of-using-jwt-with-graphql](https://hasura.io/blog/best-practices-of-using-jwt-with-graphql "https://hasura.io/blog/best-practices-of-using-jwt-with-graphql")
