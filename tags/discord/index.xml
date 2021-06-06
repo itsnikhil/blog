@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>discord on ItsNikhil</title>
+    <link>https://www.itsnikhil.codes/tags/discord/</link>
+    <description>Recent content in discord on ItsNikhil</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>ItsNikhil</copyright>
+    <lastBuildDate>Wed, 09 Sep 2020 09:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.itsnikhil.codes/tags/discord/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Gmbot - Chatbot for gamers</title>
+      <link>https://www.itsnikhil.codes/projects/gmbot/</link>
+      <pubDate>Wed, 09 Sep 2020 09:00:00 +0000</pubDate>
+      
+      <guid>https://www.itsnikhil.codes/projects/gmbot/</guid>
+      <description>INTRODUCTION I used to play Clash of Clans (COC) which had a system of clan wars. Then on April 2016 I quitted from the COC and started playing Doodle Army 2: Mini Militia (DA2) and I played it a lot, so much so that I made friends from Kerala, Rajasthan, Delhi and even outside India. We friends created a group over WhatsApp and named our group Headshot Killers (HSK) and every player in that group had to put HSK after their in-game name (IGN).</description>
+    </item>
+    
+  </channel>
+</rss>

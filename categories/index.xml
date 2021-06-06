@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on ItsNikhil</title>
+    <link>https://www.itsnikhil.codes/categories/</link>
+    <description>Recent content in Categories on ItsNikhil</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>ItsNikhil</copyright>
+    <lastBuildDate>Sun, 30 May 2021 15:30:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.itsnikhil.codes/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Technology</title>
+      <link>https://www.itsnikhil.codes/categories/technology/</link>
+      <pubDate>Sun, 30 May 2021 15:30:00 +0000</pubDate>
+      
+      <guid>https://www.itsnikhil.codes/categories/technology/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tutorial</title>
+      <link>https://www.itsnikhil.codes/categories/tutorial/</link>
+      <pubDate>Sun, 30 May 2021 15:30:00 +0000</pubDate>
+      
+      <guid>https://www.itsnikhil.codes/categories/tutorial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Web</title>
+      <link>https://www.itsnikhil.codes/categories/web/</link>
+      <pubDate>Sun, 30 May 2021 15:30:00 +0000</pubDate>
+      
+      <guid>https://www.itsnikhil.codes/categories/web/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programming</title>
+      <link>https://www.itsnikhil.codes/categories/programming/</link>
+      <pubDate>Mon, 25 Jan 2021 09:00:00 +0000</pubDate>
+      
+      <guid>https://www.itsnikhil.codes/categories/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>App</title>
+      <link>https://www.itsnikhil.codes/categories/app/</link>
+      <pubDate>Mon, 23 Nov 2020 00:00:01 +0000</pubDate>
+      
+      <guid>https://www.itsnikhil.codes/categories/app/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Electronics</title>
+      <link>https://www.itsnikhil.codes/categories/electronics/</link>
+      <pubDate>Sun, 22 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.itsnikhil.codes/categories/electronics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Science</title>
+      <link>https://www.itsnikhil.codes/categories/science/</link>
+      <pubDate>Sun, 22 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.itsnikhil.codes/categories/science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Extension</title>
+      <link>https://www.itsnikhil.codes/categories/extension/</link>
+      <pubDate>Sun, 11 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.itsnikhil.codes/categories/extension/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Miscellaneous</title>
+      <link>https://www.itsnikhil.codes/categories/miscellaneous/</link>
+      <pubDate>Sun, 11 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.itsnikhil.codes/categories/miscellaneous/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>random</title>
+      <link>https://www.itsnikhil.codes/categories/random/</link>
+      <pubDate>Wed, 09 Sep 2020 09:00:00 +0000</pubDate>
+      
+      <guid>https://www.itsnikhil.codes/categories/random/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
