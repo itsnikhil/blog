@@ -58,11 +58,21 @@ What is the best way then? According to hasura's ultimate guide `"access token" 
 
 In-memory!! What if user refresh the webpage or re-open the browser? access token will not be available!
 
-In such cases, since refresh token would still be there in cookie we can use it to perform a `silent refresh of access token`. Implementation of silent refresh is were my approach differs from hasura's guide.
+In such cases, since refresh token would still be there in cookie we can use it to perform a `silent refresh of access token`.
+
+#### Server's database
+
+Some companies do store refresh token or a unique id of as salt of refresh token (called refresh secret) in database. I am personally against this ideology as it is against JWT's stateless nature but sometimes there can be requirement to logout user immediately. Even in such scenarios find out exact scenarios when you would want to forcefully logout user. Like when user's password is changed or when we suspend a user's account we want their access to terminate immediately. In such cases why not use `isSuspended` and `passwordHash` as part of your refresh salt instead of storing random uuid as refresh secret for each user in database.
 
 ### Silent Refresh
 
-Silent refresh is a mechanism to generate new access token from refresh token automatically in the event of browser refresh or when access token is expired but refresh token is available and valid. According to Hasura's guide this is handled at the client side. Client makes very first request to `/refresh_token` as the website loads. This approach is fine for browser refresh event but for when token is expired we have to have a `setTimeout event` and make another API call to do silent refresh. What I did different for silent refresh is to move this logic to backend. On server, I have a `middleware IsLoggedIn` whose purpose is to validate the JWT and authorize access. Now, instead of just checking for access token, it also look for refresh token when access token is missing or invalid. IsLoggedIn middleware can generate new access token from the details in token's payload and `return the new-access-token in response header`. Client can `implement an interceptor to update value of in-memory access token`.
+Silent refresh is a mechanism to generate new access token from refresh token automatically in the event of browser refresh or when access token is expired but refresh token is available and valid. According to Hasura's guide this is handled at the client side. Client makes very first request to `/refresh_token` as the website loads. This approach is handles browser refresh event but for when token is expired we have to have a `setTimeout event` and make another API call to do silent refresh. 
+
+#### The BAD way
+
+**Handling silent token refresh on sever side, the way I am sharing below is NOT a good idea**. Refreshing token automatically via middleware will render it susceptible to CSRF attacks as we are only depending on refresh tokens which is stored in HTTP only cookie. So, it seems like best approach is the one suggested by Hasura only, it might force you to make a GET request to `/refresh_token` and handle logic of refreshing token on the client side which at the moment is safest way!
+
+On server, having a `middleware IsLoggedIn` whose purpose is to validate the JWT and authorize access. Now, instead of just checking for access token, it also look for refresh token when access token is missing or invalid. IsLoggedIn middleware can generate new access token from the details in token's payload and `return the new-access-token in response header`. Client can `implement an interceptor to update value of in-memory access token`.
 
 ![](/img/inkedunknown_li.jpg)
 
@@ -71,6 +81,19 @@ Silent refresh is a mechanism to generate new access token from refresh token au
 1. Success response on a private resource without providing access token (aka simulating browser refresh)
 2. Getting new x-access-token in headers using refresh token which was provided via cookie.
 
+#### The Hasura's (GOOD) way
+
+**Scenario 1:** Page refresh
+
+Since we are only storing access token in memory when page is refreshed we lose access token. This can be handled my making very first requests to `/refresh_token` and generate a new access token. This silent refresh will have 2 steps as explained in the below diagram.  
+![](/img/torkn_refresh-page-2.png)
+
+**Scenario 2:** Access token expired
+
+Since access token is short-lived, it will expire very soon and requests will start failing. Whenever this happens client would need to make a request to refresh token again and then retry same request with the new access token. Alternatively, an event can be scheduled to run on every setInterval to refresh access token or some even adopt a strategy to returns new access tokens on every valid private resource request.
+
+![](/img/torkn_refresh-page-1.png)
+
 ### References:
 
 [JSON Web Tokens - jwt.io](https://jwt.io/)
@@ -78,3 +101,5 @@ Silent refresh is a mechanism to generate new access token from refresh token au
 [https://www.youtube.com/watch?v=iD49_NIQ-R4](https://www.youtube.com/watch?v=iD49_NIQ-R4 "https://www.youtube.com/watch?v=iD49_NIQ-R4")
 
 [https://hasura.io/blog/best-practices-of-using-jwt-with-graphql](https://hasura.io/blog/best-practices-of-using-jwt-with-graphql "https://hasura.io/blog/best-practices-of-using-jwt-with-graphql")
+
+_This had been a great learning lesson for me which I would have not learned if I used any 3rd party library._
