@@ -19,7 +19,7 @@ Problem solver and a believer in emerging technology like AR/VR, Blockchain, Clo
 
 ## EXPERIENCE
 
-**Product Engineering Backend** | `RAPIDO - Roppen Transportation`
+**Product Engineer - Backend** | `RAPIDO - Roppen Transportation`
 : _Bangalore, India_
 : _August 2021 – Present_
 
