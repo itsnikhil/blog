@@ -4,7 +4,7 @@ date = 2021-08-01T18:30:00Z
 description = ""
 draft = true
 keywords = ["tutorial", "advanced", "programming", "rate limit", "speed", "performance", "concurrency", "goroutine", "go", "golang"]
-tags = ["performance", "goroutine", "concurrency", "rate limit", "golang"]
+tags = ["performance", "goroutine", "concurrency"]
 title = "Understanding concurrency in go"
 
 +++
