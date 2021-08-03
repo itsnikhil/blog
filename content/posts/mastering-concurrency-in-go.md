@@ -66,7 +66,7 @@ In this post, I have shared 2 different ways of handling concurrency
 
 ### Uncontrolled concurrency
 
-This will queue as many goroutines to execute in concurrent mode as your system can handle. **Use this** **when your program has many autonomous pieces independent of each other (non-autonomic)**
+This will queue as many goroutines to execute in concurrent mode as your system can handle. **Use this** **when your program has many autonomous pieces independent of each other (non-atomic)**
 
 ```go
 var wg sync.WaitGroup
@@ -83,7 +83,7 @@ wg.Wait()
 
 ### Controlled concurrency
 
-The will create a bounded queue and limit goroutines  according to a set limit per seconds while execute in concurrent mode following bucketing/ short bursts pattern. **Use this** **when your program has many autonomous pieces independent of each other (non-autonomic) but you are rate limited due to some bottleneck.**
+The will create a bounded queue and limit goroutines  according to a set limit per seconds while execute in concurrent mode following bucketing/ short bursts pattern. **Use this** **when your program has many autonomous pieces independent of each other (non-atomic) but you are rate limited due to some bottleneck.**
 
 ```go
 const (
