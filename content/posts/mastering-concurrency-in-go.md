@@ -20,7 +20,7 @@ Go language itself provides some features to handle concurrency out of the box, 
 
 If you are not taking advantage of goroutines then ask yourself why not? I mean why wouldn't you are anyone person do not want their code to go faaassstttt? There are some cases where uncontrolled concurrency is harmful. For. example: Making multiple concurrent API requests might get you in trouble of getting rate limited HTTP 429 - Too Many Requests. Luck you, even in such cases we can take advantage of language features channel and use it's properties to limit concurrency.
 
-### Uncontrolled concurrency
+## Uncontrolled concurrency
 
 ```go
 var wg sync.WaitGroup
@@ -35,7 +35,7 @@ for _, item := range items {
 wg.Wait()
 ```
 
-### Controlled concurrency
+## Controlled concurrency
 
 ```go
 const (
