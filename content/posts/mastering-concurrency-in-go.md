@@ -111,6 +111,8 @@ for _, item := range items {
 |Uncontrolled concurrency|~5 sec|Many API failed with error|
 |Controlled concurrency|~10 sec|All API succeeded|
 
+No doubt uncontrolled concurrency with be the fastest to complete the job but in the end it failed to get response successfully. With controlled concurrency, I can manually tweak performance and find right balance between rate limits and execution time.
+
 ### Learning resources:
 
 * Concurrency section of A Tour of Go - One of the best official resource [_https://tour.golang.org/concurrency/1_](https://tour.golang.org/concurrency/1 "https://tour.golang.org/concurrency/1")
