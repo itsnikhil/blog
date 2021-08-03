@@ -16,16 +16,18 @@ Go language itself provides some features to handle concurrency out of the box, 
 
 Just add `go` in front of your function call to convert it into goroutine and you can take advantage of concurrency.
 
-    func main() {
-    	go say("hello") // concurrently executes func say
-    }
-    
-    // you might also see the following pattern
-    func main() {
-    	go func(greeting string){ // concurrently executes anonymous func and 
-        	say(greeting) // call our function inside it
-        }("hello")
-    }
+```go
+func main() {
+	go say("hello") // concurrently executes func say
+}
+
+// you might also see the following pattern
+func main() {
+	go func(greeting string){ // concurrently executes anonymous func and 
+    	say(greeting) // call our function inside it
+    }("hello")
+}
+```
 
 **Channels**: Channels are a typed conduit through which you can send and receive values with the channel operator, `<-`.
 
@@ -42,18 +44,19 @@ close(ch) // close channel and clean memory
 ```
 
 **WaitGroups**: A WaitGroup waits for a collection of goroutines to finish. The main goroutine calls Add to set the number of goroutines to wait for. Then each of the goroutines runs and calls Done when finished. At the same time, Wait can be used to block until all goroutines have finished.
-
-    var wg sync.WaitGroup
+```go
+var wg sync.WaitGroup
         
-    func main() {
-    	wg.Add(1) // Add to set the number of goroutines to wait for
-    	go func(asyncFuncParam string) {
-        	// each of the goroutines runs and calls Done when finished
-    		defer wg.Done() // executed after functions returns
-    		asyncFunc(asyncFuncParam)
-    	}("USING WAIT GROUP")
-        wg.Wait() // block until all goroutines have finished
-    }
+func main() {
+	wg.Add(1) // Add to set the number of goroutines to wait for
+	go func(asyncFuncParam string) {
+    	// each of the goroutines runs and calls Done when finished
+		defer wg.Done() // executed after functions returns
+		asyncFunc(asyncFuncParam)
+	}("USING WAIT GROUP")
+    wg.Wait() // block until all goroutines have finished
+}
+```
 
 ## Concurrency in go
 
