@@ -44,6 +44,7 @@ close(ch) // close channel and clean memory
 ```
 
 **WaitGroups**: A WaitGroup waits for a collection of goroutines to finish. The main goroutine calls Add to set the number of goroutines to wait for. Then each of the goroutines runs and calls Done when finished. At the same time, Wait can be used to block until all goroutines have finished.
+
 ```go
 var wg sync.WaitGroup
         
@@ -100,6 +101,15 @@ for _, item := range items {
 	}("USING CHANNELS FOR CONTROLLED CONCURRENCY")
 }
 ```
+
+## Benchmarks
+
+200+ API requests
+|Mode|Time of Execution|Outcome|
+|-|-|-|
+|Synchronous|~1 min 20 sec|All API succeeded|
+|Uncontrolled concurrency|~5 sec|Many API failed with error|
+|Controlled concurrency|~10 sec|All API succeeded|
 
 ### Learning resources:
 
