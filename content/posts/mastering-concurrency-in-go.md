@@ -66,7 +66,7 @@ In this post, I have shared 2 different ways of handling concurrency
 
 ### Uncontrolled concurrency
 
-This will queue as many goroutines to execute in concurrent mode as your system can handle. **Use this** **when your program has many autonomous pieces independent of each other (non-atomic)**
+This will queue as many goroutines to execute in concurrent mode as your system can handle. **Use this** **when your program has many autonomous pieces independent of each other**
 
 ```go
 var wg sync.WaitGroup
@@ -83,7 +83,7 @@ wg.Wait()
 
 ### Controlled concurrency
 
-The will create a bounded queue and limit goroutines  according to a set limit per seconds while execute in concurrent mode following bucketing/ short bursts pattern. **Use this** **when your program has many autonomous pieces independent of each other (non-atomic) but you are rate limited due to some bottleneck.**
+The will create a bounded queue and limit goroutines  according to a set limit per seconds while execute in concurrent mode following bucketing/ short bursts pattern. **Use this** **when your program has many autonomous pieces independent of each other but you are rate limited due to some bottleneck.**
 
 ```go
 const (
@@ -105,11 +105,11 @@ for _, item := range items {
 
 200+ API requests
 
-|Mode|Time of Execution|Outcome|
-|-|-|-|
-|Synchronous|~1 min 20 sec|All API succeeded|
-|Uncontrolled concurrency|~5 sec|Many API failed with error|
-|Controlled concurrency|~10 sec|All API succeeded|
+| Mode | Time of Execution | Outcome |
+| --- | --- | --- |
+| Synchronous | \~1 min 20 sec | All API succeeded |
+| Uncontrolled concurrency | \~5 sec | Many API failed with error |
+| Controlled concurrency | \~10 sec | All API succeeded |
 
 No doubt uncontrolled concurrency will be the fastest to complete the job but in the end it failed to get all the response successfully. With controlled concurrency, I can manually tweak performance and find right balance between rate limits and execution time.
 
