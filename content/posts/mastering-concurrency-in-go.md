@@ -12,13 +12,31 @@ title = "Understanding concurrency in go"
 
 Go language itself provides some features to handle concurrency out of the box, hiding all the complexities so that developers write better, faster, more efficient code. These features include :-
 
-* **Gouroutines**: A _goroutine_ is a lightweight thread managed by the Go runtime.
+**Gouroutines**: A _goroutine_ is a lightweight thread managed by the Go runtime.
 
-  Just add `go` in front of your function call to convert it into goroutine and you can take advantage of concurrency.
-* **Channels**: Channels are a typed conduit through which you can send and receive values with the channel operator, `<-`.
-* **WaitGroups**: A WaitGroup waits for a collection of goroutines to finish. The main goroutine calls Add to set the number of goroutines to wait for. Then each of the goroutines runs and calls Done when finished. At the same time, Wait can be used to block until all goroutines have finished.
+Just add `go` in front of your function call to convert it into goroutine and you can take advantage of concurrency.
 
-If you are not taking advantage of goroutines then ask yourself why not? I mean why wouldn't you are anyone person do not want their code to go faaassstttt? There are some cases where uncontrolled concurrency is harmful. For. example: Making multiple concurrent API requests might get you in trouble of getting rate limited HTTP 429 - Too Many Requests. Luck you, even in such cases we can take advantage of language features channel and use it's properties to limit concurrency.
+**Channels**: Channels are a typed conduit through which you can send and receive values with the channel operator, `<-`.
+
+\`\`\`go
+
+ch := make(chan int) // unbuffered channel
+
+ch := make(chan int, 30) // buffered channel
+
+ch <- 1 // sends value to channel
+
+x = <-ch // assign value from channel to x
+
+close(ch) // close channel and clean memory
+
+\`\`\`
+
+**WaitGroups**: A WaitGroup waits for a collection of goroutines to finish. The main goroutine calls Add to set the number of goroutines to wait for. Then each of the goroutines runs and calls Done when finished. At the same time, Wait can be used to block until all goroutines have finished.
+
+If you are not taking advantage of goroutines then ask yourself why not? I mean why don't you want your code to go faaassstttt? While there are a log of cases where sequential execution of code is important, here we really cannot do anything but there are some situations where we could take advantage of concurrency but uncontrolled concurrency is harmful. For example: Making multiple concurrent API requests might get you in trouble of getting rate limited HTTP 429 - Too Many Requests. Luck you, even in such cases we can take advantage of language features like channels and use it's properties to limit concurrency.
+
+In this post, I have share 2 different ways of handling concurrency
 
 ## Uncontrolled concurrency
 
