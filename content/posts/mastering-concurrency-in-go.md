@@ -2,7 +2,6 @@
 categories = ["golang", "programming"]
 date = 2021-08-02T18:30:00Z
 description = ""
-draft = true
 keywords = ["tutorial", "advanced", "programming", "rate limit", "speed", "performance", "concurrency", "goroutine", "go", "golang"]
 tags = ["performance", "goroutine", "concurrency", "rate limit", "golang"]
 title = "Mastering concurrency in go"
