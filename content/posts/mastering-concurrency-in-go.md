@@ -11,7 +11,7 @@ title = "Understanding concurrency in go"
 
 Go language itself provides some features to handle concurrency out of the box, hiding all the complexities so that developers write better, faster, more efficient code. These features include :-
 
-**Gouroutines**: A _goroutine_ is a lightweight thread managed by the Go runtime.
+**Goroutines**: A _goroutine_ is a lightweight thread managed by the Go runtime.
 
 Just add `go` in front of your function call to convert it into goroutine and you can take advantage of concurrency.
 
