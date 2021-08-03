@@ -1,6 +1,6 @@
 +++
 categories = ["golang", "programming"]
-date = 2021-08-01T18:30:00Z
+date = 2021-08-03T11:30:00Z
 description = ""
 draft = true
 keywords = ["tutorial", "advanced", "programming", "rate limit", "speed", "performance", "concurrency", "goroutine", "go", "golang"]
@@ -111,7 +111,7 @@ for _, item := range items {
 |Uncontrolled concurrency|~5 sec|Many API failed with error|
 |Controlled concurrency|~10 sec|All API succeeded|
 
-No doubt uncontrolled concurrency with be the fastest to complete the job but in the end it failed to get response successfully. With controlled concurrency, I can manually tweak performance and find right balance between rate limits and execution time.
+No doubt uncontrolled concurrency will be the fastest to complete the job but in the end it failed to get all the response successfully. With controlled concurrency, I can manually tweak performance and find right balance between rate limits and execution time.
 
 ### Learning resources:
 
