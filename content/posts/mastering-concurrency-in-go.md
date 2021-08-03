@@ -42,7 +42,7 @@ x = <-ch // assign value from channel to x
 close(ch) // close channel and clean memory
 ```
 
-**WaitGroups**: A WaitGroup waits for a collection of goroutines to finish. The main goroutine calls Add to set the number of goroutines to wait for. Then each of the goroutines runs and calls Done when finished. At the same time, Wait can be used to block until all goroutines have finished.
+**WaitGroups**: A WaitGroup waits for a collection of goroutines to finish.
 
 ```go
 var wg sync.WaitGroup
@@ -60,9 +60,9 @@ func main() {
 
 ## Concurrency in go
 
-If you are not taking advantage of goroutines then ask yourself why not? I mean why don't you want your code to go faaassstttt? While there are a log of cases where sequential execution of code is important, here we really cannot do anything but there are some situations where we could take advantage of concurrency but uncontrolled concurrency is harmful. For example: Making multiple concurrent API requests might get you in trouble of getting rate limited HTTP 429 - Too Many Requests. Luck you, even in such cases we can take advantage of language features like channels and use it's properties to limit concurrency.
+If you are not taking advantage of goroutines then ask yourself why not? I mean why don't you want your code to go faaassstttt? While there are a lot of cases where sequential execution of code is important, here we really cannot do anything but there are some situations where we could take advantage of concurrency but uncontrolled concurrency is harmful. For example: Making multiple concurrent API requests might get you in trouble of getting rate limited HTTP 429 - Too Many Requests. Luck you, even in such cases we can take advantage of language features like channels and use it's properties to limit concurrency.
 
-In this post, I have share 2 different ways of handling concurrency
+In this post, I have shared 2 different ways of handling concurrency
 
 ### Uncontrolled concurrency
 
@@ -104,6 +104,7 @@ for _, item := range items {
 ## Benchmarks
 
 200+ API requests
+
 |Mode|Time of Execution|Outcome|
 |-|-|-|
 |Synchronous|~1 min 20 sec|All API succeeded|
