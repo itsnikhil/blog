@@ -16,29 +16,54 @@ Go language itself provides some features to handle concurrency out of the box, 
 
 Just add `go` in front of your function call to convert it into goroutine and you can take advantage of concurrency.
 
+    func main() {
+    	go say("hello") // concurrently executes func say
+    }
+    
+    // you might also see the following pattern
+    func main() {
+    	go func(greeting string){ // concurrently executes anonymous func and 
+        	say(greeting) // call our function inside it
+        }("hello")
+    }
+
 **Channels**: Channels are a typed conduit through which you can send and receive values with the channel operator, `<-`.
 
-\`\`\`go
-
+```go
 ch := make(chan int) // unbuffered channel
-
 ch := make(chan int, 30) // buffered channel
+ch := make(<-chan int) // Receive only channel
+ch := make(chan<- int) // Send only channel
 
 ch <- 1 // sends value to channel
-
 x = <-ch // assign value from channel to x
 
 close(ch) // close channel and clean memory
-
-\`\`\`
+```
 
 **WaitGroups**: A WaitGroup waits for a collection of goroutines to finish. The main goroutine calls Add to set the number of goroutines to wait for. Then each of the goroutines runs and calls Done when finished. At the same time, Wait can be used to block until all goroutines have finished.
+
+    var wg sync.WaitGroup
+        
+    func main() {
+    	wg.Add(1) // Add to set the number of goroutines to wait for
+    	go func(asyncFuncParam string) {
+        	// each of the goroutines runs and calls Done when finished
+    		defer wg.Done() // executed after functions returns
+    		asyncFunc(asyncFuncParam)
+    	}("USING WAIT GROUP")
+        wg.Wait() // block until all goroutines have finished
+    }
+
+## Concurrency in go
 
 If you are not taking advantage of goroutines then ask yourself why not? I mean why don't you want your code to go faaassstttt? While there are a log of cases where sequential execution of code is important, here we really cannot do anything but there are some situations where we could take advantage of concurrency but uncontrolled concurrency is harmful. For example: Making multiple concurrent API requests might get you in trouble of getting rate limited HTTP 429 - Too Many Requests. Luck you, even in such cases we can take advantage of language features like channels and use it's properties to limit concurrency.
 
 In this post, I have share 2 different ways of handling concurrency
 
-## Uncontrolled concurrency
+### Uncontrolled concurrency
+
+This will queue as many goroutines to execute in concurrent mode as your system can handle. **Use this** **when your program has many autonomous pieces independent of each other (non-autonomic)**
 
 ```go
 var wg sync.WaitGroup
@@ -53,7 +78,9 @@ for _, item := range items {
 wg.Wait()
 ```
 
-## Controlled concurrency
+### Controlled concurrency
+
+The will create a bounded queue and limit goroutines  according to a set limit per seconds while execute in concurrent mode following bucketing/ short bursts pattern. **Use this** **when your program has many autonomous pieces independent of each other (non-autonomic) but you are rate limited due to some bottleneck.**
 
 ```go
 const (
