@@ -5,7 +5,7 @@ date: 2021-05-10T23:21:42+05:30
 ---
 # NIKHIL TANEJA
 
-## Backend Engineer at Rapido - India's largest bike taxi hailing service
+## Backend Engineer at Rapido
 
 Problem solver and a believer in emerging technology like AR/VR, Blockchain, Cloud, Data science.
 
