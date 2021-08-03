@@ -2,7 +2,6 @@
 categories = ["golang", "programming"]
 date = 2021-08-03T11:30:00Z
 description = ""
-draft = true
 keywords = ["tutorial", "advanced", "programming", "rate limit", "speed", "performance", "concurrency", "goroutine", "go", "golang"]
 tags = ["performance", "goroutine", "concurrency"]
 title = "Understanding concurrency in go"
@@ -113,7 +112,7 @@ for _, item := range items {
 
 No doubt uncontrolled concurrency will be the fastest to complete the job but in the end it failed to get all the response successfully. With controlled concurrency, I can manually tweak performance and find right balance between rate limits and execution time.
 
-### Learning resources:
+### Learning resources
 
 * Concurrency section of A Tour of Go - One of the best official resource [_https://tour.golang.org/concurrency/1_](https://tour.golang.org/concurrency/1 "https://tour.golang.org/concurrency/1")
 * If you want know internal workings of goroutines, i would highly recommend you read the following article [_https://medium.com/the-polyglot-programmer/what-are-goroutines-and-how-do-they-actually-work-f2a734f6f991_](https://medium.com/the-polyglot-programmer/what-are-goroutines-and-how-do-they-actually-work-f2a734f6f991 "https://medium.com/the-polyglot-programmer/what-are-goroutines-and-how-do-they-actually-work-f2a734f6f991")
