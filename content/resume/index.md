@@ -27,10 +27,10 @@ Problem solver and a believer in emerging technology like AR/VR, Blockchain, Clo
 : _Bangalore, India_
 : _March 2021 – July 2021_
 
-* Tech Stack - Golang, NodeJS, MongoDB, Kafka, Redis, Dgraph, Airflow, Metabase*
-* Built marketing gateway service from scratch saving time and efforts of marketing team in creating and maintaining targeting audience for their campaigns.
-* Improved existing system architecture to be fault tolerant utilizing kafka and redis which proved crucial in handing fail-over gracefully without any data-loss.
-* Introduced Dgraph graph database in the organization and presented one of it's usecase in service mesh visualization which resulted in better visibility of dependancy among all microservices.
+* **Tech Stack** - `Golang, NodeJS, MongoDB, Kafka, Redis, Dgraph, Airflow, Metabase`
+* Built **marketing gateway service** from scratch saving time and efforts of marketing team in creating and maintaining targeting audience for their campaigns.
+* Improved existing system **architecture to be fault tolerant** utilizing kafka and redis which proved crucial in handing fail-over gracefully without any data-loss.
+* Introduced Dgraph **graph database** in the organization and presented one of it's usecase in service mesh visualization which resulted in better visibility of dependancy among all microservices.
 * Worked on extending performance testing tool adding configurable validation strategies and integration with CI pipelines which has become essential part of QA testing.
 
 ***
