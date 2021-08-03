@@ -1,26 +1,37 @@
 ---
 title: Resume
-date: 2021-05-10 17:51:42
+date: 2021-05-10T17:51:42.000+00:00
+
 ---
 # NIKHIL TANEJA
 
-## 4th Year, Computer Science Undergraduate
+## Backend Engineer at Rapido - India's largest bike taxi hailing service
 
-Engineer at Rapido - India's largest bike taxi hailing service. Problem solver and a believer in emerging technology like AR/VR, Blockchain, Cloud, Data science.
+Problem solver and a believer in emerging technology like AR/VR, Blockchain, Cloud, Data science.
 
 ## EDUCATION
 
 | Degree/Exam                  | Year      | Institute                         | Score     |
 | ---------------------------- | --------- | --------------------------------- | --------- |
-| Bachelor of Technology (CSE) | 2017-2021 | The NorthCap University, Gurugram | CGPA 9.27 |
+| Bachelor of Technology (CSE) | 2017-2021 | The NorthCap University, Gurugram | CGPA 9.24 |
 | CBSE (Class XII)             | 2017      | Sherwood Convent School, Gurugram | 79%       |
 | CBSE (Class X)               | 2015      | Sherwood Convent School, Gurugram | CGPA 9.4  |
 
 ## INTERNSHIPS
 
+**Product Engineering Backend** | `RAPIDO - Roppen Transportation`
+: *Bangalore, India*
+: *August 2021 – Present*
+
 **Product Engineering Intern** | `RAPIDO - Roppen Transportation`
 : *Bangalore, India*
-: *March 2021 – Present*
+: *March 2021 – July 2021*
+
+* Tech Stack - Golang, NodeJS, MongoDB, Kafka, Redis, Dgraph, Airflow, Metabase*
+* Built marketing gateway service from scratch saving time and efforts of marketing team in creating and maintaining targeting audience for their campaigns.
+* Improved existing system architecture to be fault tolerant utilizing kafka and redis which proved crucial in handing fail-over gracefully without any data-loss.
+* Introduced Dgraph graph database in the organization and presented one of it's usecase in service mesh visualization which resulted in better visibility of dependancy among all microservices. 
+* Worked on extending performance testing tool adding configurable validation strategies and integration with CI pipelines which has become essential part of QA testing.
 
 - - -
 
