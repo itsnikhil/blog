@@ -63,8 +63,8 @@ const formatToString = (day, month, year, format, sep) => {
 
 module.exports = {
     formatDate(date, format, separator, options={skipInvalid: false, overrideInvalidWith: new Date()}) {
-        options.hasOwnProperty('skipInvalid') ? options.skipInvalid : false;
-        options.hasOwnProperty('overrideInvalidWith') ? options.overrideInvalidWith : new Date();
+        options.skipInvalid = options.hasOwnProperty('skipInvalid') ? options.skipInvalid : false;
+        options.overrideInvalidWith = options.hasOwnProperty('overrideInvalidWith') ? options.overrideInvalidWith : new Date();
         
 		const dateObj = new Date(date);
         if (isNaN(dateObj)){
