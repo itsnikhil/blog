@@ -85,12 +85,14 @@ module.exports = {
 ```
 This module export `formatDate` public function which take date, format, separator and a couple of optional parameters. And the function call will be like
 
-    formatDate("2021-08-07T12:06:07.484Z", "ymd", "-") // without options
-    formatDate("2021-08-07T12:06:07.484Z", "ymd", "-", {skipInvalid: true}) // converts invalid date to null
-    formatDate("2021-08-07T12:06:07.484Z", "ymd", "-", {overrideInvalidWith: "2021-08-07T12:06:07.484Z"})
-    
-    // special edge case which need to be handled by library properly using hasOwnProperty
-    formatDate("2021-08-07T12:06:07.484Z", "ymd", "-", {})
+```js
+formatDate("2021-08-07T12:06:07.484Z", "ymd", "-") // without options
+formatDate("2021-08-07T12:06:07.484Z", "ymd", "-", {skipInvalid: true}) // converts invalid date to null
+formatDate("2021-08-07T12:06:07.484Z", "ymd", "-", {overrideInvalidWith: "2021-08-07T12:06:07.484Z"})
+
+// special edge case which need to be handled by library properly using hasOwnProperty
+formatDate("2021-08-07T12:06:07.484Z", "ymd", "-", {})
+```
 
 Checking if options have been initialized properly with `hasOwnProperty` might slow down your code by a little bit but really what are you trying to save "micro-seconds" or "hours of programmer's time"? I hope your answer is hours of programmer time. This simple transformation improves code readability a lot. 
 
