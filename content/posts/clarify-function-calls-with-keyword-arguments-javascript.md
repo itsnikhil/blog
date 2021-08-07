@@ -45,4 +45,38 @@ If you have worked with mongoose library, they share the similar API
 
 Let's say you are writing a module which formats date into a specified format (just for the sake of an example)
 
-This might slow down your code by a little bit but really what are you trying to save micro-seconds or hours of programmer time? I hope your answer is hours of programmer time. This is a simple transformation which improves code readability a lot.
+    const formatToString = (day, month, year, format, sep) => {
+            const dd = day.toString().padStart(2,0);
+            const mm = month.toString().padStart(2,0);
+            const yyyy = year.toString();
+    
+            switch (format) {
+                case 'dmy' : return `${dd}${sep}${mm}${sep}${yyyy}`;
+                case 'mdy' : return `${mm}${sep}${dd}${sep}${yyyy}`;
+                case 'ymd' : return `${yyyy}${sep}${mm}${sep}${dd}`;
+                default : return `${yyyy}${sep}${mm}${sep}${dd}`;
+            }
+    }
+    
+    module.exports = {
+        formatDate(date, format, separator, options={skipInvalid, overrideInvalidWith}) {
+            options.hasOwnProperty('skipInvalid') ? options.skipInvalid : False;
+            options.hasOwnProperty('overrideInvalidWith') ? options.overrideInvalidWith : new Date();
+            const dateObj = new Date(date);
+            if (isNaN(dateObj)){
+                if (options.skipInvalid)
+                	return null;
+                let overrideInvalidValue = new Date(options.overrideInvalidWith);
+                if (isNaN(overrideInvalidValue))
+                	overrideInvalidValue = new Date();
+                dateObj = overrideInvalidValue;
+            }
+            const day = dateObj.getDate();
+            const month = dateObj.getMonth() + 1;
+            const year = dateObj.getFullYear();
+    
+            return formatToString(day, month, year, format, separator);
+        }
+    }
+
+Checking if options have been initialised properly with hasOwnProperty might slow down your code by a little bit but really what are you trying to save micro-seconds or hours of programmer time? I hope your answer is hours of programmer time. This is a simple transformation improves code readability a lot.
