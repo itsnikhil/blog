@@ -1,10 +1,9 @@
 +++
-categories = []
-date = ""
-description = ""
-draft = true
-keywords = []
-tags = []
+categories = ["microservices", "guide", "architecture"]
+date = 2021-08-26T18:30:00Z
+description = "Architecting discord bot the right way: In this post I want to talk about something which I did not give much thought at the time when I started working on gmbot in 2019."
+keywords = ["design", "system", "scaling", "guide", "ultimate", "bots", "discord", "architecture", "microservices"]
+tags = ["system design", "bots", "discord"]
 title = "Architecting discord bot the right way"
 
 +++
@@ -16,11 +15,11 @@ If you might not know, I have made a discord bot [Gmbot - Multiplayer Game bot f
 gmbot createwar -players @Player1 @Player2 -game 4 -duration 12 -type ft3
 ```
 
-I have already written a detailed post showcasing it's various features, database schema, etc. read more at [Gmbot - Chatbot for gamers (itsnikhil.codes)](https://www.itsnikhil.codes/projects/gmbot/). I made that bot in python as `discord.py` API wrapper library was written in python and I was comfortable working in that language. Like everyone, I followed whatever tutorials, documentation, etc. available online. But today in this post I want to talk about something which I did not give much thought about at the time when I started working on gmbot in 2019.
+I have already written a detailed post showcasing it's various features, database schema, etc. which you can read at [Gmbot - Chatbot for gamers (itsnikhil.codes)](https://www.itsnikhil.codes/projects/gmbot/). I made that bot in python as `discord.py` API wrapper library was written in python and I was comfortable working in that language. Like everyone, I followed whatever tutorials, documentation, etc. were available online. But today in this post I want to talk about something which I did not give much thought at the time when I started working on gmbot in 2019.
 
 ### Everything was very monolithic
 
-What I meant with this is that all the functionality existed in a single codebase, everything I wanted to do had to be done in python. Even thought the project was well structured into classes, easy to read/understand code and a common pattern was followed for creating each command but it was not testable, not scalable and not flexible. All the business logic was mixed within the command handler.
+What I meant with monolithic is that all the functionality existed in a single codebase, everything I wanted to do had to be done in python. Even though the project was well structured into classes, easy to read/understand code and a common pattern was followed for creating each command but it was not testable, not scalable and not flexible. All the business logic was mixed within the command handler.
 
 ```py
 import discord
@@ -53,7 +52,7 @@ def setup(client):
 
 ## Can we do better? Micro-services
 
-By micro-services I do not mean having different bots handing different features of the bot. **I want you to think and treat discord bot server as simply a frontend-client like a mobile app and instead of mixing business logic into it, have a separate Backend server communicating via RESTful APIs.**
+By micro-services I do not mean having different bots handling different features of the bot. **I want you to think and treat discord bot server as simply a frontend-client like a mobile app and instead of mixing business logic into it, have a separate backend server communicating via RESTful APIs.**
 
 ![Architecting discord bot the right way](/img/discord-bot-arch.jpg)
 
@@ -91,7 +90,7 @@ curl --location --request POST 'localhost:8080/createwar' \
 }'
 ```
 
-This API would return JSON response and status code based on which `frontend-client` can craft a discord formatted message or slack formatted response
+This API would return JSON response and status code based on which `frontend-client` can craft a discord formatted response or slack formatted response
 
 ```py
 embed = discord.Embed(
@@ -135,24 +134,24 @@ We have been developing backend services for many years now and have developed c
 
 ### Easy and quick growth/expandability
 
-If you create a chatbot for discord, you have to accept the fact that you are limiting your audience group to that matching discord's. Sketch design tool restricted itself to only support MacOS and Figma easily captured the market however good Sketch was in it's comparison. Let's say you developed an attendance bot and you want to support both slack and teams, backend can still be shared while clients can vary since core business logic is same across bots/ webapp. This is something I regret not doing for gmbot, when gmbot failed, I could not pivot to my idea into a mobile app easily. Having this opportunity is very important for a lean startup which can require pivoting business into different direction any day.
+If you create a chatbot for discord, you have to accept the fact that you are limiting your audience group to that matching discord's. Sketch design tool restricted itself to only support MacOS while Figma was web based open-to-all because of which Figma easily captured the market however good Sketch was in it's comparison. Let's say you developed an attendance bot and you want to support both slack and teams, backend can still be shared while clients can vary since core business logic is same across bots/ webapp. This is something I regret not doing for gmbot, when gmbot failed, I could not pivot my idea into a mobile app easily. Having this opportunity is very important for a lean startup which can require pivoting business into different direction any day.
 
 ### Backend servers can be horizontally scaled
 
-Let's say your chatbot got famous, everyone is talking about it, your product is in the headlines everywhere <3. There will be flood of new users trying to use your service. According to some random folks on internet, 1 server can handle \~2500 active discord groups load. This can obviously vary based on your server resources and what they action your bot perform. Fortunately, `discord.js` bot support `sharding` [Getting started | Discord.js Guide (discordjs.guide)](https://discordjs.guide/sharding/#when-to-shard) but I would argue, it is much better to scale backend separately horizontally but running multiple instances of server behind application load balancers, using in-memory caches, etc. these are webservers in the end, you don't have to depend on discord to provide a way to scale.
+Let's say your chatbot got famous, everyone is talking about it, your product is in the headlines everywhere <3. There will be a flood of new users trying to use your service. According to some random folks on internet, 1 server can handle \~2500 active discord groups load. This can obviously vary based on your server resources and what actions your bot perform. Fortunately, `discord.js` bot support `sharding` [Getting started | Discord.js Guide (discordjs.guide)](https://discordjs.guide/sharding/#when-to-shard) but I would argue, it is much better to scale backend horizontally by running multiple instances of server behind application load balancers, using in-memory caches, etc. these are webservers in the end, you don't have to depend on discord to provide a way to scale.
 
 ### Flexibility to experiment and optimize
 
-Adding removing features becomes much easier, you setup multiple environments like production and development so you can safely work on experimental features without affecting actual customers or their data. You can also work on optimizations behind the scenes without touching the `frontend-client`
+Adding/Removing features becomes much easier, you can setup multiple environments like production and development allowing you to safely work on experimental features without affecting actual customers or their data. You can also work on optimizations behind the scenes without touching the `frontend-client`
 
 ### Freedom to try out new technology
 
-Freedom to use different technologies without getting locked to any single programming language. Business logic can we written in golang with it's high performance benefits from compiled binary and goroutines while still using discord's JavaScript library in frontend-client to communicate with discord. If something better comes along, you have the ability to try it out. You can have different parts of the service handled by different microservice.
+Freedom to use different technologies without getting locked to any single programming language. Business logic can be written in golang with it's high performance benefits from compiled binary and goroutines while still using discord's JavaScript library in frontend-client to communicate with discord. If something better comes along, you have the ability to try it out. You can have different parts of the service handled by different microservices.
 
 ### Separate deployments
 
-Each microservice has separate codebase which can be updated independent of other services. Microservices plays really well with continuous integration and continuous delivery by providing ability to have different deployment processes.
+Each microservice has separate codebase which can be updated independently of other services. Microservices plays really well with continuous integration and continuous delivery by providing ability to have different deployment pipelines.
 
 ### Leaner teams and increased productivity
 
-Micro-services codebases are smaller in size and thus much faster to build, test and release. One do not depend on other to make a release after which you can release yours. We can have people work on domains/areas where they have expertise. Not being forced to collaborate with everyone let's developers focus on their tasks and increase productivity.
+Micro-service codebases are smaller in size and thus much faster to build, test and release. One do not depend on other to make a release after which you can release yours. We can have people work on domains/areas where they have expertise. Not being forced to collaborate with everyone let's developers focus on their tasks and increase productivity.
