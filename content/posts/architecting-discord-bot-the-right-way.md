@@ -53,7 +53,7 @@ def setup(client):
 
 ## Can we do better? Micro-services
 
-By micro-services I do not mean having different bots handing different features of the bot. **I want you to think and treat discord bot server as a Backend for Frontend(BFF) or simply a frontend-client and instead of mixing business logic into it, have a separate Backend server communicating via RESTful APIs.**
+By micro-services I do not mean having different bots handing different features of the bot. **I want you to think and treat discord bot server as simply a frontend-client like a mobile app and instead of mixing business logic into it, have a separate Backend server communicating via RESTful APIs.**
 
 ![Architecting discord bot the right way](/img/discord-bot-arch.jpg)
 
@@ -119,22 +119,40 @@ await info_channel.send(embed=embed)
 
 ## Advantages
 
+* [Much easier to test the features](#much-easier-to-test-the-features)
+* [Easy and quick growth/expandability](#easy-and-quick-growth/expandability)
+* [Backend servers can be horizontally scaled](#backend-servers-can-be-horizontally-scaled)
+* [Flexibility to experiment and optimize](#flexibility-to-experiment-and-optimize)
+* [Freedom to try out new technology](#freedom-to-try-out-new-technology)
+* [Separate deployments](#\[separate-deployments)
+* [Leaner teams and increased productivity](#leaner-teams-and-increased-productivity)
+
+![discord-bot-arch-scale](/img/discord-bot-arch-scale-1.jpg)
+
 ### Much easier to test the features
 
 We have been developing backend services for many years now and have developed complex observability tools which can even tell which API request took how much time for a particular database query in real-time. Of course we have proper tooling to test and automate backend servers with proper CI/CD process. Without separate backend there is no good way to test discord/slack bots besides testing manually. If you would search for testing in discord.py official docs [Search (discordpy.readthedocs.io)](https://discordpy.readthedocs.io/en/stable/search.html?q=testing) you will be out of luck.
 
 ### Easy and quick growth/expandability
 
-If you create a chatbot for discord, you have to accept the fact that you are limiting your audience group to that matching discord's. Sketch design tool restricted itself to only support MacOS and Figma easily captured the market however good Sketch was in it's comparison. Let's say you developed an attendance bot and you want to support both slack and teams, backend can still be shared while clients can vary since core business logic is same across bots/ webapp. This is something I regret not doing for gmbot, when gmbot failed, I could not pivot to my idea into a mobile app easily. Having this opportunity is very important for a lean startup which can require pivoting business into different direction any day.     
+If you create a chatbot for discord, you have to accept the fact that you are limiting your audience group to that matching discord's. Sketch design tool restricted itself to only support MacOS and Figma easily captured the market however good Sketch was in it's comparison. Let's say you developed an attendance bot and you want to support both slack and teams, backend can still be shared while clients can vary since core business logic is same across bots/ webapp. This is something I regret not doing for gmbot, when gmbot failed, I could not pivot to my idea into a mobile app easily. Having this opportunity is very important for a lean startup which can require pivoting business into different direction any day.
 
 ### Backend servers can be horizontally scaled
 
-Let's say your chatbot got famous, everyone is talking about it, your product is in the headlines everywhere <3. There will be flood of new users trying to use your service. According to some random folks on internet, 1 server can handle \~2500 active discord groups load. This can obviously vary based on your server resources and what they action your bot perform. Fortunately, `discord.js` bot support `sharding` [Getting started | Discord.js Guide (discordjs.guide)](https://discordjs.guide/sharding/#when-to-shard) but I would argue, it is much better to scale backend separately horizontally but running multiple instances of server behind application load balancers, using in-memory caches, etc. these are webservers in the end, you don't have to depend on discord to provide a way to scale.    
+Let's say your chatbot got famous, everyone is talking about it, your product is in the headlines everywhere <3. There will be flood of new users trying to use your service. According to some random folks on internet, 1 server can handle \~2500 active discord groups load. This can obviously vary based on your server resources and what they action your bot perform. Fortunately, `discord.js` bot support `sharding` [Getting started | Discord.js Guide (discordjs.guide)](https://discordjs.guide/sharding/#when-to-shard) but I would argue, it is much better to scale backend separately horizontally but running multiple instances of server behind application load balancers, using in-memory caches, etc. these are webservers in the end, you don't have to depend on discord to provide a way to scale.
 
 ### Flexibility to experiment and optimize
 
+Adding removing features becomes much easier, you setup multiple environments like production and development so you can safely work on experimental features without affecting actual customers or their data. You can also work on optimizations behind the scenes without touching the `frontend-client`
+
 ### Freedom to try out new technology
+
+Freedom to use different technologies without getting locked to any single programming language. Business logic can we written in golang with it's high performance benefits from compiled binary and goroutines while still using discord's JavaScript library in frontend-client to communicate with discord. If something better comes along, you have the ability to try it out. You can have different parts of the service handled by different microservice.
 
 ### Separate deployments
 
+Each microservice has separate codebase which can be updated independent of other services. Microservices plays really well with continuous integration and continuous delivery by providing ability to have different deployment processes.
+
 ### Leaner teams and increased productivity
+
+Micro-services codebases are smaller in size and thus much faster to build, test and release. One do not depend on other to make a release after which you can release yours. We can have people work on domains/areas where they have expertise. Not being forced to collaborate with everyone let's developers focus on their tasks and increase productivity.
