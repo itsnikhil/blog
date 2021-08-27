@@ -21,6 +21,7 @@ fields:
   name: description
   label: description
 pages:
+- content/posts/architecting-discord-bot-the-right-way.md
 - content/posts/clarify-function-calls-with-keyword-arguments-javascript.md
 - content/posts/implementing-silent-refresh-of-jwt.md
 - content/posts/mastering-concurrency-in-go.md
