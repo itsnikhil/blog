@@ -12,7 +12,7 @@ title = "Done is better than perfect"
 
 "Done is better than perfect" is a lesson that I learned from working in a fast-paced competitive startup environment.. and agile software development in general.
 
-Every new codebase I used to touch, I could find some place where something can be improved by using a different data structure, or an algorithm, or some design pattern avoiding nested if-else, or simply abstracting big functions into smaller ones. But as when I started working on big features I came to realize this famous saying. In this article, I would like to share some of my thoughts on this ideology and hopefully give you some motivation to complete your next amazing startup or project you are working on and not get yourself stuck in catch-22.
+Every new codebase I used to touch, I could find some place where something can be improved by using a different data structure, or an algorithm, or some design pattern avoiding nested if-else, or simply abstracting big functions into smaller ones. But as when I started working on big features I came to realize this famous saying. In this article, I would like to share some of my thoughts on this ideology and hopefully give you some motivation to release your next amazing startup or project you are working on and not get yourself stuck in catch-22.
 
 ## Perfection
 
@@ -38,7 +38,7 @@ Even if your teacher was generous and because of your amazing report gave you fu
 
 Some might argue in the above example a short-crisp, to the point answer would have been perfect. In reality it takes a lot of good efforts, right knowledge and experience, to setup a great foundation and even then you have to adapt to changes and keep on enhancing the product.
 
-Maybe this example is not perfect, so are the projects we work on. There are memes around project requirement not being clear enough. Not everyone is building a medical device where margin of error is a difference of life and death and so you have to consider using special tools like [ROS](https://www.ros.org/ "ROS") to control system clock and scheduler. Not every requirement is like [The Thames Barrier must never fail. Here's why it doesn't. - YouTube](https://www.youtube.com/watch?v=eY-XHAoVEeU)
+Maybe this example is not perfect, so are the projects we work on. There are memes around project requirement not being clear enough. Not everyone is building a medical device where margin of error is a difference of life and death where you have to consider using special tools like [ROS](https://www.ros.org/ "ROS") to control system clock and scheduler. Not every requirement is like [The Thames Barrier must never fail. Here's why it doesn't. - YouTube](https://www.youtube.com/watch?v=eY-XHAoVEeU)
 
 ## Finding the balance
 
@@ -56,7 +56,7 @@ Will customer's care about the technology used? - No/maybe! Will customers have 
 
 ### What are your expertise
 
-Technology evolves rapidly and it's very hard to keep up-to date with everything. One cannot have knowledge of everything. You should know your boundaries and capabilities. This not only restricted to knowledge of a particular programming-language/framework. 
+Technology evolves rapidly and it's very hard to keep up-to date with everything. One cannot have knowledge of everything. You should know your boundaries and capabilities. This not only restricted to knowledge of a particular programming-language/framework.
 
 If you are asked to make changes in a totally new codebase, You are no longer an expert and it's your responsibility to get enough context/knowledge to do full justice to the requirements and communicate this thing clearly to your manager.
 
