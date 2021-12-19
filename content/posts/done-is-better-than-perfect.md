@@ -2,7 +2,6 @@
 categories = ["software engineering", "motivation"]
 date = 2021-12-18T18:30:00Z
 description = "Every new codebase I used to touch, I could find some place where something can be improved by using a different data structure, or an algorithm, or some design pattern avoiding nested if-else, or simply abstracting big functions into smaller ones. But as when I started working on big features I came to realize this famous saying of Done is better than perfect"
-draft = true
 keywords = ["experience", "startup", "engineering", "development", "software", "agile", "motivation", "programming"]
 tags = ["startup experience", "agile"]
 title = "Done is better than perfect"
