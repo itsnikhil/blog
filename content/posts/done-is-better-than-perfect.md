@@ -1,7 +1,7 @@
 +++
 categories = ["software engineering", "motivation"]
 date = 2021-12-18T18:30:00Z
-description = "Every new codebase I used to touch, I could find some place where something can be improved by using a different data structure, or an algorithm, or some design pattern avoiding nested if-else, or simply abstracting big functions into smaller ones. But as when I started working on big features I came to realize this famous saying. In this article, I would like to share some of my thoughts on this ideology and hopefully give you some motivation to complete your next amazing startup or project you are working on and not get yourself stuck in catch-22."
+description = "Every new codebase I used to touch, I could find some place where something can be improved by using a different data structure, or an algorithm, or some design pattern avoiding nested if-else, or simply abstracting big functions into smaller ones. But as when I started working on big features I came to realize this famous saying of Done is better than perfect"
 draft = true
 keywords = ["experience", "startup", "engineering", "development", "software", "agile", "motivation", "programming"]
 tags = ["startup experience", "agile"]
@@ -12,7 +12,9 @@ title = "Done is better than perfect"
 
 "Done is better than perfect" is a lesson that I learned from working in a fast-paced competitive startup environment.. and agile software development in general.
 
-Every new codebase I used to touch, I could find some place where something can be improved by using a different data structure, or an algorithm, or some design pattern avoiding nested if-else, or simply abstracting big functions into smaller ones. But as when I started working on big features I came to realize this famous saying. In this article, I would like to share some of my thoughts on this ideology and hopefully give you some motivation to release your next amazing startup or project you are working on and not get yourself stuck in catch-22.
+Every new codebase I used to touch, I could find some place where something can be improved by using a different data structure, or an algorithm, or some design pattern avoiding nested if-else, or simply abstracting big functions into smaller ones. But as when I started working on big features I came to realize this famous saying.
+
+In this article, I would like to share some of my thoughts on this ideology and hopefully give you some motivation to release your next amazing startup or project you are working on and not get yourself stuck in catch-22.
 
 ## Perfection
 
@@ -44,21 +46,21 @@ Maybe this example is not perfect, so are the projects we work on. There are mem
 
 ### Understand the requirements
 
-Let's say you are working on a feature that will be very important for winter vacation season sale - Chrisman and New Year. Then this is a strict requirement which you have to follow. Christmas is always on 25th of dec. and if your feature is not ready by then business can get affected. That being said not all requirements are strict and it is important to understand them well to avoid doing unnecessary work.
+Let's say you are working on a feature that will be very important for winter vacation season sale - Chrisman and New Year. Then this is a strict requirement which you have to follow. Christmas is always on 25th of dec. and if your feature is not ready by then business can get affected. That being said not all requirements are strict and it is important to understand them well to avoid doing unnecessary work. Writing good readable code, following coding standards (linters) and writing testcases should be part of requirements of a good tech team and should be caught in code reviews.
 
 Once I was almost about to write a wrapper library on top of RestAPIs of one of our web service. Was it part of the project requirements? - No! Were estimates taken in account for writing the library? - No!
 
 ### Know your customer
 
-Your customer is the consumer of the features you build. You should be aware of the impact it can have on them not just positively but repercussion if anything goes wrong. This provides sense of responsibility you have and trust me the it makes you happy seeing your customers are happy.
+Your customer is the consumer of the features you build. You should be aware of the impact it can have on them not just positively but repercussion if anything goes wrong. This provides sense of responsibility you have, skipping on testcases and not doing non-functional requirements testing reduces your confidence so it is advised to given them attention. Trust me, it makes you happy seeing your customers are happy.
 
 Will customer's care about the technology used? - No/maybe! Will customers have a bad experience if they are not able to login? - Definitely!
 
 ### What are your expertise
 
-Technology evolves rapidly and it's very hard to keep up-to date with everything. One cannot have knowledge of everything. You should know your boundaries and capabilities. This not only restricted to knowledge of a particular programming-language/framework.
+One cannot have knowledge of everything. You should know your boundaries and capabilities. Technology evolves rapidly and it's very hard to keep up-to date with everything. This not only restricted to knowledge of a particular programming-language/framework.
 
-If you are asked to make changes in a totally new codebase, You are no longer an expert and it's your responsibility to get enough context/knowledge to do full justice to the requirements and communicate this thing clearly to your manager.
+If you are asked to make changes in a totally new codebase, You are no longer an expert and it's your responsibility to get enough context/knowledge from the right person to do full justice to the requirements and communicate this thing clearly to your manager.
 
 ### Engineering process is a loop
 
