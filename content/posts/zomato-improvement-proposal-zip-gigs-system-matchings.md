@@ -119,6 +119,10 @@ The algorithm starts by respecting first preference for each and every delivery 
 - Ensures quality of delivery partners remains while still maintaining better matchings
 - All delivery partners will atleast get a chance to share their preferences
 
+### Concerns
+- Delivery partners should atleast need to know how to improve upon ranking criteria used by zomato
+- Since gig confirmation happens later, proper communication should happen with delivery partners about what gigs they finally got assigned
+
 ## Sources:
 - https://www.youtube.com/watch?v=y4dEg3LUqAs
 - https://www.youtube.com/watch?v=C9m1YwkuY7g
