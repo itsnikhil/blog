@@ -113,10 +113,6 @@ The algorithm starts by respecting first preference for each and every delivery 
 |G3|Delivery partner A|
 |G4|Delivery partner B|
 
-![stable marriage problem](https://upload.wikimedia.org/wikipedia/commons/5/52/Gale-Shapley.gif)
-
-`Image CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=10189057`
-
 ### Benefits of this new match making algorithm
 - The algorithm is delivery partner proposing
 - There is no difference in matchings results if delivery partner ranks gig now or couple of hours later
