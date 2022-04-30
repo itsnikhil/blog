@@ -26,3 +26,4 @@ pages:
 - content/posts/done-is-better-than-perfect.md
 - content/posts/implementing-silent-refresh-of-jwt.md
 - content/posts/mastering-concurrency-in-go.md
+- content/posts/zomato-improvement-proposal-zip-gigs-system-matchings.md
