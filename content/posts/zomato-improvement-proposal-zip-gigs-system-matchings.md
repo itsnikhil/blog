@@ -84,12 +84,19 @@ My proposal to Zomato is to implement some version of many to many stable matchi
 
 Instead of booking gigs immidiately, delivery partners can share their preferences which is ranked ordered list of how likely are they to work for a certain gig for that day. There will be a deadline before which each delivery partner needs to submit ranked gigs. For example:
 
+|Gig|Timings|Earnings per hour|Partners needed|
+|-|-|-|-|
+|G1|10:00AM - 12:00PM|100-120|1|
+|G2|02:00PM - 03:00PM|175-200|1|
+|G3|06:00PM - 07:00PM|150-175|1|
+|G4|09:00PM - 11:00PM|200-250|1|
+
 |Rank|Delivery partner A|Delivery partner B|
 |-|-|-|
-|#1|10:00AM - 12:00PM|09:00PM - 11:00PM|
-|#2|06:00PM - 07:00PM|02:00PM - 03:00PM|
-|#3|09:00PM - 11:00PM|06:00PM - 07:00PM|
-|#4|02:00PM - 03:00PM||
+|#1|G1|G4|
+|#2|G3|G2|
+|#3|G4|G3|
+|#4|G2||
 
 Meanwhile Zomato can rate it's delivery partners based on any criteria. For example:
 |Rank|Delivery partner|
@@ -98,6 +105,13 @@ Meanwhile Zomato can rate it's delivery partners based on any criteria. For exam
 |#2|Delivery partner B|
 
 The algorithm starts by respecting first preference for each and every delivery partner and finding optimal match with Zomato's preference for each delivery partner and performs multiple rounds of iteration for lower preferences. One such algorithm is famously known as [stable marriage problem](https://en.wikipedia.org/wiki/Stable_marriage_problem). It works well enough when there must be only 1 match but in zomato's case, one delivery partner can be assigned to multiple gigs. In order to avoid always selecting same delivery partner again and again for multiple gigs because of higher rating given by zomato, the algorithm needs to reduce the rank of a person after getting a confirmed gig.
+
+|Gig|Final Partner Selected|
+|-|-|
+|G1|Delivery partner A|
+|G2|Delivery partner B|
+|G3|Delivery partner A|
+|G4|Delivery partner B|
 
 ![stable marriage problem](https://upload.wikimedia.org/wikipedia/commons/5/52/Gale-Shapley.gif)
 
