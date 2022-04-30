@@ -11,7 +11,7 @@ title = "Zomato Improvement Proposal (ZIP-001): Gigs system matchings"
 ```
 ZIP: 1
 Title: ZIP Many to many stable matching algorithm using the deferred-acceptance.
-Author: Nikhil Taneja itsnikhil@duck.com
+Author: Nikhil Taneja <itsnikhil@duck.com>
 Status: Proposal
 Type: Process
 Created: 2022-01-05
