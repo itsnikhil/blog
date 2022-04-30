@@ -72,7 +72,7 @@ Medals for each delivery partner is refreshed after every fixed time interval. I
 Everyday at 10:30 AM when gigs booking unlocks for next days, each and every delivery partner has to try to book gig in order to maximize their chances for a gig to be available. Imagine yourself participating in a flash sale everyday. Also, this can cause huge traffic on a system at during that initial booking period.
 
 #### 2. Perferred gig not available
-For delivery partners who wanted to work does not get chance because of unavailablity of gig which is more common for blue and bronze delivery partners.
+Each gig has limited no. of delivery partner requirements from each cluster/city. Because of this, few delivery partners who wanted to work does not get chance because of unavailablity of gig. This is more common for blue and bronze delivery partners.
 
 #### 3. Customer feedback do not affect medal
 Medal criterias are more aligned how zomato deems as delivery partner to be good than the ratings given by it's customers. Though, I am not aware how much important delivery partner's rating is for a food delivery company than compared to mobility company.
@@ -84,21 +84,20 @@ My proposal to Zomato is to implement some version of many to many stable matchi
 
 Instead of booking gigs immidiately, delivery partners can share their preferences which is ranked ordered list of how likely are they to work for a certain gig for that day. There will be a deadline before which each delivery partner needs to submit ranked gigs. For example:
 
-- Delivery partner A can book gigs:
-1. 10:00AM - 12:00PM
-2. 06:00PM - 07:00PM
-3. 09:00PM - 11:00PM
-4. 02:00PM - 03:00PM
-- Delivery partner B can book gigs:
-1. 09:00PM - 11:00PM
-2. 02:00PM - 03:00PM
-3. 06:00PM - 07:00PM
+|Rank|Delivery partner A|Delivery partner B|
+|-|-|-|
+|#1|10:00AM - 12:00PM|09:00PM - 11:00PM|
+|#2|06:00PM - 07:00PM|02:00PM - 03:00PM|
+|#3|09:00PM - 11:00PM|06:00PM - 07:00PM|
+|#4|02:00PM - 03:00PM||
 
 Meanwhile Zomato can rate it's delivery partners based on any criteria. For example:
-1. Delivery partner A
-2. Delivery partner B
+|Rank|Delivery partner|
+|-|-|
+|#1|Delivery partner A|
+|#2|Delivery partner B|
 
-The algorithm starts by respecting first of preference for each and every delivery partner and finding optimal match with Zomato's preference for each delivery partner and performs multiple rounds of iteration for lower preferences. One such algorithm is famously known as [stable marriage problem](https://en.wikipedia.org/wiki/Stable_marriage_problem). It works well enough when there must be only 1 match but in zomato's case, one delivery partner can be assigned to multiple gigs. In order to avoid always selecting same delivery partner again and again for multiple gigs because of higher rating given by zomato, the algorithm needs to reduce the rank of a person after getting a confirmed gig.
+The algorithm starts by respecting first preference for each and every delivery partner and finding optimal match with Zomato's preference for each delivery partner and performs multiple rounds of iteration for lower preferences. One such algorithm is famously known as [stable marriage problem](https://en.wikipedia.org/wiki/Stable_marriage_problem). It works well enough when there must be only 1 match but in zomato's case, one delivery partner can be assigned to multiple gigs. In order to avoid always selecting same delivery partner again and again for multiple gigs because of higher rating given by zomato, the algorithm needs to reduce the rank of a person after getting a confirmed gig.
 
 ![stable marriage problem](https://upload.wikimedia.org/wikipedia/commons/5/52/Gale-Shapley.gif)
 
