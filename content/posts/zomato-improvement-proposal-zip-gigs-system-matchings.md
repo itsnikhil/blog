@@ -1,6 +1,6 @@
 +++
 categories = ["algorithm", "proposal", "zomato"]
-date = 2022-04-30T18:30:00Z
+date = 2022-05-01T00:30:00Z
 description = "Zomato Improvement Proposal (ZIP): Gigs system matchings - Many to many stable matching algorithm using the deferred-acceptance."
 draft = true
 keywords = ["gigs", "matching", "engineering", "zip", "zomato", "proposal", "algorithm"]
@@ -121,7 +121,7 @@ The algorithm starts by respecting first preference for each and every delivery 
 
 ### Concerns
 - Delivery partners should atleast need to know how to improve upon ranking criteria used by zomato
-- Since gig confirmation happens later, proper communication should happen with delivery partners about what gigs they finally got assigned
+- Since gig confirmation happens later, proper communication should happen with delivery partners about what gigs they finally gets assigned
 
 ## Sources:
 - https://www.youtube.com/watch?v=y4dEg3LUqAs
