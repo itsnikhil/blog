@@ -18,18 +18,15 @@ Created: 2022-01-05
 ```
 
 ## Zomato's Gig System
-
 Zomato's gig system is an economic system for delivery partners of the company. In Gigs system, Delivery partners book "gigs" which are their preferred timeslots of work. For completion of every gig, a delivery partner has to complete a few minimum login hours criteria. Delivery partners can browse available gigs a couple days in advance. Information like timings and estimated earnings for each available gig can be accessed from the app. As per the convienence of the delivery partners, they can choose to book as many gigs as they like and start delivering food. A small cancellation fee is charged from a delivery partner everytime they cancel a gig. This is done to avoid abusing the system and so that other delivery partners get their fair chance to book gigs. Delivery partners get fixed order payouts for every order + distance payout for every kilometer of drop both of which can vary across various locations.
 
 ### As per the company, benefits of Gigs system include:
-
 - Delivery partners can view etimated payout for a gig before booking based on which they can choose desired gigs
 - Higher chances of getting an order
 - No rush to meet target to get incentives! More gigs, more earnings
 - Payouts as per expectations, everyday
 
 ### Medals
-
 In order to ensure good quality of delivery partners is available, Zomato has divided all delivery partners into various different categories denoted by medals. Based on the medal some benifits are given to few high ranking delivery partners including the ability to book gigs few days in advance.
 
 - Blue medal:
@@ -71,24 +68,19 @@ Medals for each delivery partner is refreshed after every fixed time interval. I
 ||Star gigs|75-100%|
 
 ### Problems with current implementation of the gig system
-
 #### 1. Booking of gigs is a first come first serve process
-
 Everyday at 10:30 AM when gigs booking unlocks for next days, each and every delivery partner has to try to book gig in order to maximize their chances for a gig to be available. Imagine yourself participating in a flash sale everyday. Also, this can cause huge traffic on a system at during that initial booking period.
 
 #### 2. Perferred gig not available
-
 For delivery partners who wanted to work does not get chance because of unavailablity of gig which is more common for blue and bronze delivery partners.
 
 #### 3. Customer feedback do not affect medal
-
 Medal criterias are more aligned how zomato deems as delivery partner to be good than the ratings given by it's customers. Though, I am not aware how much important delivery partner's rating is for a food delivery company than compared to mobility company.
 
-### Better matching algorithm
-
-My proposal to Zomato is to implement some version of many to many stable matching algorithm using the deferred-acceptance.
-
 ## Imporvement Proposal
+
+### Better matching algorithm
+My proposal to Zomato is to implement some version of many to many stable matching algorithm using the deferred-acceptance.
 
 Instead of booking gigs immidiately, delivery partners can share their preferences which is ranked ordered list of how likely are they to work for a certain gig for that day. There will be a deadline before which each delivery partner needs to submit ranked gigs. For example:
 
@@ -103,7 +95,6 @@ Instead of booking gigs immidiately, delivery partners can share their preferenc
 3. 06:00PM - 07:00PM
 
 Meanwhile Zomato can rate it's delivery partners based on any criteria. For example:
-
 1. Delivery partner A
 2. Delivery partner B
 
@@ -114,14 +105,12 @@ The algorithm starts by respecting first of preference for each and every delive
 `Image CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=10189057`
 
 ### Benefits of this new match making algorithm
-
 - The algorithm is delivery partner proposing
 - There is no difference in matchings results if delivery partner ranks gig now or couple of hours later
 - Ensures quality of delivery partners remains while still maintaining better matchings
 - All delivery partners will atleast get a chance to share their preferences
 
 ## Sources:
-
 - https://www.youtube.com/watch?v=y4dEg3LUqAs
 - https://www.youtube.com/watch?v=C9m1YwkuY7g
 - https://www.youtube.com/watch?v=kvgfgGmemdA
