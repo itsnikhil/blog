@@ -4,7 +4,7 @@ date = 2022-05-01T00:30:00Z
 description = "Zomato Improvement Proposal (ZIP): Gigs system matchings - Many to many stable matching algorithm using the deferred-acceptance."
 draft = true
 keywords = ["gigs", "matching", "engineering", "zip", "zomato", "proposal", "algorithm"]
-tags = ["engineering", "matching", "Gigs", "ZIP", "Zomato Improvement Proposal"]
+tags = ["engineering", "matching", "Gigs", "ZIP"]
 title = "Zomato Improvement Proposal (ZIP): Gigs system matchings"
 
 +++
