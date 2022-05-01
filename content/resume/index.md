@@ -1,6 +1,7 @@
 ---
 title: Resume
 date: 2021-05-10T23:21:42+05:30
+draft: true
 
 ---
 # NIKHIL TANEJA
