@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Good practice on ItsNikhil</title>
+    <link>https://itsnikhil.github.io/blog/tags/good-practice/</link>
+    <description>Recent content in Good practice on ItsNikhil</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>ItsNikhil</copyright>
+    <lastBuildDate>Fri, 06 Aug 2021 18:30:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://itsnikhil.github.io/blog/tags/good-practice/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Clarify function calls with keyword arguments - JavaScript</title>
+      <link>https://itsnikhil.github.io/blog/posts/clarify-function-calls-with-keyword-arguments-javascript/</link>
+      <pubDate>Fri, 06 Aug 2021 18:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/posts/clarify-function-calls-with-keyword-arguments-javascript/</guid>
+      <description>While working with many JavaScript libraries you might have come across this common pattern where in the function call you pass an object many-a-times often referred as options. There is a reason why this is a common good practice and in this article I will be giving the reasoning behind this practice.
+Common options pattern Let&amp;rsquo;s say you are working on an existing codebase and see the following code
+twitter_search(&amp;#39;@obama&amp;#39;, False, 20, True) Some eagle eyed person amongst you might have noticed I have F and T capital in Boolean, that&amp;rsquo;s because it&amp;rsquo;s not JavaScript.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Journal on ItsNikhil</title>
+    <link>https://itsnikhil.github.io/blog/tags/journal/</link>
+    <description>Recent content in Journal on ItsNikhil</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>ItsNikhil</copyright>
+    <lastBuildDate>Mon, 21 Sep 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://itsnikhil.github.io/blog/tags/journal/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Year in Pixel with Journal</title>
+      <link>https://itsnikhil.github.io/blog/posts/year-in-pixel-with-journal/</link>
+      <pubDate>Mon, 21 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/posts/year-in-pixel-with-journal/</guid>
+      <description>Step-by-step guide to setup Journal with IFTTT Make sure you are on Journal v4.0 or above Background  Mail from: Keira Kenealy,
+Hello so I downloaded your journal app a long time ago I saw the update and updated for about a month it has not been opening I just now saw the warning please please please fix it I love this app but wish I could use it thanks! Is there anyway i can fix it myself?</description>
+    </item>
+    
+  </channel>
+</rss>

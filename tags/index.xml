@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on ItsNikhil</title>
+    <link>https://itsnikhil.github.io/blog/tags/</link>
+    <description>Recent content in Tags on ItsNikhil</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>ItsNikhil</copyright>
+    <lastBuildDate>Sun, 01 May 2022 00:30:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://itsnikhil.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>engineering</title>
+      <link>https://itsnikhil.github.io/blog/tags/engineering/</link>
+      <pubDate>Sun, 01 May 2022 00:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/engineering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gigs</title>
+      <link>https://itsnikhil.github.io/blog/tags/gigs/</link>
+      <pubDate>Sun, 01 May 2022 00:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/gigs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>matching</title>
+      <link>https://itsnikhil.github.io/blog/tags/matching/</link>
+      <pubDate>Sun, 01 May 2022 00:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/matching/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ZIP</title>
+      <link>https://itsnikhil.github.io/blog/tags/zip/</link>
+      <pubDate>Sun, 01 May 2022 00:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/zip/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>agile</title>
+      <link>https://itsnikhil.github.io/blog/tags/agile/</link>
+      <pubDate>Sat, 18 Dec 2021 18:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/agile/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>startup experience</title>
+      <link>https://itsnikhil.github.io/blog/tags/startup-experience/</link>
+      <pubDate>Sat, 18 Dec 2021 18:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/startup-experience/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bots</title>
+      <link>https://itsnikhil.github.io/blog/tags/bots/</link>
+      <pubDate>Thu, 26 Aug 2021 18:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/bots/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>discord</title>
+      <link>https://itsnikhil.github.io/blog/tags/discord/</link>
+      <pubDate>Thu, 26 Aug 2021 18:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/discord/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>system design</title>
+      <link>https://itsnikhil.github.io/blog/tags/system-design/</link>
+      <pubDate>Thu, 26 Aug 2021 18:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/system-design/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Code readability </title>
+      <link>https://itsnikhil.github.io/blog/tags/code-readability/</link>
+      <pubDate>Fri, 06 Aug 2021 18:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/code-readability/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Good practice</title>
+      <link>https://itsnikhil.github.io/blog/tags/good-practice/</link>
+      <pubDate>Fri, 06 Aug 2021 18:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/good-practice/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>concurrency</title>
+      <link>https://itsnikhil.github.io/blog/tags/concurrency/</link>
+      <pubDate>Tue, 03 Aug 2021 11:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/concurrency/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>goroutine</title>
+      <link>https://itsnikhil.github.io/blog/tags/goroutine/</link>
+      <pubDate>Tue, 03 Aug 2021 11:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/goroutine/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>performance</title>
+      <link>https://itsnikhil.github.io/blog/tags/performance/</link>
+      <pubDate>Tue, 03 Aug 2021 11:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/performance/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Authorization</title>
+      <link>https://itsnikhil.github.io/blog/tags/authorization/</link>
+      <pubDate>Sun, 30 May 2021 15:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/authorization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Guide</title>
+      <link>https://itsnikhil.github.io/blog/tags/guide/</link>
+      <pubDate>Sun, 30 May 2021 15:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/guide/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JWT</title>
+      <link>https://itsnikhil.github.io/blog/tags/jwt/</link>
+      <pubDate>Sun, 30 May 2021 15:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/jwt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>algorithm</title>
+      <link>https://itsnikhil.github.io/blog/tags/algorithm/</link>
+      <pubDate>Mon, 25 Jan 2021 09:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/algorithm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>javascript</title>
+      <link>https://itsnikhil.github.io/blog/tags/javascript/</link>
+      <pubDate>Mon, 25 Jan 2021 09:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>technology</title>
+      <link>https://itsnikhil.github.io/blog/tags/technology/</link>
+      <pubDate>Mon, 25 Jan 2021 09:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/technology/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>code</title>
+      <link>https://itsnikhil.github.io/blog/tags/code/</link>
+      <pubDate>Mon, 11 Jan 2021 09:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/code/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://itsnikhil.github.io/blog/tags/python/</link>
+      <pubDate>Mon, 11 Jan 2021 09:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fitbit</title>
+      <link>https://itsnikhil.github.io/blog/tags/fitbit/</link>
+      <pubDate>Mon, 23 Nov 2020 00:00:01 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/fitbit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lifestyle</title>
+      <link>https://itsnikhil.github.io/blog/tags/lifestyle/</link>
+      <pubDate>Mon, 23 Nov 2020 00:00:01 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/lifestyle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Backend</title>
+      <link>https://itsnikhil.github.io/blog/tags/backend/</link>
+      <pubDate>Mon, 23 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/backend/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cloud</title>
+      <link>https://itsnikhil.github.io/blog/tags/cloud/</link>
+      <pubDate>Mon, 23 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Design</title>
+      <link>https://itsnikhil.github.io/blog/tags/design/</link>
+      <pubDate>Mon, 23 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/design/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Django</title>
+      <link>https://itsnikhil.github.io/blog/tags/django/</link>
+      <pubDate>Mon, 23 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/django/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lighthouse</title>
+      <link>https://itsnikhil.github.io/blog/tags/lighthouse/</link>
+      <pubDate>Mon, 23 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/lighthouse/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Security</title>
+      <link>https://itsnikhil.github.io/blog/tags/security/</link>
+      <pubDate>Mon, 23 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bending of Light</title>
+      <link>https://itsnikhil.github.io/blog/tags/bending-of-light/</link>
+      <pubDate>Sun, 22 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/bending-of-light/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Digital</title>
+      <link>https://itsnikhil.github.io/blog/tags/digital/</link>
+      <pubDate>Sun, 22 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/digital/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Elecronics</title>
+      <link>https://itsnikhil.github.io/blog/tags/elecronics/</link>
+      <pubDate>Sun, 22 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/elecronics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Experiment</title>
+      <link>https://itsnikhil.github.io/blog/tags/experiment/</link>
+      <pubDate>Sun, 22 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/experiment/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Laser</title>
+      <link>https://itsnikhil.github.io/blog/tags/laser/</link>
+      <pubDate>Sun, 22 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/laser/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Project</title>
+      <link>https://itsnikhil.github.io/blog/tags/project/</link>
+      <pubDate>Sun, 22 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/project/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Soldering</title>
+      <link>https://itsnikhil.github.io/blog/tags/soldering/</link>
+      <pubDate>Sun, 22 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/soldering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Autosubmit</title>
+      <link>https://itsnikhil.github.io/blog/tags/autosubmit/</link>
+      <pubDate>Sun, 11 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/autosubmit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chrome</title>
+      <link>https://itsnikhil.github.io/blog/tags/chrome/</link>
+      <pubDate>Sun, 11 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/chrome/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Extension</title>
+      <link>https://itsnikhil.github.io/blog/tags/extension/</link>
+      <pubDate>Sun, 11 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/extension/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Form</title>
+      <link>https://itsnikhil.github.io/blog/tags/form/</link>
+      <pubDate>Sun, 11 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/form/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Microsoft</title>
+      <link>https://itsnikhil.github.io/blog/tags/microsoft/</link>
+      <pubDate>Sun, 11 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/microsoft/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Office</title>
+      <link>https://itsnikhil.github.io/blog/tags/office/</link>
+      <pubDate>Sun, 11 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/office/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Submitter</title>
+      <link>https://itsnikhil.github.io/blog/tags/submitter/</link>
+      <pubDate>Sun, 11 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/submitter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>IFTTT</title>
+      <link>https://itsnikhil.github.io/blog/tags/ifttt/</link>
+      <pubDate>Mon, 21 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/ifttt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Journal</title>
+      <link>https://itsnikhil.github.io/blog/tags/journal/</link>
+      <pubDate>Mon, 21 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/journal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Internship</title>
+      <link>https://itsnikhil.github.io/blog/tags/internship/</link>
+      <pubDate>Thu, 10 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/internship/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>first</title>
+      <link>https://itsnikhil.github.io/blog/tags/first/</link>
+      <pubDate>Wed, 09 Sep 2020 09:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/first/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hello world</title>
+      <link>https://itsnikhil.github.io/blog/tags/hello-world/</link>
+      <pubDate>Wed, 09 Sep 2020 09:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/tags/hello-world/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

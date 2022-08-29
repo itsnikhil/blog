@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on ItsNikhil</title>
+    <link>https://itsnikhil.github.io/blog/posts/</link>
+    <description>Recent content in Posts on ItsNikhil</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>ItsNikhil</copyright>
+    <lastBuildDate>Sun, 01 May 2022 00:30:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://itsnikhil.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Zomato Improvement Proposal (ZIP-001): Gigs system matchings</title>
+      <link>https://itsnikhil.github.io/blog/posts/zomato-improvement-proposal-zip-gigs-system-matchings/</link>
+      <pubDate>Sun, 01 May 2022 00:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/posts/zomato-improvement-proposal-zip-gigs-system-matchings/</guid>
+      <description>ZIP: 1 Title: Gigs system matchings Author: Nikhil Taneja &amp;lt;itsnikhil@duck.com&amp;gt; Status: Proposal Type: Process Created: 2022-01-05  Zomato&amp;rsquo;s Gig System Zomato&amp;rsquo;s gig system is an economic system for delivery partners of the company. In Gigs system, Delivery partners book &amp;ldquo;gigs&amp;rdquo; which are their preferred timeslots of work. For completion of every gig, a delivery partner has to complete a few minimum login hours criteria. Delivery partners can browse available gigs a couple days in advance.</description>
+    </item>
+    
+    <item>
+      <title>Done is better than perfect</title>
+      <link>https://itsnikhil.github.io/blog/posts/done-is-better-than-perfect/</link>
+      <pubDate>Sat, 18 Dec 2021 18:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/posts/done-is-better-than-perfect/</guid>
+      <description>Introduction &amp;ldquo;Done is better than perfect&amp;rdquo; is a lesson that I learned from working in a fast-paced competitive startup environment.. and agile software development in general.
+Every new codebase I used to touch, I could find some place where something can be improved by using a different data structure, or an algorithm, or some design pattern avoiding nested if-else, or simply abstracting big functions into smaller ones. But as when I started working on big features I came to realize this famous saying.</description>
+    </item>
+    
+    <item>
+      <title>Architecting discord bot the right way</title>
+      <link>https://itsnikhil.github.io/blog/posts/architecting-discord-bot-the-right-way/</link>
+      <pubDate>Thu, 26 Aug 2021 18:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/posts/architecting-discord-bot-the-right-way/</guid>
+      <description>Past: Gmbot If you might not know, I have made a discord bot Gmbot - Multiplayer Game bot for Discord (itsnikhil.github.io). The way how this bot used to function was very simple, there was a trigger phrase gmbot followed by command name createwar and some parameters
+gmbot createwar -players @Player1 @Player2 -game 4 -duration 12 -type ft3 I have already written a detailed post showcasing it&amp;rsquo;s various features, database schema, etc.</description>
+    </item>
+    
+    <item>
+      <title>Clarify function calls with keyword arguments - JavaScript</title>
+      <link>https://itsnikhil.github.io/blog/posts/clarify-function-calls-with-keyword-arguments-javascript/</link>
+      <pubDate>Fri, 06 Aug 2021 18:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/posts/clarify-function-calls-with-keyword-arguments-javascript/</guid>
+      <description>While working with many JavaScript libraries you might have come across this common pattern where in the function call you pass an object many-a-times often referred as options. There is a reason why this is a common good practice and in this article I will be giving the reasoning behind this practice.
+Common options pattern Let&amp;rsquo;s say you are working on an existing codebase and see the following code
+twitter_search(&amp;#39;@obama&amp;#39;, False, 20, True) Some eagle eyed person amongst you might have noticed I have F and T capital in Boolean, that&amp;rsquo;s because it&amp;rsquo;s not JavaScript.</description>
+    </item>
+    
+    <item>
+      <title>Understanding concurrency in go</title>
+      <link>https://itsnikhil.github.io/blog/posts/mastering-concurrency-in-go/</link>
+      <pubDate>Tue, 03 Aug 2021 11:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/posts/mastering-concurrency-in-go/</guid>
+      <description>Concurrency is about dealing with lots of things at once. Parallelism is about doing lots of things at once - Rob Pike
+ Go language itself provides some features to handle concurrency out of the box, hiding all the complexities so that developers write better, faster, more efficient code. These features include :-
+Goroutines: A goroutine is a lightweight thread managed by the Go runtime.
+Just add go in front of your function call to convert it into goroutine and you can take advantage of concurrency.</description>
+    </item>
+    
+    <item>
+      <title>Implementing silent refresh of JWT  </title>
+      <link>https://itsnikhil.github.io/blog/posts/implementing-silent-refresh-of-jwt/</link>
+      <pubDate>Sun, 30 May 2021 15:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/posts/implementing-silent-refresh-of-jwt/</guid>
+      <description>Prerequisite knowledge When you are building services for everyone to access online, you need have a way protect resources so that only the user can access data belonging to them only. For this, websites implement login/ signup, enter username and password and voila access granted! This process is called &amp;ldquo;Authentication&amp;rdquo;. But what happens when you close your browser or refresh the website. Do you re-login with username and password? No, right.</description>
+    </item>
+    
+    <item>
+      <title>Algorithm behind TNB Analysis</title>
+      <link>https://itsnikhil.github.io/blog/posts/algorithm-behind-tnb-analysis/</link>
+      <pubDate>Mon, 25 Jan 2021 09:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/posts/algorithm-behind-tnb-analysis/</guid>
+      <description>TNB or thenewboston is a digital cryptocurrency network which is being developed by Bucky Roberts and open source community of which I am part of. There are thousands of registered accounts which will increase rapidly in future. At the time of writing this article there are 90 JSON files. My task was to process each of these JSON files and output results providing insights like total coins distribution over time period, total number of accounts, richest account information, wealth distribution, etc.</description>
+    </item>
+    
+    <item>
+      <title>Is pythonic way the better way?</title>
+      <link>https://itsnikhil.github.io/blog/posts/is-pythonic-way-the-better-way/</link>
+      <pubDate>Mon, 11 Jan 2021 09:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/posts/is-pythonic-way-the-better-way/</guid>
+      <description>Here I have shared my thoughts on some of the pythonic way coding style. These are not design patterns (which are best practices used by experienced object-oriented software developers) of any sort, just some ways of writing code differently or I should say more pythonic.
+If you might not already know - Python is an interpreted, interactive, object-oriented programming language. But more importantly, Python is a programming language that lets you work more quickly and integrate your systems more effectively.</description>
+    </item>
+    
+    <item>
+      <title>Year in Pixel with Journal</title>
+      <link>https://itsnikhil.github.io/blog/posts/year-in-pixel-with-journal/</link>
+      <pubDate>Mon, 21 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/posts/year-in-pixel-with-journal/</guid>
+      <description>Step-by-step guide to setup Journal with IFTTT Make sure you are on Journal v4.0 or above Background  Mail from: Keira Kenealy,
+Hello so I downloaded your journal app a long time ago I saw the update and updated for about a month it has not been opening I just now saw the warning please please please fix it I love this app but wish I could use it thanks! Is there anyway i can fix it myself?</description>
+    </item>
+    
+    <item>
+      <title>Fidelity Internship 2020</title>
+      <link>https://itsnikhil.github.io/blog/posts/fidelity-internship-2020/</link>
+      <pubDate>Thu, 10 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/posts/fidelity-internship-2020/</guid>
+      <description>Hello everyone! I wanted to share my internship experience at Fidelity International, hence I am writing this blog. I started my internship with Fidelity International in May. This opportunity was provided to me by my University. It was a journey of 8 weeks where I got to know about the Finance Industry, exposure to Blockchain Technology, and made some great friends – Neil Dahiya from DCRUST, Murthal, and Harsimran Kaur Bajaj from Banasthali University, Rajasthan.</description>
+    </item>
+    
+    <item>
+      <title>First Post</title>
+      <link>https://itsnikhil.github.io/blog/posts/first/</link>
+      <pubDate>Wed, 09 Sep 2020 09:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/posts/first/</guid>
+      <description>👋</description>
+    </item>
+    
+  </channel>
+</rss>

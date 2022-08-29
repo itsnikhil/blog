@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Implementing silent refresh of JWT   </title>
+  <meta name="description" content="I am a programmer interested in all sorts of technology. I like working on open source projects, writing blog articles, and reading on the internet. I also like swimming, biking and playing games. I study at The Northcap University.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="Implementing silent refresh of JWT  " />
+<meta property="og:description" content="Understanding the aspects of access tokens and refresh tokens can be a bit tricky. This post tries to go through short lived tokens and best ways of storing token and implementation of silent refresh" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://itsnikhil.github.io/blog/posts/implementing-silent-refresh-of-jwt/" />
+<meta property="article:published_time" content="2021-05-30T15:30:00+00:00" />
+<meta property="article:modified_time" content="2021-05-30T15:30:00+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Implementing silent refresh of JWT  "/>
+<meta name="twitter:description" content="Understanding the aspects of access tokens and refresh tokens can be a bit tricky. This post tries to go through short lived tokens and best ways of storing token and implementation of silent refresh"/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://itsnikhil.github.io/blog/css/style-white.css">
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://itsnikhil.github.io/blog/images/favicon.ico" />
+
+  
+  
+  
+  
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-119427755-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    
+  
+</head>
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#" class="active"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="window.scrollTo({top: 0, left: 0, behavior: 'smooth'});" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu" style="visibility: visible;">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/blog/">Home</a></li>
+         
+        <li><a href="/blog/posts">Writings</a></li>
+         
+        <li><a href="/blog/projects">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://itsnikhil.github.io/blog/posts/algorithm-behind-tnb-analysis/">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="toggleVisibility(document.getElementById('i-prev'))" onmouseout="toggleVisibility(document.getElementById('i-prev'))"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="https://itsnikhil.github.io/blog/posts/mastering-concurrency-in-go/">
+            <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="toggleVisibility(document.getElementById('i-next'))" onmouseout="toggleVisibility(document.getElementById('i-next'))"></i>
+          </a>
+        </li>
+        
+        <li>
+          <a class="icon" href="#" onclick="window.scrollTo({top: 0, left: 0, behavior: 'smooth'});">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="toggleVisibility(document.getElementById('i-top'))" onmouseout="toggleVisibility(document.getElementById('i-top'))"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="toggleVisibility(document.getElementById('i-share'))" onmouseout="toggleVisibility(document.getElementById('i-share'))" onclick="toggleVisibility(document.getElementById('share'))"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fimplementing-silent-refresh-of-jwt%2f">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fimplementing-silent-refresh-of-jwt%2f&text=Implementing%20silent%20refresh%20of%20JWT%20%20">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fimplementing-silent-refresh-of-jwt%2f&title=Implementing%20silent%20refresh%20of%20JWT%20%20">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fimplementing-silent-refresh-of-jwt%2f&is_video=false&description=Implementing%20silent%20refresh%20of%20JWT%20%20">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Implementing%20silent%20refresh%20of%20JWT%20%20&body=Check out this article: https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fimplementing-silent-refresh-of-jwt%2f">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fimplementing-silent-refresh-of-jwt%2f&title=Implementing%20silent%20refresh%20of%20JWT%20%20">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fimplementing-silent-refresh-of-jwt%2f&title=Implementing%20silent%20refresh%20of%20JWT%20%20">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.stumbleupon.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fimplementing-silent-refresh-of-jwt%2f&title=Implementing%20silent%20refresh%20of%20JWT%20%20">
+      <i class="fab fa-stumbleupon " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://digg.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fimplementing-silent-refresh-of-jwt%2f&title=Implementing%20silent%20refresh%20of%20JWT%20%20">
+      <i class="fab fa-digg " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fimplementing-silent-refresh-of-jwt%2f&name=Implementing%20silent%20refresh%20of%20JWT%20%20&description=Understanding%20the%20aspects%20of%20access%20tokens%20and%20refresh%20tokens%20can%20be%20a%20bit%20tricky.%20This%20post%20tries%20to%20go%20through%20short%20lived%20tokens%20and%20best%20ways%20of%20storing%20token%20and%20implementation%20of%20silent%20refresh">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fimplementing-silent-refresh-of-jwt%2f&t=Implementing%20silent%20refresh%20of%20JWT%20%20">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#prerequisite-knowledge">Prerequisite knowledge</a>
+          <ul>
+            <li><a href="#session-ids">Session IDs</a></li>
+            <li><a href="#json-web-token-jwt">JSON Web Token (JWT)</a></li>
+          </ul>
+        </li>
+        <li><a href="#introduction-to-short-lived-token">Introduction to short lived token</a></li>
+        <li><a href="#where-to-store-the-token">Where to store the token?</a>
+          <ul>
+            <li><a href="#localstorage">LocalStorage</a></li>
+            <li><a href="#cookies">Cookies</a></li>
+            <li><a href="#memory">Memory</a></li>
+            <li><a href="#servers-database">Server&rsquo;s database</a></li>
+          </ul>
+        </li>
+        <li><a href="#silent-refresh">Silent Refresh</a>
+          <ul>
+            <li><a href="#the-bad-way">The BAD way</a></li>
+            <li><a href="#the-hasuras-good-way">The Hasura&rsquo;s (GOOD) way</a></li>
+          </ul>
+        </li>
+        <li><a href="#references">References:</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        Implementing silent refresh of JWT  
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2021-05-30 15:30:00 &#43;0000 UTC" itemprop="datePublished">2021-05-30</time>
+          
+        </div>
+        
+        <div class="article-category">
+            <i class="fas fa-archive"></i>
+            
+            
+            <a class="category-link" href="/blog/categories/tutorial">Tutorial</a>
+            
+            
+            <a class="category-link" href="/blog/categories/web">Web</a>
+            
+             ,  
+            <a class="category-link" href="/blog/categories/technology">Technology</a>
+            
+        </div>
+        
+        
+        <div class="article-tag">
+            <i class="fas fa-tag"></i>
+            
+            
+            <a class="tag-link" href="/blog/tags/jwt" rel="tag">JWT</a>
+            
+            
+            <a class="tag-link" href="/blog/tags/authorization" rel="tag">Authorization</a>
+            
+             ,  
+            <a class="tag-link" href="/blog/tags/guide" rel="tag">Guide</a>
+            
+        </div> 
+        
+      </div>
+    </header>
+
+  
+    <div class="content" itemprop="articleBody">
+      <h3 id="prerequisite-knowledge">Prerequisite knowledge</h3>
+<p>When you are building services for everyone to access online, you need have a way protect resources so that only the user can access data belonging to them only. For this, websites implement login/ signup, enter username and password and voila access granted! This process is called &ldquo;Authentication&rdquo;. But what happens when you close your browser or refresh the website. Do you re-login with username and password? No, right. To solve this there is one more thing called &ldquo;Authorization&rdquo; which is actually making sure that the user which sends requests to your server is the same user who actually logged in during the authentication process. There are a lot of strategies like Session IDs, API key, Token auth, etc. which comes with the problem of storing client secret securely at a secure place.</p>
+<h4 id="session-ids">Session IDs</h4>
+<p><img src="/blog/img/screenshot-2021-05-31-021412.png" alt=""></p>
+<p>Session ID is a random secret id generated by the server which is stored in database having one to one relationship with primary key of a particular user. This session id is sent to client whenever you login via cookie. Whenever you make a request to private resource. Browser automatically adds this cookie in the new request which is validated by the backend. <em>This system works but can there be a better solution where we do not need to maintain a state or a database record? Enter JWT</em></p>
+<h4 id="json-web-token-jwt">JSON Web Token (JWT)</h4>
+<pre><code>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+</code></pre>
+<p>JSON Web Token (JWT) token follows similar flow diagram to Session like after authentication instead of sending session id in cookie we send a JWT token and for other subsequent requests, this token is used to authorize the user. The key difference here is instead of storing session ids in database we store all the necessary user&rsquo;s info in the token itself. JWT token consists of 3 parts:</p>
+<p><img src="/blog/img/screenshot-2021-05-31-021417.png" alt=""></p>
+<p>Each separated by period (dot) and encoded in Base64. Payload is the JSON object containing this data. This token is then stored in the client either in cookie or on browser&rsquo;s localStorage. JWT tokens are signed with a secret key (generally HMACSecret key) following digital signature cryptography, it invalidates the token when tampered by the malicious user.</p>
+<p>JWTs are &ldquo;stateless&rdquo;, which unlocks some benefits like:</p>
+<ul>
+<li>No re-login required for separate services, as same JWT token can be used to authorize as long as all services share same signing secret key. The data is stored in client JWT&rsquo;s payload and not in a particular service&rsquo;s database.</li>
+<li>The token are stored on the client, that&rsquo;s really the import thing about JWT so no matter if there is load balancer or multiple micro services, the user can authenticate with any of those servers as long as they share same secret key.</li>
+</ul>
+<p>But with stateless nature, we do not have any mechanism to logout/ stop the access of the user. Typically this token is dropped from localStorage or cookie from their browser but we are trusting the client here, another approach can be to implement a blacklist of restricted tokens which essentially defeats the purpose of stateless. Also, client storing token on localStorage can be vulnerable to XSS attacks or CSRF attack if JWT is stored in cookies.</p>
+<p><em>All this leads to the gist of this post, following a better approach of having 2 tokens - one short lived access token and another long lived refresh token.</em></p>
+<h3 id="introduction-to-short-lived-token">Introduction to short lived token</h3>
+<p>Understanding the aspects of access tokens and refresh tokens can be a bit tricky. Whenever a user &ldquo;authenticate&rdquo;, server sends 2 tokens - access token and refresh token to the client. The speciality of having 2 tokens is they we have expiry on these tokens as part of JWT&rsquo;s payload. Expiry duration of access token is significantly shorter of ~10mins to 24 hours than that of refresh tokens ~months to years or even no expiry. When user want to access any private resource they require access token to &ldquo;authorize&rdquo; and everything else works just like with a single token. We can generate new access tokens from refresh tokens.</p>
+<h3 id="where-to-store-the-token">Where to store the token?</h3>
+<p>So now the question comes what is the benefit of having access token if we can generate it from refresh token.</p>
+<h4 id="localstorage">LocalStorage</h4>
+<p>Storing JWT tokens in local storage can leak the token in an event of an XSS attack as hacker can run arbitrary JavaScript code which can provide them access to in-memory variables and localStorage</p>
+<h4 id="cookies">Cookies</h4>
+<p>Storing token&rsquo;s in cookie can lead to CSRF attack which can make user perform a private action without knowing (or knowing when it&rsquo;s too late) like phishing user to perform <code>/account/delete</code></p>
+<p>What is the best way then? According to hasura&rsquo;s ultimate guide <code>&quot;access token&quot; should be stored in &quot;memory&quot;</code> and <code>&quot;refresh token&quot; should be stored in a &quot;secure HTTP only cookie&quot;</code>. CSRF wouldn&rsquo;t work as access token will not be added automatically and even if hacker can get user to generate new access token via CSRF, they cannot read the access token from response. Now, if XSS is found hacker would still be able to read access token from memory but since the token is short lived the threat level is reduced.</p>
+<h4 id="memory">Memory</h4>
+<p>In-memory!! What if user refresh the webpage or re-open the browser? access token will not be available!</p>
+<p>In such cases, since refresh token would still be there in cookie we can use it to perform a <code>silent refresh of access token</code>.</p>
+<h4 id="servers-database">Server&rsquo;s database</h4>
+<p>Some companies do store refresh token or a unique id of as salt of refresh token (called refresh secret) in database. I am personally against this ideology as it is against JWT&rsquo;s stateless nature but sometimes there can be requirement to logout user immediately. Even in such scenarios find out exact scenarios when you would want to forcefully logout user. Like when user&rsquo;s password is changed or when we suspend a user&rsquo;s account we want their access to terminate immediately. In such cases why not use <code>isSuspended</code> and <code>passwordHash</code> as part of your refresh salt instead of storing random uuid as refresh secret for each user in database.</p>
+<h3 id="silent-refresh">Silent Refresh</h3>
+<p>Silent refresh is a mechanism to generate new access token from refresh token automatically in the event of browser refresh or when access token is expired but refresh token is available and valid. According to Hasura&rsquo;s guide this is handled at the client side. Client makes very first request to <code>/refresh_token</code> as the website loads. This approach is handles browser refresh event but for when token is expired we have to have a <code>setTimeout event</code> and make another API call to do silent refresh.</p>
+<h4 id="the-bad-way">The BAD way</h4>
+<p><strong>Handling silent token refresh on sever side, the way I am sharing below is NOT a good idea</strong>. Refreshing token automatically via middleware will render it susceptible to CSRF attacks as we are only depending on refresh tokens which is stored in HTTP only cookie. So, it seems like best approach is the one suggested by Hasura only, it might force you to make a GET request to <code>/refresh_token</code> and handle logic of refreshing token on the client side which at the moment is safest way!</p>
+<p>On server, having a <code>middleware IsLoggedIn</code> whose purpose is to validate the JWT and authorize access. Now, instead of just checking for access token, it also look for refresh token when access token is missing or invalid. IsLoggedIn middleware can generate new access token from the details in token&rsquo;s payload and <code>return the new-access-token in response header</code>. Client can <code>implement an interceptor to update value of in-memory access token</code>.</p>
+<p><img src="/blog/img/inkedunknown_li.jpg" alt=""></p>
+<p><strong>From the image above I want you to notice 2 things:</strong></p>
+<ol>
+<li>Success response on a private resource without providing access token (aka simulating browser refresh)</li>
+<li>Getting new x-access-token in headers using refresh token which was provided via cookie.</li>
+</ol>
+<h4 id="the-hasuras-good-way">The Hasura&rsquo;s (GOOD) way</h4>
+<p><strong>Scenario 1:</strong> Page refresh</p>
+<p>Since we are only storing access token in memory when page is refreshed we lose access token. This can be handled my making very first requests to <code>/refresh_token</code> and generate a new access token. This silent refresh will have 2 steps as explained in the below diagram.<br>
+<img src="/blog/img/torkn_refresh-page-2.png" alt=""></p>
+<p><strong>Scenario 2:</strong> Access token expired</p>
+<p>Since access token is short-lived, it will expire very soon and requests will start failing. Whenever this happens client would need to make a request to refresh token again and then retry same request with the new access token. Alternatively, an event can be scheduled to run on every setInterval to refresh access token or some even adopt a strategy to returns new access tokens on every valid private resource request.</p>
+<p><img src="/blog/img/torkn_refresh-page-1.png" alt=""></p>
+<h3 id="references">References:</h3>
+<p><a href="https://jwt.io/">JSON Web Tokens - jwt.io</a></p>
+<p><a href="https://www.youtube.com/watch?v=iD49_NIQ-R4" title="https://www.youtube.com/watch?v=iD49_NIQ-R4">https://www.youtube.com/watch?v=iD49_NIQ-R4</a></p>
+<p><a href="https://hasura.io/blog/best-practices-of-using-jwt-with-graphql" title="https://hasura.io/blog/best-practices-of-using-jwt-with-graphql">https://hasura.io/blog/best-practices-of-using-jwt-with-graphql</a></p>
+<p><em>This had been a great learning lesson for me which I would have not learned if I used any 3rd party library.</em></p>
+
+    </div>
+  </article>
+
+  
+  
+
+
+
+
+  
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+          <script type="text/javascript">
+          
+          (function() {
+              
+              
+              
+              
+          
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              var disqus_shortname = 'itsnikhil';
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="https://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </div>
+
+  
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/blog/">Home</a></li>
+         
+          <li><a href="/blog/posts">Writings</a></li>
+         
+          <li><a href="/blog/projects">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#prerequisite-knowledge">Prerequisite knowledge</a>
+          <ul>
+            <li><a href="#session-ids">Session IDs</a></li>
+            <li><a href="#json-web-token-jwt">JSON Web Token (JWT)</a></li>
+          </ul>
+        </li>
+        <li><a href="#introduction-to-short-lived-token">Introduction to short lived token</a></li>
+        <li><a href="#where-to-store-the-token">Where to store the token?</a>
+          <ul>
+            <li><a href="#localstorage">LocalStorage</a></li>
+            <li><a href="#cookies">Cookies</a></li>
+            <li><a href="#memory">Memory</a></li>
+            <li><a href="#servers-database">Server&rsquo;s database</a></li>
+          </ul>
+        </li>
+        <li><a href="#silent-refresh">Silent Refresh</a>
+          <ul>
+            <li><a href="#the-bad-way">The BAD way</a></li>
+            <li><a href="#the-hasuras-good-way">The Hasura&rsquo;s (GOOD) way</a></li>
+          </ul>
+        </li>
+        <li><a href="#references">References:</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fimplementing-silent-refresh-of-jwt%2f">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fimplementing-silent-refresh-of-jwt%2f&text=Implementing%20silent%20refresh%20of%20JWT%20%20">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fimplementing-silent-refresh-of-jwt%2f&title=Implementing%20silent%20refresh%20of%20JWT%20%20">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fimplementing-silent-refresh-of-jwt%2f&is_video=false&description=Implementing%20silent%20refresh%20of%20JWT%20%20">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Implementing%20silent%20refresh%20of%20JWT%20%20&body=Check out this article: https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fimplementing-silent-refresh-of-jwt%2f">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fimplementing-silent-refresh-of-jwt%2f&title=Implementing%20silent%20refresh%20of%20JWT%20%20">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fimplementing-silent-refresh-of-jwt%2f&title=Implementing%20silent%20refresh%20of%20JWT%20%20">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.stumbleupon.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fimplementing-silent-refresh-of-jwt%2f&title=Implementing%20silent%20refresh%20of%20JWT%20%20">
+      <i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://digg.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fimplementing-silent-refresh-of-jwt%2f&title=Implementing%20silent%20refresh%20of%20JWT%20%20">
+      <i class="fab fa-digg fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fimplementing-silent-refresh-of-jwt%2f&name=Implementing%20silent%20refresh%20of%20JWT%20%20&description=Understanding%20the%20aspects%20of%20access%20tokens%20and%20refresh%20tokens%20can%20be%20a%20bit%20tricky.%20This%20post%20tries%20to%20go%20through%20short%20lived%20tokens%20and%20best%20ways%20of%20storing%20token%20and%20implementation%20of%20silent%20refresh">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fimplementing-silent-refresh-of-jwt%2f&t=Implementing%20silent%20refresh%20of%20JWT%20%20">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu" class="icon" href="javascript:void(0);" onclick="toggleVisibility(document.getElementById('nav-footer'))">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="javascript:void(0);" onclick="toggleVisibility(document.getElementById('toc-footer'))">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="javascript:void(0);" onclick="toggleVisibility(document.getElementById('share-footer'))">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="javascript:void(0);" onclick="window.scrollTo({top: 0, left: 0, behavior: 'smooth'});">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2022  ItsNikhil 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/blog/">Home</a></li>
+         
+        <li><a href="/blog/posts">Writings</a></li>
+         
+        <li><a href="/blog/projects">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css" media="print" onload="this.media='all'">
+<script src="/js/main.js"></script>
+
+
+
+</html>

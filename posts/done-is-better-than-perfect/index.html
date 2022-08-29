@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Done is better than perfect </title>
+  <meta name="description" content="I am a programmer interested in all sorts of technology. I like working on open source projects, writing blog articles, and reading on the internet. I also like swimming, biking and playing games. I study at The Northcap University.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="Done is better than perfect" />
+<meta property="og:description" content="Every new codebase I used to touch, I could find some place where something can be improved by using a different data structure, or an algorithm, or some design pattern avoiding nested if-else, or simply abstracting big functions into smaller ones. But as when I started working on big features I came to realize this famous saying of Done is better than perfect" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://itsnikhil.github.io/blog/posts/done-is-better-than-perfect/" />
+<meta property="article:published_time" content="2021-12-18T18:30:00+00:00" />
+<meta property="article:modified_time" content="2021-12-18T18:30:00+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Done is better than perfect"/>
+<meta name="twitter:description" content="Every new codebase I used to touch, I could find some place where something can be improved by using a different data structure, or an algorithm, or some design pattern avoiding nested if-else, or simply abstracting big functions into smaller ones. But as when I started working on big features I came to realize this famous saying of Done is better than perfect"/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://itsnikhil.github.io/blog/css/style-white.css">
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://itsnikhil.github.io/blog/images/favicon.ico" />
+
+  
+  
+  
+  
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-119427755-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    
+  
+</head>
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#" class="active"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="window.scrollTo({top: 0, left: 0, behavior: 'smooth'});" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu" style="visibility: visible;">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/blog/">Home</a></li>
+         
+        <li><a href="/blog/posts">Writings</a></li>
+         
+        <li><a href="/blog/projects">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://itsnikhil.github.io/blog/posts/architecting-discord-bot-the-right-way/">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="toggleVisibility(document.getElementById('i-prev'))" onmouseout="toggleVisibility(document.getElementById('i-prev'))"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="https://itsnikhil.github.io/blog/posts/zomato-improvement-proposal-zip-gigs-system-matchings/">
+            <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="toggleVisibility(document.getElementById('i-next'))" onmouseout="toggleVisibility(document.getElementById('i-next'))"></i>
+          </a>
+        </li>
+        
+        <li>
+          <a class="icon" href="#" onclick="window.scrollTo({top: 0, left: 0, behavior: 'smooth'});">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="toggleVisibility(document.getElementById('i-top'))" onmouseout="toggleVisibility(document.getElementById('i-top'))"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="toggleVisibility(document.getElementById('i-share'))" onmouseout="toggleVisibility(document.getElementById('i-share'))" onclick="toggleVisibility(document.getElementById('share'))"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fdone-is-better-than-perfect%2f">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fdone-is-better-than-perfect%2f&text=Done%20is%20better%20than%20perfect">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fdone-is-better-than-perfect%2f&title=Done%20is%20better%20than%20perfect">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fdone-is-better-than-perfect%2f&is_video=false&description=Done%20is%20better%20than%20perfect">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Done%20is%20better%20than%20perfect&body=Check out this article: https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fdone-is-better-than-perfect%2f">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fdone-is-better-than-perfect%2f&title=Done%20is%20better%20than%20perfect">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fdone-is-better-than-perfect%2f&title=Done%20is%20better%20than%20perfect">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.stumbleupon.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fdone-is-better-than-perfect%2f&title=Done%20is%20better%20than%20perfect">
+      <i class="fab fa-stumbleupon " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://digg.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fdone-is-better-than-perfect%2f&title=Done%20is%20better%20than%20perfect">
+      <i class="fab fa-digg " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fdone-is-better-than-perfect%2f&name=Done%20is%20better%20than%20perfect&description=Every%20new%20codebase%20I%20used%20to%20touch%2c%20I%20could%20find%20some%20place%20where%20something%20can%20be%20improved%20by%20using%20a%20different%20data%20structure%2c%20or%20an%20algorithm%2c%20or%20some%20design%20pattern%20avoiding%20nested%20if-else%2c%20or%20simply%20abstracting%20big%20functions%20into%20smaller%20ones.%20But%20as%20when%20I%20started%20working%20on%20big%20features%20I%20came%20to%20realize%20this%20famous%20saying%20of%20Done%20is%20better%20than%20perfect">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fdone-is-better-than-perfect%2f&t=Done%20is%20better%20than%20perfect">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#perfection">Perfection</a></li>
+    <li><a href="#chasing-perfection">Chasing perfection</a>
+      <ul>
+        <li><a href="#example">Example</a></li>
+      </ul>
+    </li>
+    <li><a href="#finding-the-balance">Finding the balance</a>
+      <ul>
+        <li><a href="#understand-the-requirements">Understand the requirements</a></li>
+        <li><a href="#know-your-customer">Know your customer</a></li>
+        <li><a href="#what-are-your-expertise">What are your expertise</a></li>
+        <li><a href="#engineering-process-is-a-loop">Engineering process is a loop</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        Done is better than perfect
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2021-12-18 18:30:00 &#43;0000 UTC" itemprop="datePublished">2021-12-18</time>
+          
+        </div>
+        
+        <div class="article-category">
+            <i class="fas fa-archive"></i>
+            
+            
+            <a class="category-link" href="/blog/categories/software-engineering">software engineering</a>
+            
+            
+            <a class="category-link" href="/blog/categories/motivation">motivation</a>
+            
+        </div>
+        
+        
+        <div class="article-tag">
+            <i class="fas fa-tag"></i>
+            
+            
+            <a class="tag-link" href="/blog/tags/startup-experience" rel="tag">startup experience</a>
+            
+            
+            <a class="tag-link" href="/blog/tags/agile" rel="tag">agile</a>
+            
+        </div> 
+        
+      </div>
+    </header>
+
+  
+    <div class="content" itemprop="articleBody">
+      <h2 id="introduction">Introduction</h2>
+<p>&ldquo;Done is better than perfect&rdquo; is a lesson that I learned from working in a fast-paced competitive startup environment.. and agile software development in general.</p>
+<p>Every new codebase I used to touch, I could find some place where something can be improved by using a different data structure, or an algorithm, or some design pattern avoiding nested if-else, or simply abstracting big functions into smaller ones. But as when I started working on big features I came to realize this famous saying.</p>
+<p>In this article, I would like to share some of my thoughts on this ideology and hopefully give you some motivation to release your next amazing startup or project you are working on and not get yourself stuck in catch-22.</p>
+<h2 id="perfection">Perfection</h2>
+<blockquote>
+<p>the state or quality of being perfect</p>
+</blockquote>
+<p>In software development world - When you’ve developed a working product, it’s normal to take pride in its performance you’ve worked hard on it. It’s normal to want to hold off on release until it’s got <em>this</em> feature, or <em>that’s</em> been tweaked, or it’s gone through yet another round of testing.</p>
+<p><em>Source:</em> <a href="https://www.parkersoftware.com/blog/the-done-is-better-than-perfect-approach-to-programming/"><em>The ‘done is better than perfect’ approach to programming - Parker Software</em></a></p>
+<h2 id="chasing-perfection">Chasing perfection</h2>
+<p>If somebody asks me if the system I have developed is perfect or not? I would say comeback after couple of years and ask the same question as I cannot answer it today. Gone are the days where software was sold via floppy disk/DVDs, now software&rsquo;s are getting more personalized and unique to each and every customer. System once perfect needs to evolve with new requirements which one would have never anticipated while designing/developing it.</p>
+<p>Over-engineering is often identified with design changes that increase a factor of safety, add functionality, or overcome perceived design flaws that most users would accept. It can be desirable when safety or performance is critical (e.g. in aerospace vehicles and luxury road vehicles), or when extremely broad functionality is required (e.g. diagnostic and medical tools, power users of products).</p>
+<p>As a design philosophy, it is the opposite of the minimalist ethos of &ldquo;less is more&rdquo; (or: “worse is better”) and a disobedience of the KISS principle. <em>- Wikipedia</em></p>
+<h3 id="example">Example</h3>
+<p>Let&rsquo;s say you are a student and as an assignment your teacher asks you to submit a research report on sustainable future or solar energy before next week. If you submit your assignment after the deadline, your marks will get affected even though how in-depth you went into research analyzing sun&rsquo;s orientation, affect of weather, calculating perfect tilt angle, finding how much power output one solar panel can generate, finding return on investment&hellip; doing justice to the topic.</p>
+<p>Even if your teacher was generous and because of your amazing report gave you full marks. This is not always the case, imagine if this was a question part of your final exam and if you spend all the time answering it so well, you will not get enough time to answer other questions.</p>
+<p>Some might argue in the above example a short-crisp, to the point answer would have been perfect. In reality it takes a lot of good efforts, right knowledge and experience, to setup a great foundation and even then you have to adapt to changes and keep on enhancing the product.</p>
+<p>Maybe this example is not perfect, so are the projects we work on. There are memes around project requirement not being clear enough. Not everyone is building a medical device where margin of error is a difference of life and death where you have to consider using special tools like <a href="https://www.ros.org/" title="ROS">ROS</a> to control system clock and scheduler. Not every requirement is like <a href="https://www.youtube.com/watch?v=eY-XHAoVEeU">The Thames Barrier must never fail. Here&rsquo;s why it doesn&rsquo;t. - YouTube</a></p>
+<h2 id="finding-the-balance">Finding the balance</h2>
+<h3 id="understand-the-requirements">Understand the requirements</h3>
+<p>Let&rsquo;s say you are working on a feature that will be very important for winter vacation season sale - Chrisman and New Year. Then this is a strict requirement which you have to follow. Christmas is always on 25th of dec. and if your feature is not ready by then business can get affected. That being said not all requirements are strict and it is important to understand them well to avoid doing unnecessary work. Writing good readable code, following coding standards (linters) and writing testcases should be part of requirements of a good tech team and should be caught in code reviews.</p>
+<p>Once I was almost about to write a wrapper library on top of RestAPIs of one of our web service. Was it part of the project requirements? - No! Were estimates taken in account for writing the library? - No!</p>
+<h3 id="know-your-customer">Know your customer</h3>
+<p>Your customer is the consumer of the features you build. You should be aware of the impact it can have on them not just positively but repercussion if anything goes wrong. This provides sense of responsibility you have, skipping on testcases and not doing non-functional requirements testing reduces your confidence so it is advised to given them attention. Trust me, it makes you happy seeing your customers are happy.</p>
+<p>Will customer&rsquo;s care about the technology used? - No/maybe! Will customers have a bad experience if they are not able to login? - Definitely!</p>
+<h3 id="what-are-your-expertise">What are your expertise</h3>
+<p>One cannot have knowledge of everything. You should know your boundaries and capabilities. Technology evolves rapidly and it&rsquo;s very hard to keep up-to date with everything. This not only restricted to knowledge of a particular programming-language/framework.</p>
+<p>If you are asked to make changes in a totally new codebase, You are no longer an expert and it&rsquo;s your responsibility to get enough context/knowledge from the right person to do full justice to the requirements and communicate this thing clearly to your manager.</p>
+<h3 id="engineering-process-is-a-loop">Engineering process is a loop</h3>
+<p><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.stack.imgur.com%2FKdKKT.png&amp;f=1&amp;nofb=1" alt="Is the following diagrams correct for RAD and Agile &hellip;"></p>
+<p>We(Software engineers) have luxury to ship the Minimal Viable Product (MVP) and constantly evolve it incrementally. We do not need to know the final state of the project in the beginning. We should be able to collect necessary feedback and act upon data what works and what does not. This also applies to issues, gives us ability to accept stop gaps while actual fix gets released in next sprint.</p>
+<p><em>Good read:</em> <a href="https://zerodha.tech/blog/scaling-with-common-sense/"><em>Scaling with common sense - Zerodha Tech Blog</em></a></p>
+
+    </div>
+  </article>
+
+  
+  
+
+
+
+
+  
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+          <script type="text/javascript">
+          
+          (function() {
+              
+              
+              
+              
+          
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              var disqus_shortname = 'itsnikhil';
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="https://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </div>
+
+  
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/blog/">Home</a></li>
+         
+          <li><a href="/blog/posts">Writings</a></li>
+         
+          <li><a href="/blog/projects">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#perfection">Perfection</a></li>
+    <li><a href="#chasing-perfection">Chasing perfection</a>
+      <ul>
+        <li><a href="#example">Example</a></li>
+      </ul>
+    </li>
+    <li><a href="#finding-the-balance">Finding the balance</a>
+      <ul>
+        <li><a href="#understand-the-requirements">Understand the requirements</a></li>
+        <li><a href="#know-your-customer">Know your customer</a></li>
+        <li><a href="#what-are-your-expertise">What are your expertise</a></li>
+        <li><a href="#engineering-process-is-a-loop">Engineering process is a loop</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fdone-is-better-than-perfect%2f">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fdone-is-better-than-perfect%2f&text=Done%20is%20better%20than%20perfect">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fdone-is-better-than-perfect%2f&title=Done%20is%20better%20than%20perfect">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fdone-is-better-than-perfect%2f&is_video=false&description=Done%20is%20better%20than%20perfect">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Done%20is%20better%20than%20perfect&body=Check out this article: https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fdone-is-better-than-perfect%2f">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fdone-is-better-than-perfect%2f&title=Done%20is%20better%20than%20perfect">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fdone-is-better-than-perfect%2f&title=Done%20is%20better%20than%20perfect">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.stumbleupon.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fdone-is-better-than-perfect%2f&title=Done%20is%20better%20than%20perfect">
+      <i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://digg.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fdone-is-better-than-perfect%2f&title=Done%20is%20better%20than%20perfect">
+      <i class="fab fa-digg fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fdone-is-better-than-perfect%2f&name=Done%20is%20better%20than%20perfect&description=Every%20new%20codebase%20I%20used%20to%20touch%2c%20I%20could%20find%20some%20place%20where%20something%20can%20be%20improved%20by%20using%20a%20different%20data%20structure%2c%20or%20an%20algorithm%2c%20or%20some%20design%20pattern%20avoiding%20nested%20if-else%2c%20or%20simply%20abstracting%20big%20functions%20into%20smaller%20ones.%20But%20as%20when%20I%20started%20working%20on%20big%20features%20I%20came%20to%20realize%20this%20famous%20saying%20of%20Done%20is%20better%20than%20perfect">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fdone-is-better-than-perfect%2f&t=Done%20is%20better%20than%20perfect">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu" class="icon" href="javascript:void(0);" onclick="toggleVisibility(document.getElementById('nav-footer'))">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="javascript:void(0);" onclick="toggleVisibility(document.getElementById('toc-footer'))">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="javascript:void(0);" onclick="toggleVisibility(document.getElementById('share-footer'))">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="javascript:void(0);" onclick="window.scrollTo({top: 0, left: 0, behavior: 'smooth'});">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2022  ItsNikhil 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/blog/">Home</a></li>
+         
+        <li><a href="/blog/posts">Writings</a></li>
+         
+        <li><a href="/blog/projects">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css" media="print" onload="this.media='all'">
+<script src="/js/main.js"></script>
+
+
+
+</html>

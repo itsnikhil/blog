@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>zomato on ItsNikhil</title>
+    <link>https://itsnikhil.github.io/blog/categories/zomato/</link>
+    <description>Recent content in zomato on ItsNikhil</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>ItsNikhil</copyright>
+    <lastBuildDate>Sun, 01 May 2022 00:30:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://itsnikhil.github.io/blog/categories/zomato/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Zomato Improvement Proposal (ZIP-001): Gigs system matchings</title>
+      <link>https://itsnikhil.github.io/blog/posts/zomato-improvement-proposal-zip-gigs-system-matchings/</link>
+      <pubDate>Sun, 01 May 2022 00:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/posts/zomato-improvement-proposal-zip-gigs-system-matchings/</guid>
+      <description>ZIP: 1 Title: Gigs system matchings Author: Nikhil Taneja &amp;lt;itsnikhil@duck.com&amp;gt; Status: Proposal Type: Process Created: 2022-01-05  Zomato&amp;rsquo;s Gig System Zomato&amp;rsquo;s gig system is an economic system for delivery partners of the company. In Gigs system, Delivery partners book &amp;ldquo;gigs&amp;rdquo; which are their preferred timeslots of work. For completion of every gig, a delivery partner has to complete a few minimum login hours criteria. Delivery partners can browse available gigs a couple days in advance.</description>
+    </item>
+    
+  </channel>
+</rss>

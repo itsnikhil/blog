@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>goroutine on ItsNikhil</title>
+    <link>https://itsnikhil.github.io/blog/tags/goroutine/</link>
+    <description>Recent content in goroutine on ItsNikhil</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>ItsNikhil</copyright>
+    <lastBuildDate>Tue, 03 Aug 2021 11:30:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://itsnikhil.github.io/blog/tags/goroutine/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Understanding concurrency in go</title>
+      <link>https://itsnikhil.github.io/blog/posts/mastering-concurrency-in-go/</link>
+      <pubDate>Tue, 03 Aug 2021 11:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/posts/mastering-concurrency-in-go/</guid>
+      <description>Concurrency is about dealing with lots of things at once. Parallelism is about doing lots of things at once - Rob Pike
+ Go language itself provides some features to handle concurrency out of the box, hiding all the complexities so that developers write better, faster, more efficient code. These features include :-
+Goroutines: A goroutine is a lightweight thread managed by the Go runtime.
+Just add go in front of your function call to convert it into goroutine and you can take advantage of concurrency.</description>
+    </item>
+    
+  </channel>
+</rss>

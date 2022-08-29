@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Form Auto Submitter </title>
+  <meta name="description" content="I am a programmer interested in all sorts of technology. I like working on open source projects, writing blog articles, and reading on the internet. I also like swimming, biking and playing games. I study at The Northcap University.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="Form Auto Submitter" />
+<meta property="og:description" content="An extension that help you auto submit Microsoft Office forms at your set time so that you never miss form deadline!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://itsnikhil.github.io/blog/projects/form-auto-submitter/" />
+<meta property="article:published_time" content="2020-10-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-10-11T00:00:00+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Form Auto Submitter"/>
+<meta name="twitter:description" content="An extension that help you auto submit Microsoft Office forms at your set time so that you never miss form deadline!"/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://itsnikhil.github.io/blog/css/style-white.css">
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://itsnikhil.github.io/blog/images/favicon.ico" />
+
+  
+  
+  
+  
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-119427755-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    
+  
+</head>
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#" class="active"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="window.scrollTo({top: 0, left: 0, behavior: 'smooth'});" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu" style="visibility: visible;">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/blog/">Home</a></li>
+         
+        <li><a href="/blog/posts">Writings</a></li>
+         
+        <li><a href="/blog/projects">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://itsnikhil.github.io/blog/form-auto-submitter/privacy/">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="toggleVisibility(document.getElementById('i-prev'))" onmouseout="toggleVisibility(document.getElementById('i-prev'))"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="https://itsnikhil.github.io/blog/projects/secret-coded-lock/">
+            <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="toggleVisibility(document.getElementById('i-next'))" onmouseout="toggleVisibility(document.getElementById('i-next'))"></i>
+          </a>
+        </li>
+        
+        <li>
+          <a class="icon" href="#" onclick="window.scrollTo({top: 0, left: 0, behavior: 'smooth'});">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="toggleVisibility(document.getElementById('i-top'))" onmouseout="toggleVisibility(document.getElementById('i-top'))"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="toggleVisibility(document.getElementById('i-share'))" onmouseout="toggleVisibility(document.getElementById('i-share'))" onclick="toggleVisibility(document.getElementById('share'))"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fform-auto-submitter%2f">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fform-auto-submitter%2f&text=Form%20Auto%20Submitter">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fform-auto-submitter%2f&title=Form%20Auto%20Submitter">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fform-auto-submitter%2f&is_video=false&description=Form%20Auto%20Submitter">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Form%20Auto%20Submitter&body=Check out this article: https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fform-auto-submitter%2f">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fform-auto-submitter%2f&title=Form%20Auto%20Submitter">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fform-auto-submitter%2f&title=Form%20Auto%20Submitter">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.stumbleupon.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fform-auto-submitter%2f&title=Form%20Auto%20Submitter">
+      <i class="fab fa-stumbleupon " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://digg.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fform-auto-submitter%2f&title=Form%20Auto%20Submitter">
+      <i class="fab fa-digg " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fform-auto-submitter%2f&name=Form%20Auto%20Submitter&description=An%20extension%20that%20help%20you%20auto%20submit%20Microsoft%20Office%20forms%20at%20your%20set%20time%20so%20that%20you%20never%20miss%20form%20deadline%21">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fform-auto-submitter%2f&t=Form%20Auto%20Submitter">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#installation">Installation</a>
+      <ul>
+        <li><a href="#manual-installation">Manual Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#steps-to-use">Steps to use:</a></li>
+    <li><a href="#other-powerful-features">Other powerful features:</a></li>
+  </ul>
+</nav>
+    </div>
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        Form Auto Submitter
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2020-10-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-10-11</time>
+          
+        </div>
+        
+        <div class="article-category">
+            <i class="fas fa-archive"></i>
+            
+            
+            <a class="category-link" href="/blog/categories/miscellaneous">Miscellaneous</a>
+            
+        </div>
+        
+        
+        <div class="article-tag">
+            <i class="fas fa-tag"></i>
+            
+            
+            <a class="tag-link" href="/blog/tags/microsoft" rel="tag">Microsoft</a>
+            
+            
+            <a class="tag-link" href="/blog/tags/office" rel="tag">Office</a>
+            
+             ,  
+            <a class="tag-link" href="/blog/tags/form" rel="tag">Form</a>
+            
+             ,  
+            <a class="tag-link" href="/blog/tags/autosubmit" rel="tag">Autosubmit</a>
+            
+             ,  
+            <a class="tag-link" href="/blog/tags/submitter" rel="tag">Submitter</a>
+            
+             ,  
+            <a class="tag-link" href="/blog/tags/chrome" rel="tag">Chrome</a>
+            
+             ,  
+            <a class="tag-link" href="/blog/tags/extension" rel="tag">Extension</a>
+            
+        </div> 
+        
+      </div>
+    </header>
+
+  
+    <div class="content" itemprop="articleBody">
+      <p><img src="/blog/img/promo2.png" alt="Form Auto Submitter banner"></p>
+<blockquote>
+<p>Worried about missing the deadline to submit your online exam?</p>
+<p>This extension will help you auto submit Microsoft Office forms at your set time so that you never miss your deadline again!</p>
+</blockquote>
+<h2 id="installation">Installation</h2>
+<p><strong>Get it from Microsoft Edge Extensions Store</strong>:</p>
+<p><a href="https://microsoftedge.microsoft.com/addons/detail/office-form-auto-submit/plnfbbohkagpfojbbdmjachggboeakpo">https://microsoftedge.microsoft.com/addons/detail/office-form-auto-submit/plnfbbohkagpfojbbdmjachggboeakpo</a></p>
+<h3 id="manual-installation">Manual Installation</h3>
+<p><img src="/blog/img/installed.png" alt="Installed extension"></p>
+<ul>
+<li>First clone the project</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone https://github.com/itsnikhil/auto-form-submitter.git
+</code></pre></div><ul>
+<li>Open Chrome or Microsoft&rsquo;s chromium based Edge browser</li>
+<li>From top right three dots button menu, <strong>Go to Extenstions</strong></li>
+<li>Click <strong>Load unpacked</strong></li>
+<li>Give the path to director where you have cloned the project</li>
+<li>Try it out on <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAANAAdCUielUNDlXQ09NUkJBTU5QT0IxR1lWNUZKTk1VNy4u">this Micorosoft Office form</a></li>
+</ul>
+<h2 id="steps-to-use">Steps to use:</h2>
+<ol>
+<li>Open an office form <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAANAAdCUielUNDlXQ09NUkJBTU5QT0IxR1lWNUZKTk1VNy4u">for example</a></li>
+<li>Hit <strong>Ctrl+Shift+F</strong> or Click on the extension icon</li>
+<li><strong>Set a deadline</strong></li>
+<li>Click <strong>Save</strong></li>
+<li>By default form auto submitter is disabled. <strong>Enable the toggle!</strong></li>
+<li>Count down timer will appear</li>
+</ol>
+<p>Extension will automatically submit the form for you at that given time in the background even if you are not on that tab</p>
+<h2 id="other-powerful-features">Other powerful features:</h2>
+<ul>
+<li>You can modify the deadline by updating the time but don&rsquo;t forget to hit &ldquo;Save&rdquo;</li>
+<li>You can DISABLE auto submit anytime</li>
+</ul>
+
+    </div>
+  </article>
+
+  
+  
+
+
+
+
+  
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+          <script type="text/javascript">
+          
+          (function() {
+              
+              
+              
+              
+          
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              var disqus_shortname = 'itsnikhil';
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="https://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </div>
+
+  
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/blog/">Home</a></li>
+         
+          <li><a href="/blog/posts">Writings</a></li>
+         
+          <li><a href="/blog/projects">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#installation">Installation</a>
+      <ul>
+        <li><a href="#manual-installation">Manual Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#steps-to-use">Steps to use:</a></li>
+    <li><a href="#other-powerful-features">Other powerful features:</a></li>
+  </ul>
+</nav>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fform-auto-submitter%2f">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fform-auto-submitter%2f&text=Form%20Auto%20Submitter">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fform-auto-submitter%2f&title=Form%20Auto%20Submitter">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fform-auto-submitter%2f&is_video=false&description=Form%20Auto%20Submitter">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Form%20Auto%20Submitter&body=Check out this article: https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fform-auto-submitter%2f">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fform-auto-submitter%2f&title=Form%20Auto%20Submitter">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fform-auto-submitter%2f&title=Form%20Auto%20Submitter">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.stumbleupon.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fform-auto-submitter%2f&title=Form%20Auto%20Submitter">
+      <i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://digg.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fform-auto-submitter%2f&title=Form%20Auto%20Submitter">
+      <i class="fab fa-digg fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fform-auto-submitter%2f&name=Form%20Auto%20Submitter&description=An%20extension%20that%20help%20you%20auto%20submit%20Microsoft%20Office%20forms%20at%20your%20set%20time%20so%20that%20you%20never%20miss%20form%20deadline%21">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fform-auto-submitter%2f&t=Form%20Auto%20Submitter">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu" class="icon" href="javascript:void(0);" onclick="toggleVisibility(document.getElementById('nav-footer'))">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="javascript:void(0);" onclick="toggleVisibility(document.getElementById('toc-footer'))">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="javascript:void(0);" onclick="toggleVisibility(document.getElementById('share-footer'))">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="javascript:void(0);" onclick="window.scrollTo({top: 0, left: 0, behavior: 'smooth'});">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2022  ItsNikhil 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/blog/">Home</a></li>
+         
+        <li><a href="/blog/posts">Writings</a></li>
+         
+        <li><a href="/blog/projects">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css" media="print" onload="this.media='all'">
+<script src="/js/main.js"></script>
+
+
+
+</html>

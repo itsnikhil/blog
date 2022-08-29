@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>programming on ItsNikhil</title>
+    <link>https://itsnikhil.github.io/blog/categories/programming/</link>
+    <description>Recent content in programming on ItsNikhil</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>ItsNikhil</copyright>
+    <lastBuildDate>Fri, 06 Aug 2021 18:30:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://itsnikhil.github.io/blog/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Clarify function calls with keyword arguments - JavaScript</title>
+      <link>https://itsnikhil.github.io/blog/posts/clarify-function-calls-with-keyword-arguments-javascript/</link>
+      <pubDate>Fri, 06 Aug 2021 18:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/posts/clarify-function-calls-with-keyword-arguments-javascript/</guid>
+      <description>While working with many JavaScript libraries you might have come across this common pattern where in the function call you pass an object many-a-times often referred as options. There is a reason why this is a common good practice and in this article I will be giving the reasoning behind this practice.
+Common options pattern Let&amp;rsquo;s say you are working on an existing codebase and see the following code
+twitter_search(&amp;#39;@obama&amp;#39;, False, 20, True) Some eagle eyed person amongst you might have noticed I have F and T capital in Boolean, that&amp;rsquo;s because it&amp;rsquo;s not JavaScript.</description>
+    </item>
+    
+    <item>
+      <title>Understanding concurrency in go</title>
+      <link>https://itsnikhil.github.io/blog/posts/mastering-concurrency-in-go/</link>
+      <pubDate>Tue, 03 Aug 2021 11:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/posts/mastering-concurrency-in-go/</guid>
+      <description>Concurrency is about dealing with lots of things at once. Parallelism is about doing lots of things at once - Rob Pike
+ Go language itself provides some features to handle concurrency out of the box, hiding all the complexities so that developers write better, faster, more efficient code. These features include :-
+Goroutines: A goroutine is a lightweight thread managed by the Go runtime.
+Just add go in front of your function call to convert it into goroutine and you can take advantage of concurrency.</description>
+    </item>
+    
+    <item>
+      <title>Algorithm behind TNB Analysis</title>
+      <link>https://itsnikhil.github.io/blog/posts/algorithm-behind-tnb-analysis/</link>
+      <pubDate>Mon, 25 Jan 2021 09:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/posts/algorithm-behind-tnb-analysis/</guid>
+      <description>TNB or thenewboston is a digital cryptocurrency network which is being developed by Bucky Roberts and open source community of which I am part of. There are thousands of registered accounts which will increase rapidly in future. At the time of writing this article there are 90 JSON files. My task was to process each of these JSON files and output results providing insights like total coins distribution over time period, total number of accounts, richest account information, wealth distribution, etc.</description>
+    </item>
+    
+    <item>
+      <title>Is pythonic way the better way?</title>
+      <link>https://itsnikhil.github.io/blog/posts/is-pythonic-way-the-better-way/</link>
+      <pubDate>Mon, 11 Jan 2021 09:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/posts/is-pythonic-way-the-better-way/</guid>
+      <description>Here I have shared my thoughts on some of the pythonic way coding style. These are not design patterns (which are best practices used by experienced object-oriented software developers) of any sort, just some ways of writing code differently or I should say more pythonic.
+If you might not already know - Python is an interpreted, interactive, object-oriented programming language. But more importantly, Python is a programming language that lets you work more quickly and integrate your systems more effectively.</description>
+    </item>
+    
+  </channel>
+</rss>

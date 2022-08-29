@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Clarify function calls with keyword arguments - JavaScript </title>
+  <meta name="description" content="I am a programmer interested in all sorts of technology. I like working on open source projects, writing blog articles, and reading on the internet. I also like swimming, biking and playing games. I study at The Northcap University.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="Clarify function calls with keyword arguments - JavaScript" />
+<meta property="og:description" content="While working with many JavaScript libraries you might have come across this common pattern where in the function call you pass an object many-a-times often referred as options. There is a reason why this is a common good practice and in this article I will be giving the reasoning behind this practice." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://itsnikhil.github.io/blog/posts/clarify-function-calls-with-keyword-arguments-javascript/" />
+<meta property="article:published_time" content="2021-08-06T18:30:00+00:00" />
+<meta property="article:modified_time" content="2021-08-06T18:30:00+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Clarify function calls with keyword arguments - JavaScript"/>
+<meta name="twitter:description" content="While working with many JavaScript libraries you might have come across this common pattern where in the function call you pass an object many-a-times often referred as options. There is a reason why this is a common good practice and in this article I will be giving the reasoning behind this practice."/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://itsnikhil.github.io/blog/css/style-white.css">
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://itsnikhil.github.io/blog/images/favicon.ico" />
+
+  
+  
+  
+  
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-119427755-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    
+  
+</head>
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#" class="active"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="window.scrollTo({top: 0, left: 0, behavior: 'smooth'});" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu" style="visibility: visible;">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/blog/">Home</a></li>
+         
+        <li><a href="/blog/posts">Writings</a></li>
+         
+        <li><a href="/blog/projects">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://itsnikhil.github.io/blog/posts/mastering-concurrency-in-go/">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="toggleVisibility(document.getElementById('i-prev'))" onmouseout="toggleVisibility(document.getElementById('i-prev'))"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="https://itsnikhil.github.io/blog/posts/architecting-discord-bot-the-right-way/">
+            <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="toggleVisibility(document.getElementById('i-next'))" onmouseout="toggleVisibility(document.getElementById('i-next'))"></i>
+          </a>
+        </li>
+        
+        <li>
+          <a class="icon" href="#" onclick="window.scrollTo({top: 0, left: 0, behavior: 'smooth'});">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="toggleVisibility(document.getElementById('i-top'))" onmouseout="toggleVisibility(document.getElementById('i-top'))"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="toggleVisibility(document.getElementById('i-share'))" onmouseout="toggleVisibility(document.getElementById('i-share'))" onclick="toggleVisibility(document.getElementById('share'))"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fclarify-function-calls-with-keyword-arguments-javascript%2f">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fclarify-function-calls-with-keyword-arguments-javascript%2f&text=Clarify%20function%20calls%20with%20keyword%20arguments%20-%20JavaScript">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fclarify-function-calls-with-keyword-arguments-javascript%2f&title=Clarify%20function%20calls%20with%20keyword%20arguments%20-%20JavaScript">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fclarify-function-calls-with-keyword-arguments-javascript%2f&is_video=false&description=Clarify%20function%20calls%20with%20keyword%20arguments%20-%20JavaScript">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Clarify%20function%20calls%20with%20keyword%20arguments%20-%20JavaScript&body=Check out this article: https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fclarify-function-calls-with-keyword-arguments-javascript%2f">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fclarify-function-calls-with-keyword-arguments-javascript%2f&title=Clarify%20function%20calls%20with%20keyword%20arguments%20-%20JavaScript">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fclarify-function-calls-with-keyword-arguments-javascript%2f&title=Clarify%20function%20calls%20with%20keyword%20arguments%20-%20JavaScript">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.stumbleupon.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fclarify-function-calls-with-keyword-arguments-javascript%2f&title=Clarify%20function%20calls%20with%20keyword%20arguments%20-%20JavaScript">
+      <i class="fab fa-stumbleupon " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://digg.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fclarify-function-calls-with-keyword-arguments-javascript%2f&title=Clarify%20function%20calls%20with%20keyword%20arguments%20-%20JavaScript">
+      <i class="fab fa-digg " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fclarify-function-calls-with-keyword-arguments-javascript%2f&name=Clarify%20function%20calls%20with%20keyword%20arguments%20-%20JavaScript&description=While%20working%20with%20many%20JavaScript%20libraries%20you%20might%20have%20come%20across%20this%20common%20pattern%20where%20in%20the%20function%20call%20you%20pass%20an%20object%20many-a-times%20often%20referred%20as%20options.%20There%20is%20a%20reason%20why%20this%20is%20a%20common%20good%20practice%20and%20in%20this%20article%20I%20will%20be%20giving%20the%20reasoning%20behind%20this%20practice.">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fclarify-function-calls-with-keyword-arguments-javascript%2f&t=Clarify%20function%20calls%20with%20keyword%20arguments%20-%20JavaScript">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#common-options-pattern">Common options pattern</a></li>
+        <li><a href="#from-the-library-developer-perspective">From the library developer perspective</a></li>
+        <li><a href="#general-rule">General rule</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        Clarify function calls with keyword arguments - JavaScript
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2021-08-06 18:30:00 &#43;0000 UTC" itemprop="datePublished">2021-08-06</time>
+          
+        </div>
+        
+        <div class="article-category">
+            <i class="fas fa-archive"></i>
+            
+            
+            <a class="category-link" href="/blog/categories/javascript">JavaScript</a>
+            
+            
+            <a class="category-link" href="/blog/categories/programming">Programming</a>
+            
+        </div>
+        
+        
+        <div class="article-tag">
+            <i class="fas fa-tag"></i>
+            
+            
+            <a class="tag-link" href="/blog/tags/code-readability" rel="tag">Code readability </a>
+            
+            
+            <a class="tag-link" href="/blog/tags/good-practice" rel="tag">Good practice</a>
+            
+        </div> 
+        
+      </div>
+    </header>
+
+  
+    <div class="content" itemprop="articleBody">
+      <p>While working with many JavaScript libraries you might have come across this common pattern where in the function call you pass an object many-a-times often referred as <code>options</code>. There is a reason why this is a common good practice and in this article I will be giving the reasoning behind this practice.</p>
+<h3 id="common-options-pattern">Common options pattern</h3>
+<p>Let&rsquo;s say you are working on an existing codebase and see the following code</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">twitter_search(<span style="color:#e6db74">&#39;@obama&#39;</span>, False, <span style="color:#ae81ff">20</span>, True)
+</code></pre></div><p><em>Some eagle eyed person amongst you might have noticed I have F and T capital in Boolean, that&rsquo;s because it&rsquo;s not JavaScript. This example had been taken from a talk &ldquo;Transforming Code into Beautiful, Idiomatic Python&rdquo; by Raymond Hettinger.</em></p>
+<p>In a company there are many people working on same codebase and let&rsquo;s say it was not you who wrote the above code. You might be able to tell this function will search for tweets where Obama has been tagged and maybe you could guess we need to fetch 20 such tweets but False and True what does that mean? You would have to memorize the arguments to check that.</p>
+<p>In Python, solving this problem is simple using named arguments. In this way, your function call would become</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">twitter_search(<span style="color:#e6db74">&#39;@obama&#39;</span>, retweets<span style="color:#f92672">=</span>False, numtweets<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>, popular<span style="color:#f92672">=</span>True)
+</code></pre></div><p>But unfortunately we do not have luxury of named parameters in JavaScript but we have objects to the rescue.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">twitterSearch</span>(<span style="color:#e6db74">&#39;@obama&#39;</span>, {
+	<span style="color:#a6e22e">retweets</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+    <span style="color:#a6e22e">numtweets</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">20</span>,
+    <span style="color:#a6e22e">popular</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
+});
+</code></pre></div><p>If you have worked with mongoose library, they share the similar API</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">await</span> <span style="color:#a6e22e">mongoose</span>.<span style="color:#a6e22e">connect</span>(<span style="color:#e6db74">&#39;mongodb://localhost/my_database&#39;</span>, {
+    <span style="color:#a6e22e">useNewUrlParser</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+    <span style="color:#a6e22e">useUnifiedTopology</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+    <span style="color:#a6e22e">useFindAndModify</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+    <span style="color:#a6e22e">useCreateIndex</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
+});
+</code></pre></div><h3 id="from-the-library-developer-perspective">From the library developer perspective</h3>
+<p>Let&rsquo;s say you are writing a module which formats date into a specified format (just for the sake of an example)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">formatToString</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">day</span>, <span style="color:#a6e22e">month</span>, <span style="color:#a6e22e">year</span>, <span style="color:#a6e22e">format</span>, <span style="color:#a6e22e">sep</span>) =&gt; {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">dd</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">day</span>.<span style="color:#a6e22e">toString</span>().<span style="color:#a6e22e">padStart</span>(<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">0</span>);
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">mm</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">month</span>.<span style="color:#a6e22e">toString</span>().<span style="color:#a6e22e">padStart</span>(<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">0</span>);
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">yyyy</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">year</span>.<span style="color:#a6e22e">toString</span>();
+
+    <span style="color:#66d9ef">switch</span> (<span style="color:#a6e22e">format</span>) {
+        <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;dmy&#39;</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">return</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">dd</span><span style="color:#e6db74">}${</span><span style="color:#a6e22e">sep</span><span style="color:#e6db74">}${</span><span style="color:#a6e22e">mm</span><span style="color:#e6db74">}${</span><span style="color:#a6e22e">sep</span><span style="color:#e6db74">}${</span><span style="color:#a6e22e">yyyy</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>;
+        <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;mdy&#39;</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">return</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">mm</span><span style="color:#e6db74">}${</span><span style="color:#a6e22e">sep</span><span style="color:#e6db74">}${</span><span style="color:#a6e22e">dd</span><span style="color:#e6db74">}${</span><span style="color:#a6e22e">sep</span><span style="color:#e6db74">}${</span><span style="color:#a6e22e">yyyy</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>;
+        <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;ymd&#39;</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">return</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">yyyy</span><span style="color:#e6db74">}${</span><span style="color:#a6e22e">sep</span><span style="color:#e6db74">}${</span><span style="color:#a6e22e">mm</span><span style="color:#e6db74">}${</span><span style="color:#a6e22e">sep</span><span style="color:#e6db74">}${</span><span style="color:#a6e22e">dd</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>;
+        <span style="color:#66d9ef">default</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">return</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">yyyy</span><span style="color:#e6db74">}${</span><span style="color:#a6e22e">sep</span><span style="color:#e6db74">}${</span><span style="color:#a6e22e">mm</span><span style="color:#e6db74">}${</span><span style="color:#a6e22e">sep</span><span style="color:#e6db74">}${</span><span style="color:#a6e22e">dd</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>;
+    }
+}
+
+<span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">formatDate</span>(<span style="color:#a6e22e">date</span>, <span style="color:#a6e22e">format</span>, <span style="color:#a6e22e">separator</span>, <span style="color:#a6e22e">options</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">skipInvalid</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>, <span style="color:#a6e22e">overrideInvalidWith</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> Date()}) {
+        <span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">skipInvalid</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">hasOwnProperty</span>(<span style="color:#e6db74">&#39;skipInvalid&#39;</span>) <span style="color:#f92672">?</span> <span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">skipInvalid</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>;
+        <span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">overrideInvalidWith</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">hasOwnProperty</span>(<span style="color:#e6db74">&#39;overrideInvalidWith&#39;</span>) <span style="color:#f92672">?</span> <span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">overrideInvalidWith</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> Date();
+        
+		<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">dateObj</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date(<span style="color:#a6e22e">date</span>);
+        <span style="color:#66d9ef">if</span> (isNaN(<span style="color:#a6e22e">dateObj</span>)){
+            <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">skipInvalid</span>)
+            	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span>;
+            <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">overrideInvalidValue</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date(<span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">overrideInvalidWith</span>);
+            <span style="color:#66d9ef">if</span> (isNaN(<span style="color:#a6e22e">overrideInvalidValue</span>))
+            	<span style="color:#a6e22e">overrideInvalidValue</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date();
+            <span style="color:#a6e22e">dateObj</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">overrideInvalidValue</span>;
+        }
+        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">day</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">dateObj</span>.<span style="color:#a6e22e">getDate</span>();
+        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">month</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">dateObj</span>.<span style="color:#a6e22e">getMonth</span>() <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">year</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">dateObj</span>.<span style="color:#a6e22e">getFullYear</span>();
+
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">formatToString</span>(<span style="color:#a6e22e">day</span>, <span style="color:#a6e22e">month</span>, <span style="color:#a6e22e">year</span>, <span style="color:#a6e22e">format</span>, <span style="color:#a6e22e">separator</span>);
+    }
+}
+</code></pre></div><p>This module export <code>formatDate</code> public function which take date, format, separator and a couple of optional parameters. And the function call will be like</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">formatDate</span>(<span style="color:#e6db74">&#34;2021-08-07T12:06:07.484Z&#34;</span>, <span style="color:#e6db74">&#34;ymd&#34;</span>, <span style="color:#e6db74">&#34;-&#34;</span>) <span style="color:#75715e">// without options
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">formatDate</span>(<span style="color:#e6db74">&#34;2021-08-07T12:06:07.484Z&#34;</span>, <span style="color:#e6db74">&#34;ymd&#34;</span>, <span style="color:#e6db74">&#34;-&#34;</span>, {<span style="color:#a6e22e">skipInvalid</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>}) <span style="color:#75715e">// converts invalid date to null
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">formatDate</span>(<span style="color:#e6db74">&#34;2021-08-07T12:06:07.484Z&#34;</span>, <span style="color:#e6db74">&#34;ymd&#34;</span>, <span style="color:#e6db74">&#34;-&#34;</span>, {<span style="color:#a6e22e">overrideInvalidWith</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;2021-08-07T12:06:07.484Z&#34;</span>})
+
+<span style="color:#75715e">// special edge case which need to be handled by library properly using hasOwnProperty
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">formatDate</span>(<span style="color:#e6db74">&#34;2021-08-07T12:06:07.484Z&#34;</span>, <span style="color:#e6db74">&#34;ymd&#34;</span>, <span style="color:#e6db74">&#34;-&#34;</span>, {})
+</code></pre></div><p>Checking if options have been initialized properly with <code>hasOwnProperty</code> might slow down your code by a little bit but really what are you trying to save &ldquo;micro-seconds&rdquo; or &ldquo;hours of programmer&rsquo;s time&rdquo;? I hope your answer is hours of programmer time. This simple transformation improves code readability a lot.</p>
+<p>Another advantage of having options is that we can add other optional arguments with sensible defaults without breaking existing functionality from the library consumer&rsquo;s end.</p>
+<h3 id="general-rule">General rule</h3>
+<p>Whenever you see a need for having a optional parameter which has some default value, consider using options object as one of the parameter which will provide all these benefits. For private function like <code>formatToString</code> in the above example it does not make use of options object because it has not been exposed to the outside world,  it&rsquo;s scope is limited to that particular file only.</p>
+
+    </div>
+  </article>
+
+  
+  
+
+
+
+
+  
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+          <script type="text/javascript">
+          
+          (function() {
+              
+              
+              
+              
+          
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              var disqus_shortname = 'itsnikhil';
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="https://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </div>
+
+  
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/blog/">Home</a></li>
+         
+          <li><a href="/blog/posts">Writings</a></li>
+         
+          <li><a href="/blog/projects">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#common-options-pattern">Common options pattern</a></li>
+        <li><a href="#from-the-library-developer-perspective">From the library developer perspective</a></li>
+        <li><a href="#general-rule">General rule</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fclarify-function-calls-with-keyword-arguments-javascript%2f">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fclarify-function-calls-with-keyword-arguments-javascript%2f&text=Clarify%20function%20calls%20with%20keyword%20arguments%20-%20JavaScript">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fclarify-function-calls-with-keyword-arguments-javascript%2f&title=Clarify%20function%20calls%20with%20keyword%20arguments%20-%20JavaScript">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fclarify-function-calls-with-keyword-arguments-javascript%2f&is_video=false&description=Clarify%20function%20calls%20with%20keyword%20arguments%20-%20JavaScript">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Clarify%20function%20calls%20with%20keyword%20arguments%20-%20JavaScript&body=Check out this article: https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fclarify-function-calls-with-keyword-arguments-javascript%2f">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fclarify-function-calls-with-keyword-arguments-javascript%2f&title=Clarify%20function%20calls%20with%20keyword%20arguments%20-%20JavaScript">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fclarify-function-calls-with-keyword-arguments-javascript%2f&title=Clarify%20function%20calls%20with%20keyword%20arguments%20-%20JavaScript">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.stumbleupon.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fclarify-function-calls-with-keyword-arguments-javascript%2f&title=Clarify%20function%20calls%20with%20keyword%20arguments%20-%20JavaScript">
+      <i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://digg.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fclarify-function-calls-with-keyword-arguments-javascript%2f&title=Clarify%20function%20calls%20with%20keyword%20arguments%20-%20JavaScript">
+      <i class="fab fa-digg fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fclarify-function-calls-with-keyword-arguments-javascript%2f&name=Clarify%20function%20calls%20with%20keyword%20arguments%20-%20JavaScript&description=While%20working%20with%20many%20JavaScript%20libraries%20you%20might%20have%20come%20across%20this%20common%20pattern%20where%20in%20the%20function%20call%20you%20pass%20an%20object%20many-a-times%20often%20referred%20as%20options.%20There%20is%20a%20reason%20why%20this%20is%20a%20common%20good%20practice%20and%20in%20this%20article%20I%20will%20be%20giving%20the%20reasoning%20behind%20this%20practice.">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fclarify-function-calls-with-keyword-arguments-javascript%2f&t=Clarify%20function%20calls%20with%20keyword%20arguments%20-%20JavaScript">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu" class="icon" href="javascript:void(0);" onclick="toggleVisibility(document.getElementById('nav-footer'))">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="javascript:void(0);" onclick="toggleVisibility(document.getElementById('toc-footer'))">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="javascript:void(0);" onclick="toggleVisibility(document.getElementById('share-footer'))">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="javascript:void(0);" onclick="window.scrollTo({top: 0, left: 0, behavior: 'smooth'});">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2022  ItsNikhil 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/blog/">Home</a></li>
+         
+        <li><a href="/blog/posts">Writings</a></li>
+         
+        <li><a href="/blog/projects">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css" media="print" onload="this.media='all'">
+<script src="/js/main.js"></script>
+
+
+
+</html>

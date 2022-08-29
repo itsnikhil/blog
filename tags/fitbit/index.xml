@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fitbit on ItsNikhil</title>
+    <link>https://itsnikhil.github.io/blog/tags/fitbit/</link>
+    <description>Recent content in Fitbit on ItsNikhil</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>ItsNikhil</copyright>
+    <lastBuildDate>Mon, 23 Nov 2020 00:00:01 +0000</lastBuildDate>
+    
+	<atom:link href="https://itsnikhil.github.io/blog/tags/fitbit/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Journal Fitit App</title>
+      <link>https://itsnikhil.github.io/blog/projects/journal/</link>
+      <pubDate>Mon, 23 Nov 2020 00:00:01 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/projects/journal/</guid>
+      <description>Journal - A daily record of news and events of a personal nature; a diary.
+It uses proven psychological techniques of mindfulness and cognitive behavior to help you live a happier life. It is a personal tool to motivate and to look back and analyze your life events.
+Use Journal to log your memorable events of the day by answering a set of simple questions. See up-to past 5 days of your record to reflect upon your life.</description>
+    </item>
+    
+    <item>
+      <title>Year in Pixel with Journal</title>
+      <link>https://itsnikhil.github.io/blog/posts/year-in-pixel-with-journal/</link>
+      <pubDate>Mon, 21 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/posts/year-in-pixel-with-journal/</guid>
+      <description>Step-by-step guide to setup Journal with IFTTT Make sure you are on Journal v4.0 or above Background  Mail from: Keira Kenealy,
+Hello so I downloaded your journal app a long time ago I saw the update and updated for about a month it has not been opening I just now saw the warning please please please fix it I love this app but wish I could use it thanks! Is there anyway i can fix it myself?</description>
+    </item>
+    
+  </channel>
+</rss>

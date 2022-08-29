@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Gmbot - Chatbot for gamers </title>
+  <meta name="description" content="I am a programmer interested in all sorts of technology. I like working on open source projects, writing blog articles, and reading on the internet. I also like swimming, biking and playing games. I study at The Northcap University.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="Gmbot - Chatbot for gamers" />
+<meta property="og:description" content="A complete clan war system built for gamers in form of a discord chatbot" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://itsnikhil.github.io/blog/projects/gmbot/" />
+<meta property="article:published_time" content="2020-09-09T09:00:00+00:00" />
+<meta property="article:modified_time" content="2020-09-09T09:00:00+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Gmbot - Chatbot for gamers"/>
+<meta name="twitter:description" content="A complete clan war system built for gamers in form of a discord chatbot"/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://itsnikhil.github.io/blog/css/style-white.css">
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://itsnikhil.github.io/blog/images/favicon.ico" />
+
+  
+  
+  
+  
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-119427755-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    
+  
+</head>
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#" class="active"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="window.scrollTo({top: 0, left: 0, behavior: 'smooth'});" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu" style="visibility: visible;">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/blog/">Home</a></li>
+         
+        <li><a href="/blog/posts">Writings</a></li>
+         
+        <li><a href="/blog/projects">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li>
+          <a class="icon" href="https://itsnikhil.github.io/blog/posts/first/">
+            <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="toggleVisibility(document.getElementById('i-next'))" onmouseout="toggleVisibility(document.getElementById('i-next'))"></i>
+          </a>
+        </li>
+        
+        <li>
+          <a class="icon" href="#" onclick="window.scrollTo({top: 0, left: 0, behavior: 'smooth'});">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="toggleVisibility(document.getElementById('i-top'))" onmouseout="toggleVisibility(document.getElementById('i-top'))"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="toggleVisibility(document.getElementById('i-share'))" onmouseout="toggleVisibility(document.getElementById('i-share'))" onclick="toggleVisibility(document.getElementById('share'))"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fgmbot%2f">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fgmbot%2f&text=Gmbot%20-%20Chatbot%20for%20gamers">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fgmbot%2f&title=Gmbot%20-%20Chatbot%20for%20gamers">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fgmbot%2f&is_video=false&description=Gmbot%20-%20Chatbot%20for%20gamers">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Gmbot%20-%20Chatbot%20for%20gamers&body=Check out this article: https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fgmbot%2f">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fgmbot%2f&title=Gmbot%20-%20Chatbot%20for%20gamers">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fgmbot%2f&title=Gmbot%20-%20Chatbot%20for%20gamers">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.stumbleupon.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fgmbot%2f&title=Gmbot%20-%20Chatbot%20for%20gamers">
+      <i class="fab fa-stumbleupon " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://digg.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fgmbot%2f&title=Gmbot%20-%20Chatbot%20for%20gamers">
+      <i class="fab fa-digg " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fgmbot%2f&name=Gmbot%20-%20Chatbot%20for%20gamers&description=A%20complete%20clan%20war%20system%20built%20for%20gamers%20in%20form%20of%20a%20discord%20chatbot">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fgmbot%2f&t=Gmbot%20-%20Chatbot%20for%20gamers">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">INTRODUCTION</a>
+      <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#key-features">Key Features</a></li>
+        <li><a href="#how-it-works">How it works</a></li>
+        <li><a href="#roles">Roles</a></li>
+      </ul>
+    </li>
+    <li><a href="#research">RESEARCH</a>
+      <ul>
+        <li><a href="#online-gaming-communities">Online Gaming Communities</a></li>
+        <li><a href="#identifying-right-platform">Identifying right Platform</a></li>
+      </ul>
+    </li>
+    <li><a href="#concept-solution">CONCEPT/ SOLUTION</a></li>
+    <li><a href="#diagrams">DIAGRAMS</a>
+      <ul>
+        <li><a href="#flow-diagram">Flow diagram</a></li>
+        <li><a href="#tree-diagram">Tree diagram</a></li>
+      </ul>
+    </li>
+    <li><a href="#development-process">DEVELOPMENT PROCESS</a>
+      <ul>
+        <li><a href="#code-structure">Code Structure</a></li>
+        <li><a href="#list-of-commands">List of Commands</a></li>
+      </ul>
+    </li>
+    <li><a href="#database-schema">DATABASE SCHEMA</a></li>
+    <li><a href="#analytics">ANALYTICS</a>
+      <ul>
+        <li><a href="#google-analytics">Google Analytics</a></li>
+        <li><a href="#play-testing">Play Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        Gmbot - Chatbot for gamers
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2020-09-09 09:00:00 &#43;0000 UTC" itemprop="datePublished">2020-09-09</time>
+          
+        </div>
+        
+        <div class="article-category">
+            <i class="fas fa-archive"></i>
+            
+            
+            <a class="category-link" href="/blog/categories/miscellaneous">Miscellaneous</a>
+            
+        </div>
+        
+        
+        <div class="article-tag">
+            <i class="fas fa-tag"></i>
+            
+            
+            <a class="tag-link" href="/blog/tags/python" rel="tag">python</a>
+            
+            
+            <a class="tag-link" href="/blog/tags/discord" rel="tag">discord</a>
+            
+        </div> 
+        
+      </div>
+    </header>
+
+  
+    <div class="content" itemprop="articleBody">
+      <h2 id="introduction">INTRODUCTION</h2>
+<p>I used to play Clash of Clans (COC) which had a system of clan wars. Then on April 2016 I quitted from the COC and started playing Doodle Army 2: Mini Militia (DA2) and I played it a lot, so much so that I made friends from Kerala, Rajasthan, Delhi and even outside India. We friends created a group over WhatsApp and named our group Headshot Killers (HSK) and every player in that group had to put HSK after their in-game name (IGN). Similarly, other people created their own groups. Our group used to practice together and challenge other groups.</p>
+<blockquote>
+<p>In a way, I found that if we had a clan war system like the one in the Clash of Clans for Doodle Army 2: Mini Militia it would have been so nice. We requested appsomniacs developers over their Beta testers google group, they did add a friend system in one of their updates, but it was far from what we requested. Thus, this Gmbot is my gift to the community, a feature what we gamers wanted.</p>
+</blockquote>
+<h3 id="overview">Overview</h3>
+<p><img src="/blog/img/gmbot/gmbot.png" alt=""></p>
+<p>Create your clan, challenge others and grow</p>
+<ul>
+<li>After adding chatbot to a discord server, the server acts as a &ldquo;Clan&rdquo;. All the users in that server acts as clan members or co-leaders or leader. A clan can create or participate in &ldquo;Clan Wars&rdquo;. Team up with allies and fight other clans! Each win grants you a certain amount of Glory points.</li>
+<li>These clan wars are played in many types of formats depending upon games:
+<ul>
+<li>1x1 match</li>
+<li>2x2 match</li>
+<li>3x3 match</li>
+<li>4x4 match</li>
+</ul>
+</li>
+</ul>
+<h3 id="key-features">Key Features</h3>
+<ul>
+<li>No need for maintaining spreadsheets for match records</li>
+<li>Simple easy commands with help guide</li>
+<li>Finding similar gaming community</li>
+<li>Leader board of Glory points</li>
+<li>Roles to manage clan</li>
+<li>Statistics of clan</li>
+</ul>
+<h3 id="how-it-works">How it works</h3>
+<ol>
+<li>A clan leader or co-leader creates a war request taking some players who are available and game</li>
+<li>Other clans who have subscribed to that game will receive challenge request</li>
+<li>One of the clans accept the challenge</li>
+<li>Now both clans can communicate and share game details</li>
+<li>After the war duration gets completed clan war is over</li>
+<li>Bot will ask for the winner from both the clans</li>
+<li>And the winning clan gets glory points</li>
+</ol>
+<h3 id="roles">Roles</h3>
+<p><strong>Leader</strong></p>
+<ul>
+<li>Can promote and demote players.</li>
+<li>Can update clan details.</li>
+<li>Can create/delete/accept clan wars.</li>
+<li>Can subscribe/unsubscribe games</li>
+<li>Can participate in clan wars</li>
+</ul>
+<p><strong>Co-Leader</strong></p>
+<ul>
+<li>Can create/delete/accept clan wars.</li>
+<li>Can subscribe/unsubscribe games.</li>
+<li>Can participate in clan wars</li>
+</ul>
+<p><strong>Regular Member</strong></p>
+<ul>
+<li>Can participate in clan wars</li>
+</ul>
+<p><strong>Unavailable</strong></p>
+<ul>
+<li>Can&rsquo;t do anything</li>
+</ul>
+<h2 id="research">RESEARCH</h2>
+<h3 id="online-gaming-communities">Online Gaming Communities</h3>
+<p>Unlike classical forms of online communities or the newer phenomenon of social network sites, community structures of online gamer communities tend to be diverse, highly complex socio-technological structures centred around the organization, (meta-) communication, exchange (e.g., of virtual items) of game-related issues and events. Memories of staying up late playing Warcraft 3 with friends or sharing creations in The Sims.</p>
+<h3 id="identifying-right-platform">Identifying right Platform</h3>
+<p>Discord&rsquo;s free voice and text chat is about making it easier for these online gamers create their communities on this platform. Many gamers from all over the world have started their groups with the people they play together, create these memories, and land a headshot or two.</p>
+<p>The core idea was to help connect multiple clans playing same game to play against each other. Heavy part of the idea relies on creating a clan like experience where clan members can collaborate, practice and share memories via text and voice chat. Developing my own system providing such experience with limited knowledge, resources and time is quite a challenge. Also, making gamers who have their groups on discord switch to my own such platform would have placed me against Discord. So, it was ideal to leverage 87 million potential registered uses of discord which tends to overlap with our target users via chatbot for discord.</p>
+<h2 id="concept-solution">CONCEPT/ SOLUTION</h2>
+<p><strong>Step 1 - Installation</strong></p>
+<p>Most people having their discord group will start by adding the chatbot to their server (group) by clicking &ldquo;Add to Server&rdquo; button on visiting the static landing website of Gmbot. This website will also act as a command directory.</p>
+<p>After clicking add to server, user will be taken to discord&rsquo;s official website where that user will need to give necessary permissions to bot and Authorize. After that server will start acting as a Clan and chatbot will start responding to querries.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="/blog/img/gmbot/Picture2.png" alt=""></td>
+<td><img src="/blog/img/gmbot/Picture3.png" alt=""></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Step 2 – Subscribe game(s)</strong></p>
+<p><img src="/blog/img/gmbot/Picture4.png" alt=""></p>
+<p><strong>Step 3 – Create war request</strong></p>
+<p><img src="/blog/img/gmbot/Picture5.png" alt=""></p>
+<p><strong>Step 4 – Accept Incoming war</strong></p>
+<p><img src="/blog/img/gmbot/Picture6.png" alt=""></p>
+<p><strong>Step 5 – Communicate</strong></p>
+<p><img src="/blog/img/gmbot/Picture8.png" alt=""></p>
+<p><strong>Step 6 – Ask for results</strong></p>
+<p><img src="/blog/img/gmbot/Picture9.png" alt=""></p>
+<h2 id="diagrams">DIAGRAMS</h2>
+<h3 id="flow-diagram">Flow diagram</h3>
+<p><img src="/blog/img/gmbot/Picture10.png" alt=""></p>
+<h3 id="tree-diagram">Tree diagram</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">│ Gmbot
+├─── COGS <span style="color:#f92672">(</span>Separate python file <span style="color:#66d9ef">for</span> each command all inside this folder<span style="color:#f92672">)</span>
+│ ├─── command1.py
+│ └─── command2.py
+├─── DAO <span style="color:#f92672">(</span>SQL Queries related to each command<span style="color:#f92672">)</span>
+│ ├─── command1Query.py
+│ └─── command2Query.py
+├─── guide <span style="color:#f92672">(</span>images/ resources<span style="color:#f92672">)</span>
+│ └─── ERDiagram.png
+├─── database.py <span style="color:#f92672">(</span>Singleton class, Database related functions will be present here<span style="color:#f92672">)</span>
+├─── database.sql <span style="color:#f92672">(</span>SQL script to create all database tables<span style="color:#f92672">)</span>
+├─── discord.log <span style="color:#f92672">(</span>Log dump<span style="color:#f92672">)</span>
+├─── helper.py <span style="color:#f92672">(</span>Command parser and checker<span style="color:#f92672">)</span>
+└─── main.py <span style="color:#f92672">(</span>Root main file which executes first and loads all the commands<span style="color:#f92672">)</span>
+</code></pre></div><h2 id="development-process">DEVELOPMENT PROCESS</h2>
+<h3 id="code-structure">Code Structure</h3>
+<p>All the SOLID design principles have been taken in mind for structuring the code.</p>
+<p>The code has been structed so beautifully that extending the project is super simple, all command follows similar structure.</p>
+<ul>
+<li>Create class command_name_Command implementing discord.commands.Cog</li>
+<li>Create 3 methods:</li>
+</ul>
+<ol>
+<li>Name same as command_name with @commands.command() as a decorator.</li>
+</ol>
+<p>This method calls methods from Query</p>
+<p>Based upon query response, it calls success response or error response</p>
+<ol>
+<li>Success message response</li>
+<li>Error message response</li>
+</ol>
+<ul>
+<li>Setup method to add that command class</li>
+</ul>
+<p><code>COGS/status.py</code></p>
+<p><img src="/blog/img/gmbot/Picture11.png" alt=""></p>
+<p><code>DAO/communicateQuery.py</code></p>
+<p><img src="/blog/img/gmbot/Picture12.png" alt=""></p>
+<h3 id="list-of-commands">List of Commands</h3>
+<table>
+<thead>
+<tr>
+<th>List of Commands</th>
+<th>Function</th>
+<th>Access level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>setup</strong></td>
+<td><!-- raw HTML omitted --><!-- raw HTML omitted -->Please enter/edit your clan name [REQUIRED]<!-- raw HTML omitted --><!-- raw HTML omitted -->Please enter/edit clan location [OPTIONAL, DEFAULT=International]<!-- raw HTML omitted --><!-- raw HTML omitted -->Please enter/edit clan language [OPTIONAL, DEFAULT=English]<!-- raw HTML omitted --></td>
+<td>Leader only</td>
+</tr>
+<tr>
+<td><strong>createWar</strong></td>
+<td><!-- raw HTML omitted --><!-- raw HTML omitted -->Please tag all the players you want to take part [REQUIRED]<!-- raw HTML omitted --><!-- raw HTML omitted -->Please enter game id [REQUIRED]<!-- raw HTML omitted --><!-- raw HTML omitted -->Please enter duration in hours after which the war will end [OPTIONAL, DEFAULT=24 hours]<!-- raw HTML omitted --><!-- raw HTML omitted -->Please enter type id of clanwar [OPTIONAL, DEFAULT=First to 3 wins]<!-- raw HTML omitted --></td>
+<td>Leader and Co-Leaders only</td>
+</tr>
+<tr>
+<td><strong>privateWar</strong>  (does not broadcast war request)</td>
+<td><!-- raw HTML omitted --><!-- raw HTML omitted -->Please tag all the players you want to take part [REQUIRED]<!-- raw HTML omitted --><!-- raw HTML omitted -->Please enter game id [REQUIRED]<!-- raw HTML omitted --><!-- raw HTML omitted -->Please enter duration in hours after which the war will end [OPTIONAL, DEFAULT=24 hours]<!-- raw HTML omitted --><!-- raw HTML omitted -->Please enter type id of clanwar [OPTIONAL, DEFAULT=First to 3 wins]<!-- raw HTML omitted --></td>
+<td>Leader and Co-Leaders only</td>
+</tr>
+<tr>
+<td><strong>removeWar</strong></td>
+<td><!-- raw HTML omitted --><!-- raw HTML omitted -->Please enter war id [REQUIRED]<!-- raw HTML omitted --></td>
+<td>Leader and Co-Leaders only</td>
+</tr>
+<tr>
+<td><strong>accept</strong></td>
+<td><!-- raw HTML omitted --><!-- raw HTML omitted -->Please enter war id [REQUIRED]<!-- raw HTML omitted --><!-- raw HTML omitted -->Please tag all the players you want to take part [REQUIRED]<!-- raw HTML omitted --></td>
+<td>Leader and Co-Leaders only</td>
+</tr>
+<tr>
+<td><strong>communicate</strong></td>
+<td><!-- raw HTML omitted --><!-- raw HTML omitted -->Please enter message you want to convey [REQUIRED]<!-- raw HTML omitted --><!-- raw HTML omitted -->Shares messages between 2 parties<!-- raw HTML omitted --></td>
+<td>Only works for participating players when 2 clans will match-up</td>
+</tr>
+<tr>
+<td><strong>subscribe</strong></td>
+<td><!-- raw HTML omitted --><!-- raw HTML omitted -->Please enter comma separated valid game ids you want to subscribe [REQUIRED]<!-- raw HTML omitted --><!-- raw HTML omitted -->Lists all games subscribed by a clan<!-- raw HTML omitted --></td>
+<td>Leader and Co-Leaders only</td>
+</tr>
+<tr>
+<td><strong>unsubscribe</strong></td>
+<td><!-- raw HTML omitted --><!-- raw HTML omitted -->Please enter comma separated valid game ids you want to unsubscribe [REQUIRED]<!-- raw HTML omitted --><!-- raw HTML omitted -->Lists all games subscribed by a clan<!-- raw HTML omitted --></td>
+<td>Leader and Co-Leaders only</td>
+</tr>
+<tr>
+<td><strong>relinquish</strong></td>
+<td><!-- raw HTML omitted --><!-- raw HTML omitted -->Please tag the player you want to transfer ownership (Leader role) [REQUIRED]<!-- raw HTML omitted --></td>
+<td>Leader only</td>
+</tr>
+<tr>
+<td><strong>promote</strong></td>
+<td><!-- raw HTML omitted --><!-- raw HTML omitted -->Please tag all the player you want to make Co-leader responsibility [REQUIRED]<!-- raw HTML omitted --></td>
+<td>Leader only</td>
+</tr>
+<tr>
+<td><strong>demote</strong></td>
+<td><!-- raw HTML omitted --><!-- raw HTML omitted -->Please tag all the player you want to take away Co-leader responsibility [REQUIRED]<!-- raw HTML omitted --></td>
+<td>Leader only</td>
+</tr>
+<tr>
+<td><strong>status</strong></td>
+<td><!-- raw HTML omitted --><!-- raw HTML omitted -->Lists all ongoing war<!-- raw HTML omitted --><!-- raw HTML omitted -->Lists all open war requests<!-- raw HTML omitted --><!-- raw HTML omitted -->Checks alls game subscribed<!-- raw HTML omitted --></td>
+<td>Anyone</td>
+</tr>
+<tr>
+<td><strong>games</strong></td>
+<td><!-- raw HTML omitted --><!-- raw HTML omitted -->Lists all supported games with ID<!-- raw HTML omitted --></td>
+<td>Anyone</td>
+</tr>
+<tr>
+<td><strong>formats</strong></td>
+<td><!-- raw HTML omitted --><!-- raw HTML omitted -->Lists all available clanwar types<!-- raw HTML omitted --></td>
+<td>Anyone</td>
+</tr>
+<tr>
+<td><strong>mygames</strong></td>
+<td><!-- raw HTML omitted --><!-- raw HTML omitted -->Lists all games subscribed by a clan<!-- raw HTML omitted --></td>
+<td>Anyone</td>
+</tr>
+<tr>
+<td><strong>roles</strong></td>
+<td><!-- raw HTML omitted --><!-- raw HTML omitted -->Lists all the players along with their role<!-- raw HTML omitted --></td>
+<td>Anyone</td>
+</tr>
+<tr>
+<td><strong>available</strong></td>
+<td><!-- raw HTML omitted --><!-- raw HTML omitted -->Mark yourself available to take part in clan war<!-- raw HTML omitted --></td>
+<td>Anyone</td>
+</tr>
+<tr>
+<td><strong>unavailable</strong></td>
+<td><!-- raw HTML omitted --><!-- raw HTML omitted -->Mark yourself unavailable to take part in clan war<!-- raw HTML omitted --></td>
+<td>Anyone</td>
+</tr>
+</tbody>
+</table>
+<h2 id="database-schema">DATABASE SCHEMA</h2>
+<p><img src="/blog/img/gmbot/Picture13.png" alt=""></p>
+<h2 id="analytics">ANALYTICS</h2>
+<h3 id="google-analytics">Google Analytics</h3>
+<p><img src="/blog/img/gmbot/Picture14.png" alt="">
+<img src="/blog/img/gmbot/Picture15.png" alt=""></p>
+<h3 id="play-testing">Play Testing</h3>
+<p>The setup command was used to provide clan name, language, location and required game ids to subscribe for a game. But most alpha testers ignored to subscribe to games as the command wasn&rsquo;t as descriptive and started creating clan war requests. Which lead to a separate command to subscribe and unsubscribe. Also, Testers did not like long commands name especially communication command which was shortened to &ldquo;gmbot say&rdquo;.</p>
+<p><img src="/blog/img/gmbot/Picture1.png" alt="Play Test and Feedback"></p>
+
+    </div>
+  </article>
+
+  
+  
+
+
+
+
+  
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+          <script type="text/javascript">
+          
+          (function() {
+              
+              
+              
+              
+          
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              var disqus_shortname = 'itsnikhil';
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="https://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </div>
+
+  
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/blog/">Home</a></li>
+         
+          <li><a href="/blog/posts">Writings</a></li>
+         
+          <li><a href="/blog/projects">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">INTRODUCTION</a>
+      <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#key-features">Key Features</a></li>
+        <li><a href="#how-it-works">How it works</a></li>
+        <li><a href="#roles">Roles</a></li>
+      </ul>
+    </li>
+    <li><a href="#research">RESEARCH</a>
+      <ul>
+        <li><a href="#online-gaming-communities">Online Gaming Communities</a></li>
+        <li><a href="#identifying-right-platform">Identifying right Platform</a></li>
+      </ul>
+    </li>
+    <li><a href="#concept-solution">CONCEPT/ SOLUTION</a></li>
+    <li><a href="#diagrams">DIAGRAMS</a>
+      <ul>
+        <li><a href="#flow-diagram">Flow diagram</a></li>
+        <li><a href="#tree-diagram">Tree diagram</a></li>
+      </ul>
+    </li>
+    <li><a href="#development-process">DEVELOPMENT PROCESS</a>
+      <ul>
+        <li><a href="#code-structure">Code Structure</a></li>
+        <li><a href="#list-of-commands">List of Commands</a></li>
+      </ul>
+    </li>
+    <li><a href="#database-schema">DATABASE SCHEMA</a></li>
+    <li><a href="#analytics">ANALYTICS</a>
+      <ul>
+        <li><a href="#google-analytics">Google Analytics</a></li>
+        <li><a href="#play-testing">Play Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fgmbot%2f">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fgmbot%2f&text=Gmbot%20-%20Chatbot%20for%20gamers">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fgmbot%2f&title=Gmbot%20-%20Chatbot%20for%20gamers">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fgmbot%2f&is_video=false&description=Gmbot%20-%20Chatbot%20for%20gamers">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Gmbot%20-%20Chatbot%20for%20gamers&body=Check out this article: https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fgmbot%2f">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fgmbot%2f&title=Gmbot%20-%20Chatbot%20for%20gamers">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fgmbot%2f&title=Gmbot%20-%20Chatbot%20for%20gamers">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.stumbleupon.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fgmbot%2f&title=Gmbot%20-%20Chatbot%20for%20gamers">
+      <i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://digg.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fgmbot%2f&title=Gmbot%20-%20Chatbot%20for%20gamers">
+      <i class="fab fa-digg fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fgmbot%2f&name=Gmbot%20-%20Chatbot%20for%20gamers&description=A%20complete%20clan%20war%20system%20built%20for%20gamers%20in%20form%20of%20a%20discord%20chatbot">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fgmbot%2f&t=Gmbot%20-%20Chatbot%20for%20gamers">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu" class="icon" href="javascript:void(0);" onclick="toggleVisibility(document.getElementById('nav-footer'))">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="javascript:void(0);" onclick="toggleVisibility(document.getElementById('toc-footer'))">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="javascript:void(0);" onclick="toggleVisibility(document.getElementById('share-footer'))">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="javascript:void(0);" onclick="window.scrollTo({top: 0, left: 0, behavior: 'smooth'});">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2022  ItsNikhil 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/blog/">Home</a></li>
+         
+        <li><a href="/blog/posts">Writings</a></li>
+         
+        <li><a href="/blog/projects">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css" media="print" onload="this.media='all'">
+<script src="/js/main.js"></script>
+
+
+
+</html>

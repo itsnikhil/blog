@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>algorithm on ItsNikhil</title>
+    <link>https://itsnikhil.github.io/blog/tags/algorithm/</link>
+    <description>Recent content in algorithm on ItsNikhil</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>ItsNikhil</copyright>
+    <lastBuildDate>Mon, 25 Jan 2021 09:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://itsnikhil.github.io/blog/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Algorithm behind TNB Analysis</title>
+      <link>https://itsnikhil.github.io/blog/posts/algorithm-behind-tnb-analysis/</link>
+      <pubDate>Mon, 25 Jan 2021 09:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/posts/algorithm-behind-tnb-analysis/</guid>
+      <description>TNB or thenewboston is a digital cryptocurrency network which is being developed by Bucky Roberts and open source community of which I am part of. There are thousands of registered accounts which will increase rapidly in future. At the time of writing this article there are 90 JSON files. My task was to process each of these JSON files and output results providing insights like total coins distribution over time period, total number of accounts, richest account information, wealth distribution, etc.</description>
+    </item>
+    
+  </channel>
+</rss>

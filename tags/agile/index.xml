@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>agile on ItsNikhil</title>
+    <link>https://itsnikhil.github.io/blog/tags/agile/</link>
+    <description>Recent content in agile on ItsNikhil</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>ItsNikhil</copyright>
+    <lastBuildDate>Sat, 18 Dec 2021 18:30:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://itsnikhil.github.io/blog/tags/agile/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Done is better than perfect</title>
+      <link>https://itsnikhil.github.io/blog/posts/done-is-better-than-perfect/</link>
+      <pubDate>Sat, 18 Dec 2021 18:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/posts/done-is-better-than-perfect/</guid>
+      <description>Introduction &amp;ldquo;Done is better than perfect&amp;rdquo; is a lesson that I learned from working in a fast-paced competitive startup environment.. and agile software development in general.
+Every new codebase I used to touch, I could find some place where something can be improved by using a different data structure, or an algorithm, or some design pattern avoiding nested if-else, or simply abstracting big functions into smaller ones. But as when I started working on big features I came to realize this famous saying.</description>
+    </item>
+    
+  </channel>
+</rss>

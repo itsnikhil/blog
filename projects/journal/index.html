@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Journal Fitit App </title>
+  <meta name="description" content="I am a programmer interested in all sorts of technology. I like working on open source projects, writing blog articles, and reading on the internet. I also like swimming, biking and playing games. I study at The Northcap University.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="Journal Fitit App" />
+<meta property="og:description" content="A personal tool to motivate and to look back and analyze one’s life events. Evolving project which receives feature updates regularly. Journal app has been appreciated by hundreds of Fitbit users (300&#43; 5-star rating as of September 2020)" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://itsnikhil.github.io/blog/projects/journal/" />
+<meta property="article:published_time" content="2020-11-23T00:00:01+00:00" />
+<meta property="article:modified_time" content="2020-11-23T00:00:01+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Journal Fitit App"/>
+<meta name="twitter:description" content="A personal tool to motivate and to look back and analyze one’s life events. Evolving project which receives feature updates regularly. Journal app has been appreciated by hundreds of Fitbit users (300&#43; 5-star rating as of September 2020)"/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://itsnikhil.github.io/blog/css/style-white.css">
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://itsnikhil.github.io/blog/images/favicon.ico" />
+
+  
+  
+  
+  
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-119427755-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    
+  
+</head>
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#" class="active"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="window.scrollTo({top: 0, left: 0, behavior: 'smooth'});" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu" style="visibility: visible;">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/blog/">Home</a></li>
+         
+        <li><a href="/blog/posts">Writings</a></li>
+         
+        <li><a href="/blog/projects">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://itsnikhil.github.io/blog/projects/ieee-ncu/">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="toggleVisibility(document.getElementById('i-prev'))" onmouseout="toggleVisibility(document.getElementById('i-prev'))"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="https://itsnikhil.github.io/blog/posts/is-pythonic-way-the-better-way/">
+            <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="toggleVisibility(document.getElementById('i-next'))" onmouseout="toggleVisibility(document.getElementById('i-next'))"></i>
+          </a>
+        </li>
+        
+        <li>
+          <a class="icon" href="#" onclick="window.scrollTo({top: 0, left: 0, behavior: 'smooth'});">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="toggleVisibility(document.getElementById('i-top'))" onmouseout="toggleVisibility(document.getElementById('i-top'))"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="toggleVisibility(document.getElementById('i-share'))" onmouseout="toggleVisibility(document.getElementById('i-share'))" onclick="toggleVisibility(document.getElementById('share'))"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fjournal%2f">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fjournal%2f&text=Journal%20Fitit%20App">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fjournal%2f&title=Journal%20Fitit%20App">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fjournal%2f&is_video=false&description=Journal%20Fitit%20App">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Journal%20Fitit%20App&body=Check out this article: https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fjournal%2f">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fjournal%2f&title=Journal%20Fitit%20App">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fjournal%2f&title=Journal%20Fitit%20App">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.stumbleupon.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fjournal%2f&title=Journal%20Fitit%20App">
+      <i class="fab fa-stumbleupon " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://digg.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fjournal%2f&title=Journal%20Fitit%20App">
+      <i class="fab fa-digg " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fjournal%2f&name=Journal%20Fitit%20App&description=A%20personal%20tool%20to%20motivate%20and%20to%20look%20back%20and%20analyze%20one%e2%80%99s%20life%20events.%20Evolving%20project%20which%20receives%20feature%20updates%20regularly.%20Journal%20app%20has%20been%20appreciated%20by%20hundreds%20of%20Fitbit%20users%20%28300%2b%205-star%20rating%20as%20of%20September%202020%29">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fjournal%2f&t=Journal%20Fitit%20App">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#milestone">Milestone</a>
+      <ul>
+        <li><a href="#v032">v0.3.2</a></li>
+        <li><a href="#v1001">v1.0.0.1</a></li>
+        <li><a href="#100th-5-star-rating">100th 5-star rating</a></li>
+        <li><a href="#teased-first-promo">Teased First Promo</a></li>
+        <li><a href="#200th-rating">200th rating</a></li>
+        <li><a href="#v200">v2.0.0</a></li>
+        <li><a href="#150th-5-star-rating">150th 5-star rating</a></li>
+        <li><a href="#200th-5-star-rating">200th 5-star rating</a></li>
+        <li><a href="#v300">v3.0.0</a></li>
+        <li><a href="#300th-rating">300th rating</a></li>
+        <li><a href="#v400">v4.0.0</a></li>
+      </ul>
+    </li>
+    <li><a href="#follow-journal">Follow Journal</a></li>
+  </ul>
+</nav>
+    </div>
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        Journal Fitit App
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2020-11-23 00:00:01 &#43;0000 UTC" itemprop="datePublished">2020-11-23</time>
+          
+        </div>
+        
+        <div class="article-category">
+            <i class="fas fa-archive"></i>
+            
+            
+            <a class="category-link" href="/blog/categories/app">App</a>
+            
+        </div>
+        
+        
+        <div class="article-tag">
+            <i class="fas fa-tag"></i>
+            
+            
+            <a class="tag-link" href="/blog/tags/fitbit" rel="tag">Fitbit</a>
+            
+            
+            <a class="tag-link" href="/blog/tags/javascript" rel="tag">Javascript</a>
+            
+             ,  
+            <a class="tag-link" href="/blog/tags/lifestyle" rel="tag">Lifestyle</a>
+            
+        </div> 
+        
+      </div>
+    </header>
+
+  
+    <div class="content" itemprop="articleBody">
+      <p><strong>Journal</strong> - A daily record of news and events of a personal nature; a diary.</p>
+<p>It uses proven psychological techniques of mindfulness and cognitive behavior to help you live a happier life. It is <strong>a personal tool to motivate and to look back and analyze your life events.</strong></p>
+<p>Use Journal to log your memorable events of the day by answering a set of simple questions. See up-to past 5 days of your record to reflect upon your life. All data stored locally for your privacy.</p>
+<h2 id="milestone">Milestone</h2>
+<h3 id="v032">v0.3.2</h3>
+<p><code>Published 18/03/2020 2:10 AM</code></p>
+<p>Made it for myself ✌</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="/blog/img/journal/1.png" alt="Aquarex"></td>
+<td><img src="/blog/img/journal/2.png" alt="Aquarex"></td>
+<td><img src="/blog/img/journal/3.png" alt="Aquarex"></td>
+</tr>
+<tr>
+<td><img src="/blog/img/journal/4.png" alt="Aquarex"></td>
+<td><img src="/blog/img/journal/5.png" alt="Aquarex"></td>
+<td><img src="/blog/img/journal/6.png" alt="Aquarex"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="v1001">v1.0.0.1</h3>
+<p><code>Published 26/03/2020 12:12 PM</code></p>
+<p><strong>Made it public!</strong> I have been using this app for a week and have been loving it. So, I want everyone to use it as well.</p>
+<h3 id="100th-5-star-rating">100th 5-star rating</h3>
+<p><code>On 24/04/2020</code></p>
+<h3 id="teased-first-promo">Teased First Promo</h3>
+<p><code>Published 29/04/2020</code></p>
+<p><a href="https://www.instagram.com/p/B_jpxFuFlWF/">Introducing a modern Journal</a></p>
+<h3 id="200th-rating">200th rating</h3>
+<p><code>On 02/05/2020</code></p>
+<h3 id="v200">v2.0.0</h3>
+<p><code>Published 07/05/2020 12:38 AM</code></p>
+<p><a href="https://www.instagram.com/p/B_7K0d0A7l3/">Dark Mode Promo</a></p>
+<ul>
+<li>Updated with a brand new Dark UI.</li>
+<li>Added settings to make customizations.</li>
+<li>Improved icons and fixed bugs.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="/blog/img/journal/7.png" alt="Aquarex"></td>
+<td><img src="/blog/img/journal/8.png" alt="Aquarex"></td>
+<td><img src="/blog/img/journal/9.png" alt="Aquarex"></td>
+</tr>
+<tr>
+<td><img src="/blog/img/journal/10.png" alt="Aquarex"></td>
+<td><img src="/blog/img/journal/11.png" alt="Aquarex"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="150th-5-star-rating">150th 5-star rating</h3>
+<p><code>On 13/05/2020</code></p>
+<h3 id="200th-5-star-rating">200th 5-star rating</h3>
+<p><code>On 06/06/2020</code></p>
+<h3 id="v300">v3.0.0</h3>
+<p><code>Published 02/07/2020 10:04 AM</code></p>
+<p><a href="https://www.instagram.com/p/CCBUp6EjVob/">Month in Pixel Promo</a></p>
+<ul>
+<li>Added Localization support.</li>
+<li>New month in pixel feature.</li>
+<li>Massive code refactoring implementing Fitbit view SDK</li>
+<li>and bug fixes</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="/blog/img/journal/12.png" alt="Aquarex"></td>
+<td><img src="/blog/img/journal/13.png" alt="Aquarex"></td>
+<td><img src="/blog/img/journal/14.png" alt="Aquarex"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="300th-rating">300th rating</h3>
+<p><code>On 29/08/2020</code></p>
+<h3 id="v400">v4.0.0</h3>
+<p><code>Published 25/09/2020 2:33 PM</code></p>
+<p><a href="https://www.instagram.com/p/CFe5R0YDYCu/">Own your Data Promo</a></p>
+<ul>
+<li>Faster experience</li>
+<li>IFTTT support (enable it from settings)</li>
+<li>Updated for latest Fitbit OS</li>
+<li>Removed calendar (use IFTTT feature for managing calendar)</li>
+</ul>
+<p><img src="/blog/img/16.png" alt="Aquarex"></p>
+<h2 id="follow-journal">Follow Journal</h2>
+<blockquote>
+<p>Instagram <a href="https://www.instagram.com/journal_app">@journal_app</a>  · 
+Facebook <a href="https://www.fb.com/journalapp">@JournalApp</a></p>
+</blockquote>
+
+    </div>
+  </article>
+
+  
+  
+
+
+
+
+  
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+          <script type="text/javascript">
+          
+          (function() {
+              
+              
+              
+              
+          
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              var disqus_shortname = 'itsnikhil';
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="https://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </div>
+
+  
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/blog/">Home</a></li>
+         
+          <li><a href="/blog/posts">Writings</a></li>
+         
+          <li><a href="/blog/projects">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#milestone">Milestone</a>
+      <ul>
+        <li><a href="#v032">v0.3.2</a></li>
+        <li><a href="#v1001">v1.0.0.1</a></li>
+        <li><a href="#100th-5-star-rating">100th 5-star rating</a></li>
+        <li><a href="#teased-first-promo">Teased First Promo</a></li>
+        <li><a href="#200th-rating">200th rating</a></li>
+        <li><a href="#v200">v2.0.0</a></li>
+        <li><a href="#150th-5-star-rating">150th 5-star rating</a></li>
+        <li><a href="#200th-5-star-rating">200th 5-star rating</a></li>
+        <li><a href="#v300">v3.0.0</a></li>
+        <li><a href="#300th-rating">300th rating</a></li>
+        <li><a href="#v400">v4.0.0</a></li>
+      </ul>
+    </li>
+    <li><a href="#follow-journal">Follow Journal</a></li>
+  </ul>
+</nav>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fjournal%2f">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fjournal%2f&text=Journal%20Fitit%20App">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fjournal%2f&title=Journal%20Fitit%20App">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fjournal%2f&is_video=false&description=Journal%20Fitit%20App">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Journal%20Fitit%20App&body=Check out this article: https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fjournal%2f">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fjournal%2f&title=Journal%20Fitit%20App">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fjournal%2f&title=Journal%20Fitit%20App">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.stumbleupon.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fjournal%2f&title=Journal%20Fitit%20App">
+      <i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://digg.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fjournal%2f&title=Journal%20Fitit%20App">
+      <i class="fab fa-digg fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fjournal%2f&name=Journal%20Fitit%20App&description=A%20personal%20tool%20to%20motivate%20and%20to%20look%20back%20and%20analyze%20one%e2%80%99s%20life%20events.%20Evolving%20project%20which%20receives%20feature%20updates%20regularly.%20Journal%20app%20has%20been%20appreciated%20by%20hundreds%20of%20Fitbit%20users%20%28300%2b%205-star%20rating%20as%20of%20September%202020%29">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fitsnikhil.github.io%2fblog%2fprojects%2fjournal%2f&t=Journal%20Fitit%20App">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu" class="icon" href="javascript:void(0);" onclick="toggleVisibility(document.getElementById('nav-footer'))">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="javascript:void(0);" onclick="toggleVisibility(document.getElementById('toc-footer'))">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="javascript:void(0);" onclick="toggleVisibility(document.getElementById('share-footer'))">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="javascript:void(0);" onclick="window.scrollTo({top: 0, left: 0, behavior: 'smooth'});">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2022  ItsNikhil 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/blog/">Home</a></li>
+         
+        <li><a href="/blog/posts">Writings</a></li>
+         
+        <li><a href="/blog/projects">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css" media="print" onload="this.media='all'">
+<script src="/js/main.js"></script>
+
+
+
+</html>

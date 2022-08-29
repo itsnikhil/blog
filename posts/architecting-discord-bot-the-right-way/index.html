@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Architecting discord bot the right way </title>
+  <meta name="description" content="I am a programmer interested in all sorts of technology. I like working on open source projects, writing blog articles, and reading on the internet. I also like swimming, biking and playing games. I study at The Northcap University.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="Architecting discord bot the right way" />
+<meta property="og:description" content="Architecting discord bot the right way: In this post I want to talk about something which I did not give much thought at the time when I started working on gmbot in 2019." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://itsnikhil.github.io/blog/posts/architecting-discord-bot-the-right-way/" />
+<meta property="article:published_time" content="2021-08-26T18:30:00+00:00" />
+<meta property="article:modified_time" content="2021-08-26T18:30:00+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Architecting discord bot the right way"/>
+<meta name="twitter:description" content="Architecting discord bot the right way: In this post I want to talk about something which I did not give much thought at the time when I started working on gmbot in 2019."/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://itsnikhil.github.io/blog/css/style-white.css">
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://itsnikhil.github.io/blog/images/favicon.ico" />
+
+  
+  
+  
+  
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-119427755-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    
+  
+</head>
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#" class="active"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="window.scrollTo({top: 0, left: 0, behavior: 'smooth'});" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu" style="visibility: visible;">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/blog/">Home</a></li>
+         
+        <li><a href="/blog/posts">Writings</a></li>
+         
+        <li><a href="/blog/projects">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://itsnikhil.github.io/blog/posts/clarify-function-calls-with-keyword-arguments-javascript/">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="toggleVisibility(document.getElementById('i-prev'))" onmouseout="toggleVisibility(document.getElementById('i-prev'))"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="https://itsnikhil.github.io/blog/posts/done-is-better-than-perfect/">
+            <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="toggleVisibility(document.getElementById('i-next'))" onmouseout="toggleVisibility(document.getElementById('i-next'))"></i>
+          </a>
+        </li>
+        
+        <li>
+          <a class="icon" href="#" onclick="window.scrollTo({top: 0, left: 0, behavior: 'smooth'});">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="toggleVisibility(document.getElementById('i-top'))" onmouseout="toggleVisibility(document.getElementById('i-top'))"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="toggleVisibility(document.getElementById('i-share'))" onmouseout="toggleVisibility(document.getElementById('i-share'))" onclick="toggleVisibility(document.getElementById('share'))"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2farchitecting-discord-bot-the-right-way%2f">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2farchitecting-discord-bot-the-right-way%2f&text=Architecting%20discord%20bot%20the%20right%20way">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2farchitecting-discord-bot-the-right-way%2f&title=Architecting%20discord%20bot%20the%20right%20way">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2farchitecting-discord-bot-the-right-way%2f&is_video=false&description=Architecting%20discord%20bot%20the%20right%20way">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Architecting%20discord%20bot%20the%20right%20way&body=Check out this article: https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2farchitecting-discord-bot-the-right-way%2f">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2farchitecting-discord-bot-the-right-way%2f&title=Architecting%20discord%20bot%20the%20right%20way">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2farchitecting-discord-bot-the-right-way%2f&title=Architecting%20discord%20bot%20the%20right%20way">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.stumbleupon.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2farchitecting-discord-bot-the-right-way%2f&title=Architecting%20discord%20bot%20the%20right%20way">
+      <i class="fab fa-stumbleupon " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://digg.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2farchitecting-discord-bot-the-right-way%2f&title=Architecting%20discord%20bot%20the%20right%20way">
+      <i class="fab fa-digg " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2farchitecting-discord-bot-the-right-way%2f&name=Architecting%20discord%20bot%20the%20right%20way&description=Architecting%20discord%20bot%20the%20right%20way%3a%20In%20this%20post%20I%20want%20to%20talk%20about%20something%20which%20I%20did%20not%20give%20much%20thought%20at%20the%20time%20when%20I%20started%20working%20on%20gmbot%20in%202019.">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2farchitecting-discord-bot-the-right-way%2f&t=Architecting%20discord%20bot%20the%20right%20way">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#past-gmbot">Past: Gmbot</a>
+      <ul>
+        <li><a href="#everything-was-very-monolithic">Everything was very monolithic</a></li>
+      </ul>
+    </li>
+    <li><a href="#can-we-do-better-micro-services">Can we do better? Micro-services</a></li>
+    <li><a href="#advantages">Advantages</a>
+      <ul>
+        <li><a href="#much-easier-to-test-the-features">Much easier to test the features</a></li>
+        <li><a href="#easy-and-quick-growthexpandability">Easy and quick growth/expandability</a></li>
+        <li><a href="#backend-servers-can-be-horizontally-scaled">Backend servers can be horizontally scaled</a></li>
+        <li><a href="#flexibility-to-experiment-and-optimize">Flexibility to experiment and optimize</a></li>
+        <li><a href="#freedom-to-try-out-new-technology">Freedom to try out new technology</a></li>
+        <li><a href="#separate-deployments">Separate deployments</a></li>
+        <li><a href="#leaner-teams-and-increased-productivity">Leaner teams and increased productivity</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        Architecting discord bot the right way
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2021-08-26 18:30:00 &#43;0000 UTC" itemprop="datePublished">2021-08-26</time>
+          
+        </div>
+        
+        <div class="article-category">
+            <i class="fas fa-archive"></i>
+            
+            
+            <a class="category-link" href="/blog/categories/microservices">microservices</a>
+            
+            
+            <a class="category-link" href="/blog/categories/guide">guide</a>
+            
+             ,  
+            <a class="category-link" href="/blog/categories/architecture">architecture</a>
+            
+        </div>
+        
+        
+        <div class="article-tag">
+            <i class="fas fa-tag"></i>
+            
+            
+            <a class="tag-link" href="/blog/tags/system-design" rel="tag">system design</a>
+            
+            
+            <a class="tag-link" href="/blog/tags/bots" rel="tag">bots</a>
+            
+             ,  
+            <a class="tag-link" href="/blog/tags/discord" rel="tag">discord</a>
+            
+        </div> 
+        
+      </div>
+    </header>
+
+  
+    <div class="content" itemprop="articleBody">
+      <h2 id="past-gmbot">Past: Gmbot</h2>
+<p>If you might not know, I have made a discord bot <a href="https://itsnikhil.github.io/gmbot-site/">Gmbot - Multiplayer Game bot for Discord (itsnikhil.github.io)</a>. The way how this bot used to function was very simple, there was a trigger phrase <code>gmbot</code> followed by command name <code>createwar</code> and some parameters</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gmbot createwar -players @Player1 @Player2 -game <span style="color:#ae81ff">4</span> -duration <span style="color:#ae81ff">12</span> -type ft3
+</code></pre></div><p>I have already written a detailed post showcasing it&rsquo;s various features, database schema, etc. which you can read at <a href="https://www.itsnikhil.codes/projects/gmbot/">Gmbot - Chatbot for gamers (itsnikhil.codes)</a>. I made that bot in python as <code>discord.py</code> API wrapper library was written in python and I was comfortable working in that language. Like everyone, I followed whatever tutorials, documentation, etc. were available online. But today in this post I want to talk about something which I did not give much thought at the time when I started working on gmbot in 2019.</p>
+<h3 id="everything-was-very-monolithic">Everything was very monolithic</h3>
+<p>What I meant with monolithic is that all the functionality existed in a single codebase, everything I wanted to do had to be done in python. Even though the project was well structured into classes, easy to read/understand code and a common pattern was followed for creating each command but it was not testable, not scalable and not flexible. All the business logic was mixed within the command handler.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#f92672">import</span> discord
+<span style="color:#f92672">import</span> DAO
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Status_Command</span>(commands<span style="color:#f92672">.</span>Cog):
+    <span style="color:#66d9ef">def</span> __init__(self, client):
+        self<span style="color:#f92672">.</span>client <span style="color:#f92672">=</span> client
+
+    <span style="color:#a6e22e">@commands.command</span>(aliases<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;wars&#39;</span>])
+    async <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">status</span>(self, ctx, <span style="color:#f92672">*</span>args): <span style="color:#75715e"># status command handler</span>
+        <span style="color:#75715e"># validate command</span>
+        <span style="color:#75715e"># call DAO to get data from database</span>
+        <span style="color:#75715e"># business logic</span>
+        <span style="color:#75715e"># call success/error</span>
+        <span style="color:#66d9ef">if</span> message:
+            await self<span style="color:#f92672">.</span>success_message(ctx, message)
+        <span style="color:#66d9ef">else</span>:
+            await self<span style="color:#f92672">.</span>error_message(ctx, <span style="color:#e6db74">&#34;ERROR&#34;</span>)
+
+    async <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">success_message</span>(self, ctx, error):
+        <span style="color:#75715e"># format and send success message</span>
+
+    async <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">error_message</span>(self, ctx, reason<span style="color:#f92672">=</span>None):
+        <span style="color:#75715e"># format and send error message</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">setup</span>(client):
+	client<span style="color:#f92672">.</span>add_cog(Status_Command(client))
+</code></pre></div><h2 id="can-we-do-better-micro-services">Can we do better? Micro-services</h2>
+<p>By micro-services I do not mean having different bots handling different features of the bot. <strong>I want you to think and treat discord bot server as simply a frontend-client like a mobile app and instead of mixing business logic into it, have a separate backend server communicating via RESTful APIs.</strong></p>
+<p><img src="/blog/img/discord-bot-arch.jpg" alt="Architecting discord bot the right way"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gmbot createwar -players @Player1 @Player2 -game <span style="color:#ae81ff">4</span> -duration <span style="color:#ae81ff">12</span> -type ft3
+</code></pre></div><p>With this architecture commands like above will be passed to chatbot <code>frontend-client</code> which can then make a POST request to to backend with the params in the body and client key in headers indicating this is a record from discord.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl --location --request POST <span style="color:#e6db74">&#39;localhost:8080/createwar&#39;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--header <span style="color:#e6db74">&#39;client: DISCORD-BFF&#39;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--header <span style="color:#e6db74">&#39;x-api-key: **************&#39;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--header <span style="color:#e6db74">&#39;Content-Type: application/json&#39;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>--data-raw <span style="color:#e6db74">&#39;{
+</span><span style="color:#e6db74">    &#34;server&#34;: {
+</span><span style="color:#e6db74">        &#34;id&#34;: &#34;S1&#34;,
+</span><span style="color:#e6db74">        &#34;name&#34;: &#34;Server1 Name&#34;
+</span><span style="color:#e6db74">    },
+</span><span style="color:#e6db74">    &#34;players&#34;: [
+</span><span style="color:#e6db74">        {
+</span><span style="color:#e6db74">            &#34;id&#34;: &#34;P1&#34;,
+</span><span style="color:#e6db74">            &#34;name&#34;: &#34;Player1 Name&#34;,
+</span><span style="color:#e6db74">            &#34;role&#34;: &#34;member&#34;
+</span><span style="color:#e6db74">        },
+</span><span style="color:#e6db74">        {
+</span><span style="color:#e6db74">            &#34;id&#34;: &#34;P2&#34;,
+</span><span style="color:#e6db74">            &#34;name&#34;: &#34;Player2 Name&#34;,
+</span><span style="color:#e6db74">            &#34;role&#34;: &#34;co-leader&#34;
+</span><span style="color:#e6db74">        }
+</span><span style="color:#e6db74">    ],
+</span><span style="color:#e6db74">    &#34;game&#34;: &#34;Mini Miltitia&#34;,
+</span><span style="color:#e6db74">    &#34;duration&#34;: &#34;12h&#34;,
+</span><span style="color:#e6db74">    &#34;format&#34;: &#34;first-to-3-wins&#34;
+</span><span style="color:#e6db74">}&#39;</span>
+</code></pre></div><p>This API would return JSON response and status code based on which <code>frontend-client</code> can craft a discord formatted response or slack formatted response</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">embed <span style="color:#f92672">=</span> discord<span style="color:#f92672">.</span>Embed(
+	title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;WAR REQUEST ACCEPTED&#34;</span>,
+	url<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://itsnikhil.github.io/gmbot-site/commands/&#34;</span>,
+	description<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Your clanwar request has been accepted...&#34;</span>,
+	color<span style="color:#f92672">=</span><span style="color:#ae81ff">0xffff00</span>
+)
+embed<span style="color:#f92672">.</span>set_author(
+	name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;GMBOT&#34;</span>,
+	url<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://itsnikhil.github.io/gmbot-site/commands/&#34;</span>,
+	icon_url<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>client<span style="color:#f92672">.</span>user<span style="color:#f92672">.</span>avatar_url
+)
+<span style="color:#66d9ef">for</span> key, value <span style="color:#f92672">in</span> response[<span style="color:#e6db74">&#34;data&#34;</span>]:
+    embed<span style="color:#f92672">.</span>add_field(
+    	name<span style="color:#f92672">=</span>key,
+    	value<span style="color:#f92672">=</span>value,
+    	inline<span style="color:#f92672">=</span>False
+    )
+embed<span style="color:#f92672">.</span>set_footer(text<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Clanwar accepted!&#34;</span>)
+
+<span style="color:#75715e"># Inform host that clanwar request has been accepted</span>
+await info_channel<span style="color:#f92672">.</span>send(embed<span style="color:#f92672">=</span>embed)
+</code></pre></div><h2 id="advantages">Advantages</h2>
+<ul>
+<li><a href="#much-easier-to-test-the-features">Much easier to test the features</a></li>
+<li><a href="#easy-and-quick-growth/expandability">Easy and quick growth/expandability</a></li>
+<li><a href="#backend-servers-can-be-horizontally-scaled">Backend servers can be horizontally scaled</a></li>
+<li><a href="#flexibility-to-experiment-and-optimize">Flexibility to experiment and optimize</a></li>
+<li><a href="#freedom-to-try-out-new-technology">Freedom to try out new technology</a></li>
+<li><a href="#%5Bseparate-deployments">Separate deployments</a></li>
+<li><a href="#leaner-teams-and-increased-productivity">Leaner teams and increased productivity</a></li>
+</ul>
+<p><img src="/blog/img/discord-bot-arch-scale-1.jpg" alt="discord-bot-arch-scale"></p>
+<h3 id="much-easier-to-test-the-features">Much easier to test the features</h3>
+<p>We have been developing backend services for many years now and have developed complex observability tools which can even tell which API request took how much time for a particular database query in real-time. Of course we have proper tooling to test and automate backend servers with proper CI/CD process. Without separate backend there is no good way to test discord/slack bots besides testing manually. If you would search for testing in discord.py official docs <a href="https://discordpy.readthedocs.io/en/stable/search.html?q=testing">Search (discordpy.readthedocs.io)</a> you will be out of luck.</p>
+<h3 id="easy-and-quick-growthexpandability">Easy and quick growth/expandability</h3>
+<p>If you create a chatbot for discord, you have to accept the fact that you are limiting your audience group to that matching discord&rsquo;s. Sketch design tool restricted itself to only support MacOS while Figma was web based open-to-all because of which Figma easily captured the market however good Sketch was in it&rsquo;s comparison. Let&rsquo;s say you developed an attendance bot and you want to support both slack and teams, backend can still be shared while clients can vary since core business logic is same across bots/ webapp. This is something I regret not doing for gmbot, when gmbot failed, I could not pivot my idea into a mobile app easily. Having this opportunity is very important for a lean startup which can require pivoting business into different direction any day.</p>
+<h3 id="backend-servers-can-be-horizontally-scaled">Backend servers can be horizontally scaled</h3>
+<p>Let&rsquo;s say your chatbot got famous, everyone is talking about it, your product is in the headlines everywhere &lt;3. There will be a flood of new users trying to use your service. According to some random folks on internet, 1 server can handle ~2500 active discord groups load. This can obviously vary based on your server resources and what actions your bot perform. Fortunately, <code>discord.js</code> bot support <code>sharding</code> <a href="https://discordjs.guide/sharding/#when-to-shard">Getting started | Discord.js Guide (discordjs.guide)</a> but I would argue, it is much better to scale backend horizontally by running multiple instances of server behind application load balancers, using in-memory caches, etc. these are webservers in the end, you don&rsquo;t have to depend on discord to provide a way to scale.</p>
+<h3 id="flexibility-to-experiment-and-optimize">Flexibility to experiment and optimize</h3>
+<p>Adding/Removing features becomes much easier, you can setup multiple environments like production and development allowing you to safely work on experimental features without affecting actual customers or their data. You can also work on optimizations behind the scenes without touching the <code>frontend-client</code></p>
+<h3 id="freedom-to-try-out-new-technology">Freedom to try out new technology</h3>
+<p>Freedom to use different technologies without getting locked to any single programming language. Business logic can be written in golang with it&rsquo;s high performance benefits from compiled binary and goroutines while still using discord&rsquo;s JavaScript library in frontend-client to communicate with discord. If something better comes along, you have the ability to try it out. You can have different parts of the service handled by different microservices.</p>
+<h3 id="separate-deployments">Separate deployments</h3>
+<p>Each microservice has separate codebase which can be updated independently of other services. Microservices plays really well with continuous integration and continuous delivery by providing ability to have different deployment pipelines.</p>
+<h3 id="leaner-teams-and-increased-productivity">Leaner teams and increased productivity</h3>
+<p>Micro-service codebases are smaller in size and thus much faster to build, test and release. One do not depend on other to make a release after which you can release yours. We can have people work on domains/areas where they have expertise. Not being forced to collaborate with everyone let&rsquo;s developers focus on their tasks and increase productivity.</p>
+
+    </div>
+  </article>
+
+  
+  
+
+
+
+
+  
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+          <script type="text/javascript">
+          
+          (function() {
+              
+              
+              
+              
+          
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              var disqus_shortname = 'itsnikhil';
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="https://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </div>
+
+  
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/blog/">Home</a></li>
+         
+          <li><a href="/blog/posts">Writings</a></li>
+         
+          <li><a href="/blog/projects">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#past-gmbot">Past: Gmbot</a>
+      <ul>
+        <li><a href="#everything-was-very-monolithic">Everything was very monolithic</a></li>
+      </ul>
+    </li>
+    <li><a href="#can-we-do-better-micro-services">Can we do better? Micro-services</a></li>
+    <li><a href="#advantages">Advantages</a>
+      <ul>
+        <li><a href="#much-easier-to-test-the-features">Much easier to test the features</a></li>
+        <li><a href="#easy-and-quick-growthexpandability">Easy and quick growth/expandability</a></li>
+        <li><a href="#backend-servers-can-be-horizontally-scaled">Backend servers can be horizontally scaled</a></li>
+        <li><a href="#flexibility-to-experiment-and-optimize">Flexibility to experiment and optimize</a></li>
+        <li><a href="#freedom-to-try-out-new-technology">Freedom to try out new technology</a></li>
+        <li><a href="#separate-deployments">Separate deployments</a></li>
+        <li><a href="#leaner-teams-and-increased-productivity">Leaner teams and increased productivity</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2farchitecting-discord-bot-the-right-way%2f">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2farchitecting-discord-bot-the-right-way%2f&text=Architecting%20discord%20bot%20the%20right%20way">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2farchitecting-discord-bot-the-right-way%2f&title=Architecting%20discord%20bot%20the%20right%20way">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2farchitecting-discord-bot-the-right-way%2f&is_video=false&description=Architecting%20discord%20bot%20the%20right%20way">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Architecting%20discord%20bot%20the%20right%20way&body=Check out this article: https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2farchitecting-discord-bot-the-right-way%2f">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2farchitecting-discord-bot-the-right-way%2f&title=Architecting%20discord%20bot%20the%20right%20way">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2farchitecting-discord-bot-the-right-way%2f&title=Architecting%20discord%20bot%20the%20right%20way">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.stumbleupon.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2farchitecting-discord-bot-the-right-way%2f&title=Architecting%20discord%20bot%20the%20right%20way">
+      <i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://digg.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2farchitecting-discord-bot-the-right-way%2f&title=Architecting%20discord%20bot%20the%20right%20way">
+      <i class="fab fa-digg fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2farchitecting-discord-bot-the-right-way%2f&name=Architecting%20discord%20bot%20the%20right%20way&description=Architecting%20discord%20bot%20the%20right%20way%3a%20In%20this%20post%20I%20want%20to%20talk%20about%20something%20which%20I%20did%20not%20give%20much%20thought%20at%20the%20time%20when%20I%20started%20working%20on%20gmbot%20in%202019.">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2farchitecting-discord-bot-the-right-way%2f&t=Architecting%20discord%20bot%20the%20right%20way">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu" class="icon" href="javascript:void(0);" onclick="toggleVisibility(document.getElementById('nav-footer'))">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="javascript:void(0);" onclick="toggleVisibility(document.getElementById('toc-footer'))">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="javascript:void(0);" onclick="toggleVisibility(document.getElementById('share-footer'))">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="javascript:void(0);" onclick="window.scrollTo({top: 0, left: 0, behavior: 'smooth'});">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2022  ItsNikhil 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/blog/">Home</a></li>
+         
+        <li><a href="/blog/posts">Writings</a></li>
+         
+        <li><a href="/blog/projects">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css" media="print" onload="this.media='all'">
+<script src="/js/main.js"></script>
+
+
+
+</html>

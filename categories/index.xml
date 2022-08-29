@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on ItsNikhil</title>
+    <link>https://itsnikhil.github.io/blog/categories/</link>
+    <description>Recent content in Categories on ItsNikhil</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>ItsNikhil</copyright>
+    <lastBuildDate>Sun, 01 May 2022 00:30:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://itsnikhil.github.io/blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>algorithm</title>
+      <link>https://itsnikhil.github.io/blog/categories/algorithm/</link>
+      <pubDate>Sun, 01 May 2022 00:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/categories/algorithm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>proposal</title>
+      <link>https://itsnikhil.github.io/blog/categories/proposal/</link>
+      <pubDate>Sun, 01 May 2022 00:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/categories/proposal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>zomato</title>
+      <link>https://itsnikhil.github.io/blog/categories/zomato/</link>
+      <pubDate>Sun, 01 May 2022 00:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/categories/zomato/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>motivation</title>
+      <link>https://itsnikhil.github.io/blog/categories/motivation/</link>
+      <pubDate>Sat, 18 Dec 2021 18:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/categories/motivation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>software engineering</title>
+      <link>https://itsnikhil.github.io/blog/categories/software-engineering/</link>
+      <pubDate>Sat, 18 Dec 2021 18:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/categories/software-engineering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>architecture</title>
+      <link>https://itsnikhil.github.io/blog/categories/architecture/</link>
+      <pubDate>Thu, 26 Aug 2021 18:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/categories/architecture/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>guide</title>
+      <link>https://itsnikhil.github.io/blog/categories/guide/</link>
+      <pubDate>Thu, 26 Aug 2021 18:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/categories/guide/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>microservices</title>
+      <link>https://itsnikhil.github.io/blog/categories/microservices/</link>
+      <pubDate>Thu, 26 Aug 2021 18:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/categories/microservices/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JavaScript</title>
+      <link>https://itsnikhil.github.io/blog/categories/javascript/</link>
+      <pubDate>Fri, 06 Aug 2021 18:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/categories/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programming</title>
+      <link>https://itsnikhil.github.io/blog/categories/programming/</link>
+      <pubDate>Fri, 06 Aug 2021 18:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/categories/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>golang</title>
+      <link>https://itsnikhil.github.io/blog/categories/golang/</link>
+      <pubDate>Tue, 03 Aug 2021 11:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/categories/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Technology</title>
+      <link>https://itsnikhil.github.io/blog/categories/technology/</link>
+      <pubDate>Sun, 30 May 2021 15:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/categories/technology/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tutorial</title>
+      <link>https://itsnikhil.github.io/blog/categories/tutorial/</link>
+      <pubDate>Sun, 30 May 2021 15:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/categories/tutorial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Web</title>
+      <link>https://itsnikhil.github.io/blog/categories/web/</link>
+      <pubDate>Sun, 30 May 2021 15:30:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/categories/web/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>App</title>
+      <link>https://itsnikhil.github.io/blog/categories/app/</link>
+      <pubDate>Mon, 23 Nov 2020 00:00:01 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/categories/app/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Electronics</title>
+      <link>https://itsnikhil.github.io/blog/categories/electronics/</link>
+      <pubDate>Sun, 22 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/categories/electronics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Science</title>
+      <link>https://itsnikhil.github.io/blog/categories/science/</link>
+      <pubDate>Sun, 22 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/categories/science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Extension</title>
+      <link>https://itsnikhil.github.io/blog/categories/extension/</link>
+      <pubDate>Sun, 11 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/categories/extension/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Miscellaneous</title>
+      <link>https://itsnikhil.github.io/blog/categories/miscellaneous/</link>
+      <pubDate>Sun, 11 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/categories/miscellaneous/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>random</title>
+      <link>https://itsnikhil.github.io/blog/categories/random/</link>
+      <pubDate>Wed, 09 Sep 2020 09:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/categories/random/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

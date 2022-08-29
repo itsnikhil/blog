@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Zomato Improvement Proposal (ZIP-001): Gigs system matchings </title>
+  <meta name="description" content="I am a programmer interested in all sorts of technology. I like working on open source projects, writing blog articles, and reading on the internet. I also like swimming, biking and playing games. I study at The Northcap University.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="Zomato Improvement Proposal (ZIP-001): Gigs system matchings" />
+<meta property="og:description" content="Zomato Improvement Proposal (ZIP): Gigs system matchings - Many to many stable matching algorithm using the deferred-acceptance." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://itsnikhil.github.io/blog/posts/zomato-improvement-proposal-zip-gigs-system-matchings/" />
+<meta property="article:published_time" content="2022-05-01T00:30:00+00:00" />
+<meta property="article:modified_time" content="2022-05-01T00:30:00+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Zomato Improvement Proposal (ZIP-001): Gigs system matchings"/>
+<meta name="twitter:description" content="Zomato Improvement Proposal (ZIP): Gigs system matchings - Many to many stable matching algorithm using the deferred-acceptance."/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://itsnikhil.github.io/blog/css/style-white.css">
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://itsnikhil.github.io/blog/images/favicon.ico" />
+
+  
+  
+  
+  
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-119427755-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    
+  
+</head>
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#" class="active"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="window.scrollTo({top: 0, left: 0, behavior: 'smooth'});" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu" style="visibility: visible;">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/blog/">Home</a></li>
+         
+        <li><a href="/blog/posts">Writings</a></li>
+         
+        <li><a href="/blog/projects">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://itsnikhil.github.io/blog/posts/done-is-better-than-perfect/">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="toggleVisibility(document.getElementById('i-prev'))" onmouseout="toggleVisibility(document.getElementById('i-prev'))"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="#" onclick="window.scrollTo({top: 0, left: 0, behavior: 'smooth'});">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="toggleVisibility(document.getElementById('i-top'))" onmouseout="toggleVisibility(document.getElementById('i-top'))"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="toggleVisibility(document.getElementById('i-share'))" onmouseout="toggleVisibility(document.getElementById('i-share'))" onclick="toggleVisibility(document.getElementById('share'))"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fzomato-improvement-proposal-zip-gigs-system-matchings%2f">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fzomato-improvement-proposal-zip-gigs-system-matchings%2f&text=Zomato%20Improvement%20Proposal%20%28ZIP-001%29%3a%20Gigs%20system%20matchings">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fzomato-improvement-proposal-zip-gigs-system-matchings%2f&title=Zomato%20Improvement%20Proposal%20%28ZIP-001%29%3a%20Gigs%20system%20matchings">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fzomato-improvement-proposal-zip-gigs-system-matchings%2f&is_video=false&description=Zomato%20Improvement%20Proposal%20%28ZIP-001%29%3a%20Gigs%20system%20matchings">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Zomato%20Improvement%20Proposal%20%28ZIP-001%29%3a%20Gigs%20system%20matchings&body=Check out this article: https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fzomato-improvement-proposal-zip-gigs-system-matchings%2f">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fzomato-improvement-proposal-zip-gigs-system-matchings%2f&title=Zomato%20Improvement%20Proposal%20%28ZIP-001%29%3a%20Gigs%20system%20matchings">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fzomato-improvement-proposal-zip-gigs-system-matchings%2f&title=Zomato%20Improvement%20Proposal%20%28ZIP-001%29%3a%20Gigs%20system%20matchings">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.stumbleupon.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fzomato-improvement-proposal-zip-gigs-system-matchings%2f&title=Zomato%20Improvement%20Proposal%20%28ZIP-001%29%3a%20Gigs%20system%20matchings">
+      <i class="fab fa-stumbleupon " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://digg.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fzomato-improvement-proposal-zip-gigs-system-matchings%2f&title=Zomato%20Improvement%20Proposal%20%28ZIP-001%29%3a%20Gigs%20system%20matchings">
+      <i class="fab fa-digg " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fzomato-improvement-proposal-zip-gigs-system-matchings%2f&name=Zomato%20Improvement%20Proposal%20%28ZIP-001%29%3a%20Gigs%20system%20matchings&description=Zomato%20Improvement%20Proposal%20%28ZIP%29%3a%20Gigs%20system%20matchings%20-%20Many%20to%20many%20stable%20matching%20algorithm%20using%20the%20deferred-acceptance.">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fzomato-improvement-proposal-zip-gigs-system-matchings%2f&t=Zomato%20Improvement%20Proposal%20%28ZIP-001%29%3a%20Gigs%20system%20matchings">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#zomatos-gig-system">Zomato&rsquo;s Gig System</a>
+      <ul>
+        <li><a href="#as-per-the-company-benefits-of-gigs-system-include">As per the company, benefits of Gigs system include:</a></li>
+        <li><a href="#medals">Medals</a></li>
+        <li><a href="#problems-with-current-implementation-of-the-gig-system">Problems with current implementation of the gig system</a>
+          <ul>
+            <li><a href="#1-booking-of-gigs-is-a-first-come-first-serve-process">1. Booking of gigs is a first come first serve process</a></li>
+            <li><a href="#2-preferred-gig-not-available">2. Preferred gig not available</a></li>
+            <li><a href="#3-customer-feedback-do-not-affect-medal">3. Customer feedback do not affect medal</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#improvement-proposal">Improvement Proposal</a>
+      <ul>
+        <li><a href="#better-matching-algorithm">Better matching algorithm</a></li>
+        <li><a href="#benefits-of-this-new-match-making-algorithm">Benefits of this new match making algorithm</a></li>
+        <li><a href="#concerns">Concerns</a></li>
+      </ul>
+    </li>
+    <li><a href="#sources">Sources:</a></li>
+  </ul>
+</nav>
+    </div>
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        Zomato Improvement Proposal (ZIP-001): Gigs system matchings
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2022-05-01 00:30:00 &#43;0000 UTC" itemprop="datePublished">2022-05-01</time>
+          
+        </div>
+        
+        <div class="article-category">
+            <i class="fas fa-archive"></i>
+            
+            
+            <a class="category-link" href="/blog/categories/algorithm">algorithm</a>
+            
+            
+            <a class="category-link" href="/blog/categories/proposal">proposal</a>
+            
+             ,  
+            <a class="category-link" href="/blog/categories/zomato">zomato</a>
+            
+        </div>
+        
+        
+        <div class="article-tag">
+            <i class="fas fa-tag"></i>
+            
+            
+            <a class="tag-link" href="/blog/tags/engineering" rel="tag">engineering</a>
+            
+            
+            <a class="tag-link" href="/blog/tags/matching" rel="tag">matching</a>
+            
+             ,  
+            <a class="tag-link" href="/blog/tags/gigs" rel="tag">Gigs</a>
+            
+             ,  
+            <a class="tag-link" href="/blog/tags/zip" rel="tag">ZIP</a>
+            
+        </div> 
+        
+      </div>
+    </header>
+
+  
+    <div class="content" itemprop="articleBody">
+      <pre><code>ZIP: 1
+Title: Gigs system matchings
+Author: Nikhil Taneja &lt;itsnikhil@duck.com&gt;
+Status: Proposal
+Type: Process
+Created: 2022-01-05
+</code></pre>
+<h2 id="zomatos-gig-system">Zomato&rsquo;s Gig System</h2>
+<p>Zomato&rsquo;s gig system is an economic system for delivery partners of the company. In Gigs system, Delivery partners book &ldquo;gigs&rdquo; which are their preferred timeslots of work. For completion of every gig, a delivery partner has to complete a few minimum login hours criteria. Delivery partners can browse available gigs a couple days in advance. Information like timings and estimated earnings for each available gig can be accessed from the app. As per the convenience of the delivery partners, they can choose to book as many gigs as they like and start delivering food. A small cancellation fee is charged from a delivery partner every time they cancel a gig. This is done to avoid abusing the system and so that other delivery partners get their fair chance to book gigs. Delivery partners get fixed order payouts for every order + distance payout for every kilometer of drop both of which can vary across various locations.</p>
+<h3 id="as-per-the-company-benefits-of-gigs-system-include">As per the company, benefits of Gigs system include:</h3>
+<ul>
+<li>Delivery partners can view estimated payout for a gig before booking based on which they can choose desired gigs</li>
+<li>Higher chances of getting an order</li>
+<li>No rush to meet target to get incentives! More gigs, more earnings</li>
+<li>Payouts as per expectations, everyday</li>
+</ul>
+<h3 id="medals">Medals</h3>
+<p>In order to ensure good quality of delivery partners is available, Zomato has divided all delivery partners into various different categories denoted by medals. Based on the medal some benefits are given to few high ranking delivery partners including the ability to book gigs few days in advance.</p>
+<ul>
+<li>Blue medal:
+<ul>
+<li>1-day early booking</li>
+<li>Medical insurance</li>
+</ul>
+</li>
+<li>Bronze medal:
+<ul>
+<li>2-day early booking</li>
+<li>Medical insurance</li>
+</ul>
+</li>
+<li>Silver medal:
+<ul>
+<li>3-day early booking</li>
+<li>Priority support</li>
+<li>Medical insurance</li>
+</ul>
+</li>
+<li>Diamond medal:
+<ul>
+<li>4-day early booking</li>
+<li>Priority support</li>
+<li>Diamond badge</li>
+<li>Increased cash limit</li>
+<li>Medical insurance</li>
+</ul>
+</li>
+</ul>
+<p>Medals for each delivery partner is refreshed after every fixed time interval. In order to improve medal, delivery partner has to meet following requirements in each criteria:</p>
+<table>
+<thead>
+<tr>
+<th>Medal</th>
+<th>Criteria</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Blue</td>
+<td>Completed orders</td>
+<td>0-95%</td>
+</tr>
+<tr>
+<td></td>
+<td>On time orders</td>
+<td>0-70%</td>
+</tr>
+<tr>
+<td></td>
+<td>Completed gigs</td>
+<td>0-70%</td>
+</tr>
+<tr>
+<td></td>
+<td>Star gigs</td>
+<td>0-25%</td>
+</tr>
+<tr>
+<td>Bronze</td>
+<td>Completed orders</td>
+<td>95-97%</td>
+</tr>
+<tr>
+<td></td>
+<td>On time orders</td>
+<td>70-80%</td>
+</tr>
+<tr>
+<td></td>
+<td>Completed gigs</td>
+<td>70-80%</td>
+</tr>
+<tr>
+<td></td>
+<td>Star gigs</td>
+<td>25-50%</td>
+</tr>
+<tr>
+<td>Silver</td>
+<td>Completed orders</td>
+<td>97-99%</td>
+</tr>
+<tr>
+<td></td>
+<td>On time orders</td>
+<td>80-85%</td>
+</tr>
+<tr>
+<td></td>
+<td>Completed gigs</td>
+<td>80-90%</td>
+</tr>
+<tr>
+<td></td>
+<td>Star gigs</td>
+<td>50-75%</td>
+</tr>
+<tr>
+<td>Diamond</td>
+<td>Completed orders</td>
+<td>99-100%</td>
+</tr>
+<tr>
+<td></td>
+<td>On time orders</td>
+<td>85-100%</td>
+</tr>
+<tr>
+<td></td>
+<td>Completed gigs</td>
+<td>90-100%</td>
+</tr>
+<tr>
+<td></td>
+<td>Star gigs</td>
+<td>75-100%</td>
+</tr>
+</tbody>
+</table>
+<h3 id="problems-with-current-implementation-of-the-gig-system">Problems with current implementation of the gig system</h3>
+<h4 id="1-booking-of-gigs-is-a-first-come-first-serve-process">1. Booking of gigs is a first come first serve process</h4>
+<p>Everyday at 10:30 AM when gigs booking unlocks for the next day, each and every delivery partner has to try to book gig in order to maximize their chances for a gig to be available. Imagine yourself participating in a flash sale everyday. Also, this can cause huge traffic on a system at during that initial booking period.</p>
+<h4 id="2-preferred-gig-not-available">2. Preferred gig not available</h4>
+<p>Each gig has limited no. of delivery partner requirements from each cluster/city. Because of this, few delivery partners who wanted to work does not get chance because of unavailability of gig. This is more common for blue and bronze delivery partners.</p>
+<h4 id="3-customer-feedback-do-not-affect-medal">3. Customer feedback do not affect medal</h4>
+<p>Medal criteria&rsquo;s are more aligned how Zomato deems as delivery partner to be good than the ratings given by it&rsquo;s customers. Though, I am not aware how much important delivery partner&rsquo;s rating is for a food delivery company than compared to mobility company.</p>
+<h2 id="improvement-proposal">Improvement Proposal</h2>
+<h3 id="better-matching-algorithm">Better matching algorithm</h3>
+<p>My proposal to Zomato is to implement some version of many to many stable matching algorithm using the deferred-acceptance.</p>
+<p>Instead of booking gigs immediately, delivery partners can share their preferences which is ranked ordered list of how likely are they to work for a certain gig for that day. There will be a deadline before which each delivery partner needs to submit ranked gigs. For example:</p>
+<table>
+<thead>
+<tr>
+<th>Gig</th>
+<th>Timings</th>
+<th>Earnings per hour</th>
+<th>Partners needed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>G1</td>
+<td>10:00AM - 12:00PM</td>
+<td>100-120</td>
+<td>1</td>
+</tr>
+<tr>
+<td>G2</td>
+<td>02:00PM - 03:00PM</td>
+<td>175-200</td>
+<td>1</td>
+</tr>
+<tr>
+<td>G3</td>
+<td>06:00PM - 07:00PM</td>
+<td>150-175</td>
+<td>1</td>
+</tr>
+<tr>
+<td>G4</td>
+<td>09:00PM - 11:00PM</td>
+<td>200-250</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Delivery partner A</th>
+<th>Delivery partner B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>#1</td>
+<td>G1</td>
+<td>G4</td>
+</tr>
+<tr>
+<td>#2</td>
+<td>G3</td>
+<td>G2</td>
+</tr>
+<tr>
+<td>#3</td>
+<td>G4</td>
+<td>G3</td>
+</tr>
+<tr>
+<td>#4</td>
+<td>G2</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Meanwhile Zomato can rate it&rsquo;s delivery partners based on any criteria. For example:</p>
+<table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Delivery partner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>#1</td>
+<td>Delivery partner A</td>
+</tr>
+<tr>
+<td>#2</td>
+<td>Delivery partner B</td>
+</tr>
+</tbody>
+</table>
+<p>The algorithm starts by respecting first preference for each and every delivery partner and finding optimal match with Zomato&rsquo;s preference for each delivery partner and performs multiple rounds of iteration for lower preferences. One such algorithm is famously known as <a href="https://en.wikipedia.org/wiki/Stable_marriage_problem">stable marriage problem</a>. It works well enough when there must be only 1 match but in Zomato&rsquo;s case, one delivery partner can be assigned to multiple gigs. In order to avoid always selecting same delivery partner again and again for multiple gigs because of higher rating given by Zomato, the algorithm needs to reduce the rank of a person after getting a confirmed gig.</p>
+<table>
+<thead>
+<tr>
+<th>Gig</th>
+<th>Final Partner Selected</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>G1</td>
+<td>Delivery partner A</td>
+</tr>
+<tr>
+<td>G2</td>
+<td>Delivery partner B</td>
+</tr>
+<tr>
+<td>G3</td>
+<td>Delivery partner A</td>
+</tr>
+<tr>
+<td>G4</td>
+<td>Delivery partner B</td>
+</tr>
+</tbody>
+</table>
+<h3 id="benefits-of-this-new-match-making-algorithm">Benefits of this new match making algorithm</h3>
+<ul>
+<li>The algorithm is delivery partner proposing</li>
+<li>There is no difference in matchings results if delivery partner ranks gig now or couple of hours later</li>
+<li>Ensures quality of delivery partners remains while still maintaining better matchings</li>
+<li>All delivery partners will at least get a chance to share their preferences</li>
+</ul>
+<h3 id="concerns">Concerns</h3>
+<ul>
+<li>Delivery partners should at least need to know how to improve upon ranking criteria used by Zomato</li>
+<li>Since gig confirmation happens later, proper communication should happen with delivery partners about what gigs they finally gets assigned</li>
+</ul>
+<h2 id="sources">Sources:</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=y4dEg3LUqAs">https://www.youtube.com/watch?v=y4dEg3LUqAs</a></li>
+<li><a href="https://www.youtube.com/watch?v=C9m1YwkuY7g">https://www.youtube.com/watch?v=C9m1YwkuY7g</a></li>
+<li><a href="https://www.youtube.com/watch?v=kvgfgGmemdA">https://www.youtube.com/watch?v=kvgfgGmemdA</a></li>
+</ul>
+
+    </div>
+  </article>
+
+  
+  
+
+
+
+
+  
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+          <script type="text/javascript">
+          
+          (function() {
+              
+              
+              
+              
+          
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              var disqus_shortname = 'itsnikhil';
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="https://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </div>
+
+  
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/blog/">Home</a></li>
+         
+          <li><a href="/blog/posts">Writings</a></li>
+         
+          <li><a href="/blog/projects">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#zomatos-gig-system">Zomato&rsquo;s Gig System</a>
+      <ul>
+        <li><a href="#as-per-the-company-benefits-of-gigs-system-include">As per the company, benefits of Gigs system include:</a></li>
+        <li><a href="#medals">Medals</a></li>
+        <li><a href="#problems-with-current-implementation-of-the-gig-system">Problems with current implementation of the gig system</a>
+          <ul>
+            <li><a href="#1-booking-of-gigs-is-a-first-come-first-serve-process">1. Booking of gigs is a first come first serve process</a></li>
+            <li><a href="#2-preferred-gig-not-available">2. Preferred gig not available</a></li>
+            <li><a href="#3-customer-feedback-do-not-affect-medal">3. Customer feedback do not affect medal</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#improvement-proposal">Improvement Proposal</a>
+      <ul>
+        <li><a href="#better-matching-algorithm">Better matching algorithm</a></li>
+        <li><a href="#benefits-of-this-new-match-making-algorithm">Benefits of this new match making algorithm</a></li>
+        <li><a href="#concerns">Concerns</a></li>
+      </ul>
+    </li>
+    <li><a href="#sources">Sources:</a></li>
+  </ul>
+</nav>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fzomato-improvement-proposal-zip-gigs-system-matchings%2f">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fzomato-improvement-proposal-zip-gigs-system-matchings%2f&text=Zomato%20Improvement%20Proposal%20%28ZIP-001%29%3a%20Gigs%20system%20matchings">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fzomato-improvement-proposal-zip-gigs-system-matchings%2f&title=Zomato%20Improvement%20Proposal%20%28ZIP-001%29%3a%20Gigs%20system%20matchings">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fzomato-improvement-proposal-zip-gigs-system-matchings%2f&is_video=false&description=Zomato%20Improvement%20Proposal%20%28ZIP-001%29%3a%20Gigs%20system%20matchings">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Zomato%20Improvement%20Proposal%20%28ZIP-001%29%3a%20Gigs%20system%20matchings&body=Check out this article: https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fzomato-improvement-proposal-zip-gigs-system-matchings%2f">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fzomato-improvement-proposal-zip-gigs-system-matchings%2f&title=Zomato%20Improvement%20Proposal%20%28ZIP-001%29%3a%20Gigs%20system%20matchings">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fzomato-improvement-proposal-zip-gigs-system-matchings%2f&title=Zomato%20Improvement%20Proposal%20%28ZIP-001%29%3a%20Gigs%20system%20matchings">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.stumbleupon.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fzomato-improvement-proposal-zip-gigs-system-matchings%2f&title=Zomato%20Improvement%20Proposal%20%28ZIP-001%29%3a%20Gigs%20system%20matchings">
+      <i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://digg.com/submit?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fzomato-improvement-proposal-zip-gigs-system-matchings%2f&title=Zomato%20Improvement%20Proposal%20%28ZIP-001%29%3a%20Gigs%20system%20matchings">
+      <i class="fab fa-digg fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fzomato-improvement-proposal-zip-gigs-system-matchings%2f&name=Zomato%20Improvement%20Proposal%20%28ZIP-001%29%3a%20Gigs%20system%20matchings&description=Zomato%20Improvement%20Proposal%20%28ZIP%29%3a%20Gigs%20system%20matchings%20-%20Many%20to%20many%20stable%20matching%20algorithm%20using%20the%20deferred-acceptance.">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fitsnikhil.github.io%2fblog%2fposts%2fzomato-improvement-proposal-zip-gigs-system-matchings%2f&t=Zomato%20Improvement%20Proposal%20%28ZIP-001%29%3a%20Gigs%20system%20matchings">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu" class="icon" href="javascript:void(0);" onclick="toggleVisibility(document.getElementById('nav-footer'))">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="javascript:void(0);" onclick="toggleVisibility(document.getElementById('toc-footer'))">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="javascript:void(0);" onclick="toggleVisibility(document.getElementById('share-footer'))">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="javascript:void(0);" onclick="window.scrollTo({top: 0, left: 0, behavior: 'smooth'});">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2022  ItsNikhil 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/blog/">Home</a></li>
+         
+        <li><a href="/blog/posts">Writings</a></li>
+         
+        <li><a href="/blog/projects">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css" media="print" onload="this.media='all'">
+<script src="/js/main.js"></script>
+
+
+
+</html>

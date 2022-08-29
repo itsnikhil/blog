@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Miscellaneous on ItsNikhil</title>
+    <link>https://itsnikhil.github.io/blog/categories/miscellaneous/</link>
+    <description>Recent content in Miscellaneous on ItsNikhil</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>ItsNikhil</copyright>
+    <lastBuildDate>Sun, 11 Oct 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://itsnikhil.github.io/blog/categories/miscellaneous/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Form Auto Submitter</title>
+      <link>https://itsnikhil.github.io/blog/projects/form-auto-submitter/</link>
+      <pubDate>Sun, 11 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/projects/form-auto-submitter/</guid>
+      <description>Worried about missing the deadline to submit your online exam?
+This extension will help you auto submit Microsoft Office forms at your set time so that you never miss your deadline again!
+ Installation Get it from Microsoft Edge Extensions Store:
+https://microsoftedge.microsoft.com/addons/detail/office-form-auto-submit/plnfbbohkagpfojbbdmjachggboeakpo
+Manual Installation  First clone the project  git clone https://github.com/itsnikhil/auto-form-submitter.git  Open Chrome or Microsoft&amp;rsquo;s chromium based Edge browser From top right three dots button menu, Go to Extenstions Click Load unpacked Give the path to director where you have cloned the project Try it out on this Micorosoft Office form  Steps to use:  Open an office form for example Hit Ctrl+Shift+F or Click on the extension icon Set a deadline Click Save By default form auto submitter is disabled.</description>
+    </item>
+    
+    <item>
+      <title>Gmbot - Chatbot for gamers</title>
+      <link>https://itsnikhil.github.io/blog/projects/gmbot/</link>
+      <pubDate>Wed, 09 Sep 2020 09:00:00 +0000</pubDate>
+      
+      <guid>https://itsnikhil.github.io/blog/projects/gmbot/</guid>
+      <description>INTRODUCTION I used to play Clash of Clans (COC) which had a system of clan wars. Then on April 2016 I quitted from the COC and started playing Doodle Army 2: Mini Militia (DA2) and I played it a lot, so much so that I made friends from Kerala, Rajasthan, Delhi and even outside India. We friends created a group over WhatsApp and named our group Headshot Killers (HSK) and every player in that group had to put HSK after their in-game name (IGN).</description>
+    </item>
+    
+  </channel>
+</rss>
