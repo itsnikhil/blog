@@ -10,10 +10,10 @@ categories:
 - Web
 keywords:
     - IEEE NCU Society
-cover: /img/ieee_ncu_sb.png
+cover: /blog/img/ieee_ncu_sb.png
 description: Webapp for IEEE NCU Student Branch with API for managing Team, Events, Blog, etc. Hosted on cloud!
 ---
 
 https://ieee.ncuindia.edu/
 
-![](/img/ieeencuindia.png)
+![](/blog/img/ieeencuindia.png)

@@ -9,14 +9,14 @@ categories:
 - Science
 keywords:
     - Bending of light science experiemt with laser
-cover: /img/aquarex100.jpg
+cover: /blog/img/aquarex100.jpg
 description: Webapp for IEEE NCU Student Branch with API for managing Team, Events, Blog, etc. Hosted on cloud!
 ---
 
 ## Bending of light using water
 A cool science experiment using laser. All our school life we have been taught that light travels in staright line. Well here is a cool experiment that proves that light can also bend or so you can make people think.
 
-![Aquarex](/img/aquarex.jpg)
+![Aquarex](/blog/img/aquarex.jpg)
 
 ## Requirements
 For this experiement you will need:

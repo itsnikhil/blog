@@ -54,7 +54,7 @@ def setup(client):
 
 By micro-services I do not mean having different bots handling different features of the bot. **I want you to think and treat discord bot server as simply a frontend-client like a mobile app and instead of mixing business logic into it, have a separate backend server communicating via RESTful APIs.**
 
-![Architecting discord bot the right way](/img/discord-bot-arch.jpg)
+![Architecting discord bot the right way](/blog/img/discord-bot-arch.jpg)
 
 ```bash
 gmbot createwar -players @Player1 @Player2 -game 4 -duration 12 -type ft3
@@ -126,7 +126,7 @@ await info_channel.send(embed=embed)
 * [Separate deployments](#\[separate-deployments)
 * [Leaner teams and increased productivity](#leaner-teams-and-increased-productivity)
 
-![discord-bot-arch-scale](/img/discord-bot-arch-scale-1.jpg)
+![discord-bot-arch-scale](/blog/img/discord-bot-arch-scale-1.jpg)
 
 ### Much easier to test the features
 

@@ -11,7 +11,7 @@ keywords:
     - Journal 
     - Fitbit App
     - Record your day on your smartwatch!
-cover: /img/journal_icon.png
+cover: /blog/img/journal_icon.png
 description: A personal tool to motivate and to look back and analyze one’s life events. Evolving project which receives feature updates regularly. Journal app has been appreciated by hundreds of Fitbit users (300+ 5-star rating as of September 2020)
 ---
 
@@ -29,8 +29,8 @@ Made it for myself ✌
 
 |   |   |   |
 | - | - | - |
-|![Aquarex](/img/journal/1.png) | ![Aquarex](/img/journal/2.png) | ![Aquarex](/img/journal/3.png)|
-|![Aquarex](/img/journal/4.png) | ![Aquarex](/img/journal/5.png) | ![Aquarex](/img/journal/6.png)|
+|![Aquarex](/blog/img/journal/1.png) | ![Aquarex](/blog/img/journal/2.png) | ![Aquarex](/blog/img/journal/3.png)|
+|![Aquarex](/blog/img/journal/4.png) | ![Aquarex](/blog/img/journal/5.png) | ![Aquarex](/blog/img/journal/6.png)|
 
 ### v1.0.0.1
 `Published 26/03/2020 12:12 PM`
@@ -59,8 +59,8 @@ Made it for myself ✌
 
 |   |   |   |
 | - | - | - |
-|![Aquarex](/img/journal/7.png) | ![Aquarex](/img/journal/8.png) | ![Aquarex](/img/journal/9.png)|
-|![Aquarex](/img/journal/10.png) | ![Aquarex](/img/journal/11.png) |
+|![Aquarex](/blog/img/journal/7.png) | ![Aquarex](/blog/img/journal/8.png) | ![Aquarex](/blog/img/journal/9.png)|
+|![Aquarex](/blog/img/journal/10.png) | ![Aquarex](/blog/img/journal/11.png) |
 
 ### 150th 5-star rating
 `On 13/05/2020`
@@ -80,7 +80,7 @@ Made it for myself ✌
 
 |   |   |   |
 | - | - | - |
-|![Aquarex](/img/journal/12.png) | ![Aquarex](/img/journal/13.png) | ![Aquarex](/img/journal/14.png) |
+|![Aquarex](/blog/img/journal/12.png) | ![Aquarex](/blog/img/journal/13.png) | ![Aquarex](/blog/img/journal/14.png) |
 
 ### 300th rating
 `On 29/08/2020`
@@ -95,7 +95,7 @@ Made it for myself ✌
 - Updated for latest Fitbit OS
 - Removed calendar (use IFTTT feature for managing calendar)
 
-![Aquarex](/img/16.png)
+![Aquarex](/blog/img/16.png)
 
 ## Follow Journal
 
