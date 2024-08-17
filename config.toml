@@ -1,7 +1,7 @@
 baseURL = "https://itsnikhil.github.io/blog/"
 copyright = "ItsNikhil"
 disqusShortname = "itsnikhil"
-googleAnalytics = "UA-119427755-1"
+# googleAnalytics = "UA-119427755-1"  # deprecated
 languageCode = "en-us"
 theme = "hugo-theme-cactus"
 title = "ItsNikhil"
@@ -32,7 +32,7 @@ weight = 1
 colortheme = "white"
 dateFormat = "2006-01-02"
 description = "I am a programmer interested in all sorts of technology. I like working on open source projects, writing blog articles, and reading on the internet. I also like swimming, biking and playing games. I study at The Northcap University."
-googleAnalyticsAsync = true
+# googleAnalyticsAsync = true  # deprecated
 mainSection = "posts"
 postsOnHomePage = 5
 projectsUrl = "https://github.com/gohugoio"
