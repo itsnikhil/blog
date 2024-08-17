@@ -76,7 +76,7 @@
         </li>
       {{ end }}
       {{ if gt (len .Paginator.Pages) (.Scratch.Get "count") }}
-      <h3><a href="{{ .URL }}">Read all posts</a></h3>
+      <h3><a href="{{ .RelPermalink }}">Read all posts</a></h3>
       {{ end }}
       {{ end }}
     </ul>
