@@ -13,8 +13,6 @@ keywords:
     - Gemini
 ---
 
-# Screen to Screen Navigation Understanding with AI
-
 Current AI agents for automated UI testing have an expensive problem: they make LLM calls at every single step to decide what to do next. Most agents cache simple input-output pairs, but they don't build any understanding of the overall application structure. This leads to high API costs, slow execution, and inefficient navigation.
 
 What if we could flip this approach? Instead of real-time decision making, what if we pre-computed the entire app's navigation structure from manual testing recordings? Could this comprehensive knowledge base provide better caching than simple input-output storage? Could it reduce the cost of agentic app testing and make navigation faster? A tool that not only maps every screen connection but also understands the context and user intent behind each transition?
