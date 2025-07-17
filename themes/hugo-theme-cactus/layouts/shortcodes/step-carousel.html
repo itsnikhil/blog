@@ -6,15 +6,15 @@
 <div class="step-carousel" id="{{ $id }}" data-autoplay="{{ $autoplay }}" data-interval="{{ $interval }}">
   <div class="carousel-container" style="height: {{ $height }};">
     <div class="carousel-slides">
-      {{ $slides := split (.Inner | trim) "\n" }}
+      {{ $slides := split (.Inner | strings.TrimSpace) "\n" }}
       {{ range $index, $slide := $slides }}
         {{ if $slide }}
           {{ $parts := split $slide "|" }}
           {{ if eq (len $parts) 2 }}
             <div class="carousel-slide {{ if eq $index 0 }}active{{ end }}" data-slide="{{ $index }}">
-              <img src="{{ index $parts 0 | trim }}" alt="{{ index $parts 1 | trim }}" loading="lazy">
+              <img src="{{ index $parts 0 | strings.TrimSpace }}" alt="{{ index $parts 1 | strings.TrimSpace }}" loading="lazy">
               <div class="carousel-caption">
-                <p>{{ index $parts 1 | trim | markdownify }}</p>
+                <p>{{ index $parts 1 | strings.TrimSpace | markdownify }}</p>
               </div>
             </div>
           {{ end }}
@@ -45,8 +45,14 @@
   </div>
   
   <!-- Slide Counter -->
+  {{ $validSlides := 0 }}
+  {{ range $slides }}
+    {{ if . }}
+      {{ $validSlides = add $validSlides 1 }}
+    {{ end }}
+  {{ end }}
   <div class="carousel-counter">
-    <span class="current-slide">1</span> / <span class="total-slides">{{ len $slides }}</span>
+    <span class="current-slide">1</span> / <span class="total-slides">{{ $validSlides }}</span>
   </div>
 </div>
 
