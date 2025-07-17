@@ -73,7 +73,7 @@ requests.post(f'/extractions/{extraction_id}/process_selected/', json={
 
 
 ![Screen Description](https://res.cloudinary.com/journalapp/image/upload/v1752742744/image_10_yioolu.png)
-*Overview of the system architecture and capabilities*
+*AI generated Screen description*
 
 
 The system uses a sophisticated prompt template that analyzes each screen across 7 dimensions:
