@@ -1,4 +1,4 @@
-\{{ $id := .Get "id" | default (printf "carousel-%d" now.Unix) }}
+{{ $id := .Get "id" | default (printf "carousel-%d" now.Unix) }}
 {{ $height := .Get "height" | default "400px" }}
 {{ $autoplay := .Get "autoplay" | default "false" }}
 {{ $interval := .Get "interval" | default "5000" }}
@@ -151,28 +151,32 @@
 .carousel-indicators {
   display: flex;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 1rem;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
   background: #f8f9fa;
 }
 
 .indicator {
-  width: 12px;
-  height: 12px;
-  border: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #dee2e6;
   border-radius: 50%;
-  background: #dee2e6;
+  background: transparent;
   cursor: pointer;
   transition: all 0.3s ease;
+  position: relative;
 }
 
 .indicator.active {
   background: #007bff;
-  transform: scale(1.2);
+  border-color: #007bff;
+  transform: scale(1.1);
 }
 
 .indicator:hover {
-  background: #6c757d;
+  border-color: #6c757d;
+  background: rgba(108, 117, 125, 0.2);
 }
 
 .carousel-counter {
