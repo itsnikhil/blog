@@ -170,32 +170,14 @@ The system constructs a complete navigation graph from knowledge base entry and 
 
 Each path includes interactive screenshots, transition metadata, and step-by-step navigation instructions.
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 20px 0;">
-  <div style="text-align: center;">
-    <img src="https://res.cloudinary.com/journalapp/image/upload/v1752742743/image_13_nahy1d.png" alt="Step 1" style="width: 100%; max-width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-    <p style="margin-top: 10px; font-size: 14px; color: #666; font-style: italic;">Step 1: Source Screen is Booking Home</p>
-  </div>
-  <div style="text-align: center;">
-    <img src="https://res.cloudinary.com/journalapp/image/upload/v1752742745/image_14_sm3n2j.png" alt="Step 2" style="width: 100%; max-width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-    <p style="margin-top: 10px; font-size: 14px; color: #666; font-style: italic;">Step 2: Tap destination_search to reach Booking Ride Options</p>
-  </div>
-  <div style="text-align: center;">
-    <img src="https://res.cloudinary.com/journalapp/image/upload/v1752742743/image_15_avwbdk.png" alt="Step 3" style="width: 100%; max-width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-    <p style="margin-top: 10px; font-size: 14px; color: #666; font-style: italic;">Step 3: Tap book button to reach Captain Search</p>
-  </div>
-  <div style="text-align: center;">
-    <img src="https://res.cloudinary.com/journalapp/image/upload/v1752742743/image_16_u4cu05.png" alt="Step 4" style="width: 100%; max-width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-    <p style="margin-top: 10px; font-size: 14px; color: #666; font-style: italic;">Step 4: Tap cancel_ride to reach Cancellation Reason Selection</p>
-  </div>
-  <div style="text-align: center;">
-    <img src="https://res.cloudinary.com/journalapp/image/upload/v1752742744/image_17_psur5f.png" alt="Step 5" style="width: 100%; max-width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-    <p style="margin-top: 10px; font-size: 14px; color: #666; font-style: italic;">Step 5: Tap back_button to reach Booking Confirmation</p>
-  </div>
-  <div style="text-align: center;">
-    <img src="https://res.cloudinary.com/journalapp/image/upload/v1752742743/image_18_adnmew.png" alt="Step 6" style="width: 100%; max-width: 300px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-    <p style="margin-top: 10px; font-size: 14px; color: #666; font-style: italic;">Step 6: Tap cancel_ride_button to reach Confirm Cancel Ride</p>
-  </div>
-</div>
+{{< step-carousel id="app-navigation" height="500px" autoplay="true" interval="4000" >}}
+https://res.cloudinary.com/journalapp/image/upload/v1752742743/image_13_nahy1d.png|**Step 1**: Source Screen is Booking Home
+https://res.cloudinary.com/journalapp/image/upload/v1752742745/image_14_sm3n2j.png|**Step 2**: Tap destination_search to reach Booking Ride Options
+https://res.cloudinary.com/journalapp/image/upload/v1752742743/image_15_avwbdk.png|**Step 3**: Tap book button to reach Captain Search
+https://res.cloudinary.com/journalapp/image/upload/v1752742743/image_16_u4cu05.png|**Step 4**: Tap cancel_ride to reach Cancellation Reason Selection
+https://res.cloudinary.com/journalapp/image/upload/v1752742744/image_17_psur5f.png|**Step 5**: Tap back_button to reach Booking Confirmation
+https://res.cloudinary.com/journalapp/image/upload/v1752742743/image_18_adnmew.png|**Step 6**: Tap cancel_ride_button to reach Confirm Cancel Ride
+{{< /step-carousel >}}
 
 ## Building Navigation Intelligence for Autonomous Systems
 
@@ -225,7 +207,7 @@ The sophisticated pathfinding and navigation intelligence that seems so valuable
 
 ### Future Uncertainty: Where Does This Lead?
 
-This disconnect between the tool's capabilities and AI agent usage patterns leaves me uncertain about its future direction:
+This disconnect between the tool's capabilities and AI agent usage patterns leaves me uncertain about its future direction.
 
 ## Results and Implications
 
