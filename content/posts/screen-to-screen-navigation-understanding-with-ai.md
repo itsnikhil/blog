@@ -170,7 +170,7 @@ The system constructs a complete navigation graph from knowledge base entry and 
 
 Each path includes interactive screenshots, transition metadata, and step-by-step navigation instructions.
 
-{{< step-carousel id="app-navigation" height="500px" autoplay="true" interval="4000" >}}
+{{< step-carousel id="app-navigation" height="500px" >}}
 https://res.cloudinary.com/journalapp/image/upload/v1752742743/image_13_nahy1d.png|**Step 1**: Source Screen is Booking Home
 https://res.cloudinary.com/journalapp/image/upload/v1752742745/image_14_sm3n2j.png|**Step 2**: Tap destination_search to reach Booking Ride Options
 https://res.cloudinary.com/journalapp/image/upload/v1752742743/image_15_avwbdk.png|**Step 3**: Tap book button to reach Captain Search
