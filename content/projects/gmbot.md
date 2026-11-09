@@ -9,7 +9,7 @@ categories:
 keywords:
     - gmbot
 cover: /blog/img/gmbot/gmbot.png
-description: A complete clan war system built for gamers in form of a discord chatbot
+description: A complete clan war system built for gamers in the form of a Discord chatbot
 ---
 
 ## INTRODUCTION

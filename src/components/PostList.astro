@@ -1,0 +1,5 @@
+---
+import {url,slug,topicLabel} from '../lib/content.js';
+const {entries,groupYears=false,showSummaries=false}=Astro.props;
+---
+<ul class="post-list">{entries.map((p,i)=><>{groupYears&&p.date&&p.date.getUTCFullYear()!==entries[i-1]?.date?.getUTCFullYear()&&<li><h2>{p.date.getUTCFullYear()}</h2></li>}<li class="post-item"><div class="meta">{p.date&&<time datetime={p.date.toISOString()}>{p.date.toISOString().slice(0,10)}</time>}</div><div class="entry-preview"><a href={url(p.route)}>{p.title}</a>{showSummaries&&<><p>{p.excerpt}</p><div class="entry-topics">{p.tags.slice(0,3).map(tag=><a href={url(`tags/${slug(tag)}`)}>{topicLabel(tag)}</a>)}</div></>}</div></li></>)}</ul>

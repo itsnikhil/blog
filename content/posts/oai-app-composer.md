@@ -1,6 +1,8 @@
 ---
 title: I Built a Local Dev Tool for ChatGPT Apps SDK
 date: 2025-11-05
+lastmod: 2026-11-09
+description: A local prototyping tool for ChatGPT Apps SDK components, with mock tool calls, widget state and starter MCP server code.
 tags:
     - ChatGPT
     - OpenAI
@@ -26,35 +28,38 @@ It finally allowed developers to build **custom UI components** inside ChatGPT, 
 So I tried it on day one.
 And getting it to work, I quickly realized that testing these apps locally wasn’t easy.
 
-## The Developer Experience Today
+## The Setup I Wanted to Avoid
 
-To develop a simple App for ChatGPT, you currently need to:
+<span id="the-developer-experience-today"></span>
 
-* Have a **paid ChatGPT account**
-* Run a local **MCP server**
-* Expose it using **ngrok** (or another tunnel)
-* Serve bundled component with proper **Content Security Policy (CSP)**
+When I started experimenting with the SDK in late 2025, testing a simple app inside ChatGPT involved:
+
+* Having access to **ChatGPT developer mode**
+* Running a local **MCP server**
+* Exposing it using **ngrok** (or another tunnel)
+* Serving a bundled component with proper **Content Security Policy (CSP)**
 
 Even then, you can run into issues like tools not working or ChatGPT not loading your resources correctly.
 It felt like too much setup just to preview a button click or test a small UI change.
 
 ## The Idea: Mock the ChatGPT Environment Locally
 
-While debugging, I realized that ChatGPT just talks to apps through a **JavaScript API** — `window.openai`.
-That’s the bridge used by all ChatGPT Apps and MCP components.
+The Apps SDK components I was building used `window.openai` as the bridge to their ChatGPT host.
 
 So I thought,
 
 > “What if I just mock that API locally?”
 
-If I can simulate `window.openai.callTool()`, `getWidgetState()`, and the rest,
-I could preview components in a local sandbox that behaves just like ChatGPT
+If I can simulate `window.openai.callTool()`, `widgetState`, and `setWidgetState()`,
+I could preview components in a local sandbox that simulates the interactions I wanted to test
 without running a real MCP server or using ChatGPT at all.
 
 ## The Result: A Storybook-Like IDE for ChatGPT Components
 
 I built a **local development tool** that does exactly that.
-It’s a **Storybook-style IDE** for developing and testing ChatGPT MCP components — completely offline.
+It’s a **Storybook-style IDE** for developing and testing ChatGPT MCP components — locally with mock data, without connecting to ChatGPT.
+
+The preview loads React, ReactDOM and Tailwind from CDNs, so it still needs network access unless those assets are made local.
 
 ![Component Preview Screenshot](https://res.cloudinary.com/journalapp/image/upload/v1762364992/component-development-tool-for-chatgpt-app-sdk-v0-wclnjfh8l9zf1_te08ut.webp)
 
@@ -63,9 +68,9 @@ It’s a **Storybook-style IDE** for developing and testing ChatGPT MCP componen
 * 🎨 **React + Vite + TypeScript** with hot reload
 * 🔍 **Monaco-based JSON editor** for mock data
 * 🎭 **Sandboxed ChatGPT-like preview** inside an iframe
-* 🌐 Full **`window.openai` mock API** (tool calls, state, etc.)
+* 🌐 Mock implementations of common **`window.openai` APIs** (tool calls, state, etc.)
 * 💾 **Widget state simulation** using IndexedDB
-* 📦 **Export production-ready bundles (HTML/CSS/JS)** using **esbuild**
+* 📦 **Copy starter MCP server code** for deployment
 * 🧩 **Component templates** for faster starts (List Card, Map Card, Carousel, etc.)
 
 
@@ -85,20 +90,15 @@ components/
 ```
 
 When you open the dev tool, it loads your component inside a sandboxed iframe.
-A small bridge script fakes the ChatGPT runtime by injecting a mock `window.openai` object:
+A small bridge script injects a mock `window.openai` object. A component can then use the bridge like this:
 
 ```ts
-window.openai = {
-  callTool: async (name, args) => postMessage({ type: 'call', name, args }),
-  getWidgetState: async (id) => db.get(id),
-  setWidgetState: async (id, state) => db.put(id, state),
-  openExternal: (url) => window.open(url, '_blank', 'noopener,noreferrer'),
-  requestDisplayMode: async (mode) => postMessage({ type: 'displayMode', mode }),
-  sendFollowUpMessage: async (message) => postMessage({ type: 'followup', message })
-};
+const state = window.openai.widgetState ?? {};
+window.openai.setWidgetState({ ...state, selectedId: "item-1" });
+const result = await window.openai.callTool("get_items", {});
 ```
 
-From your component’s point of view, it’s running inside ChatGPT.
+The local bridge routes these calls to fixtures and local state. It does not replace integration testing in ChatGPT, especially for CSP, authentication, tool behavior and host-specific UI.
 You can call tools, update state, and see real-time results — no tunnel required.
 
 ## Quick Templates for Faster Start
@@ -114,7 +114,7 @@ The tool includes ready-to-use templates like:
 - Grid Layout
 - Blank Canvas
 
-Click "New Component" pick a template, and get a scaffolded setup with mock data in seconds.
+Click "New Component", pick a template, and get a scaffolded setup with mock data in seconds.
 
 
 ## Simulating Tool Calls and Flows
@@ -127,7 +127,7 @@ Define simple “tool routing rules” inside the app and test multi-step flows 
 
 ## Why I Built It
 
-ChatGPT Apps are powerful — but the current SDK still makes simple experiments slow.
+ChatGPT Apps are powerful — but the setup I encountered made simple experiments slow.
 I wanted a way for frontend developers to **just start building**, without setup pain or dependency on the ChatGPT UI.
 
 This tool makes local prototyping easy, fast, and open for everyone — no tunnels, no accounts, no waiting.
@@ -136,11 +136,17 @@ This tool makes local prototyping easy, fast, and open for everyone — no tunne
 
 **GitHub:** [https://github.com/itsnikhil/oai-app-composer](https://github.com/itsnikhil/oai-app-composer)
 
+Install Git, Node.js and npm first. To reproduce the reviewed version:
+
 ```bash
+git clone https://github.com/itsnikhil/oai-app-composer.git
+cd oai-app-composer
+git checkout d6163e3bec1a2c9b0234471ca128c7a5bd608ac5
 npm install
 npm run dev
-# then open http://localhost:3000
 ```
+
+Open the local URL printed by Vite, normally `http://localhost:3000`. Vite may choose another port if 3000 is occupied. The commands were checked against the linked source. In a separate checkout of this pinned version, dependency installation with lifecycle scripts disabled and `npm run build` both passed on Node.js 24.22.1. This verifies dependency resolution and the TypeScript/production build, not every browser interaction or ChatGPT integration.
 
 You’ll see a sidebar with components and a live ChatGPT-like preview on the right.
 Edit mock data, change your UI, and see results instantly.
@@ -153,3 +159,8 @@ Tools like this can make the developer experience smoother and help more people 
 If you’re exploring ChatGPT Apps SDK, give it a try.
 
 **Built with ❤️ for the ChatGPT developer community**
+
+
+### Accuracy update — 9 November 2026
+
+The descriptions above were clarified against the [November 2025 implementation](https://github.com/itsnikhil/oai-app-composer/tree/d6163e3bec1a2c9b0234471ca128c7a5bd608ac5). The preview uses CDN assets, the API bridge is a mock rather than full host parity, and export provides starter MCP server code with implementation work remaining. For current setup and API requirements, consult the [developer-mode documentation](https://help.openai.com/en/articles/12584461-developer-mode-and-full-mcp-apps-in-chatgpt-beta) and [Apps SDK reference](https://developers.openai.com/plugins/reference).

@@ -14,14 +14,14 @@ categories:
 keywords:
     - form auto submitter
 cover: /blog/img/promo2.png
-description: An extension that help you auto submit Microsoft Office forms at your set time so that you never miss form deadline!
+description: An extension for scheduling Microsoft Office form submissions at a time you choose.
 ---
 
 ![Form Auto Submitter banner](/blog/img/promo2.png)
 
 > Worried about missing the deadline to submit your online exam? 
 >
-> This extension will help you auto submit Microsoft Office forms at your set time so that you never miss your deadline again!
+> This extension helps you schedule Microsoft Office form submissions for a time you choose.
 
 ## Installation
 
@@ -37,10 +37,10 @@ https://microsoftedge.microsoft.com/addons/detail/office-form-auto-submit/plnfbb
 git clone https://github.com/itsnikhil/auto-form-submitter.git
 ```
 * Open Chrome or Microsoft's chromium based Edge browser
-* From top right three dots button menu, **Go to Extenstions**
+* From top right three dots button menu, **Go to Extensions**
 * Click **Load unpacked**
-* Give the path to director where you have cloned the project
-* Try it out on [this Micorosoft Office form](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAANAAdCUielUNDlXQ09NUkJBTU5QT0IxR1lWNUZKTk1VNy4u)
+* Give the path to the directory where you have cloned the project
+* Try it out on [this Microsoft Office form](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAANAAdCUielUNDlXQ09NUkJBTU5QT0IxR1lWNUZKTk1VNy4u)
 
 
 ## Steps to use:

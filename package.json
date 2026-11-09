@@ -1,0 +1,29 @@
+{
+  "name": "itsnikhil-blog",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=22.23.4"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "node scripts/prepare-assets.mjs && astro build",
+    "preview": "astro preview",
+    "test": "node scripts/verify-build.mjs && node scripts/verify-carousel.mjs && node scripts/verify-quality.mjs",
+    "test:browser": "playwright test"
+  },
+  "dependencies": {
+    "astro": "7.4.7",
+    "entities": "^9.0.0",
+    "gray-matter": "^4.0.3",
+    "highlight.js": "^11.11.1",
+    "marked": "^17.0.1",
+    "marked-highlight": "^2.2.3",
+    "smol-toml": "^1.9.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.0",
+    "jsdom": "^31.0.0"
+  }
+}

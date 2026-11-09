@@ -1,10 +1,10 @@
 +++
 categories = ["microservices", "guide", "architecture"]
 date = 2021-08-26T18:30:00Z
-description = "Architecting discord bot the right way: In this post I want to talk about something which I did not give much thought at the time when I started working on gmbot in 2019."
+description = "Lessons from building Gmbot and reconsidering the architecture of a growing Discord bot."
 keywords = ["design", "system", "scaling", "guide", "ultimate", "bots", "discord", "architecture", "microservices"]
 tags = ["system design", "bots", "discord"]
-title = "Architecting discord bot the right way"
+title = "Architecting a Discord bot the right way"
 
 +++
 ## Past: Gmbot
@@ -54,7 +54,7 @@ def setup(client):
 
 By micro-services I do not mean having different bots handling different features of the bot. **I want you to think and treat discord bot server as simply a frontend-client like a mobile app and instead of mixing business logic into it, have a separate backend server communicating via RESTful APIs.**
 
-![Architecting discord bot the right way](/blog/img/discord-bot-arch.jpg)
+![Architecting a Discord bot the right way](/blog/img/discord-bot-arch.jpg)
 
 ```bash
 gmbot createwar -players @Player1 @Player2 -game 4 -duration 12 -type ft3

@@ -1,0 +1,10 @@
+---
+import Base from '../layouts/Base.astro';
+import PostList from '../components/PostList.astro';
+import {posts,taxonomies,featured,url,description,topicLabel} from '../lib/content.js';
+const topicOrder=['chatgpt','genai','mcp','javascript','python','backend','homelab','security','performance','design','fitbit','developer-tools'];
+const topics=topicOrder.map(key=>taxonomies.tags.find(t=>t.slug===key)).filter(Boolean);
+---
+<Base><section id="about" aria-label="About Nikhil">{description}<p>Find me on <a href="https://github.com/itsnikhil">GitHub</a>, <a href="https://linkedin.com/in/taneja03">LinkedIn</a> and <a href="mailto:taneja.nikhil03@gmail.com">email</a>.</p></section>
+<section id="writing" aria-labelledby="writing-title"><h2 id="writing-title"><a href={url('posts')}>Writings</a></h2><h3>Most recent</h3><PostList entries={posts.slice(0,5)}/><a class="all-link" href={url('posts')}>Browse all writings →</a><h3>Explore topics</h3><ul class="topic-list">{topics.map(t=><li><a href={url(`tags/${t.slug}`)}>{topicLabel(t.name)} <span class="topic-count">{t.entries.length}<span class="sr-only">{t.entries.length===1?' entry':' entries'}</span></span></a></li>)}</ul><a class="all-link" href={url('tags')}>View all {taxonomies.tags.length} topics →</a></section>
+<section id="projects" aria-labelledby="projects-title"><h2 id="projects-title"><a href={url('projects')}>Projects</a></h2><ul class="project-list">{featured.map(p=><li class="project-item"><a href={p.url}>{p.name}</a><p>{p.desc}</p></li>)}</ul><a class="all-link" href={url('projects')}>Explore all projects →</a></section></Base>

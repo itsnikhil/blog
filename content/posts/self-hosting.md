@@ -1,4 +1,5 @@
 ---
+description: My experience self-hosting applications on a Raspberry Pi 5, from setup to the practical issues I encountered.
 title: Self-Hosting Applications on Raspberry Pi 5
 date: 2024-08-17 00:00:00
 tags:

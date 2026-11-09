@@ -1,4 +1,5 @@
 ---
+description: How I processed thenewboston account data to calculate coin distribution, account counts and other network insights.
 title: Algorithm behind TNB Analysis
 date: 2021-01-25 09:00:00
 tags:

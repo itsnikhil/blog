@@ -1,4 +1,5 @@
 ---
+description: A quick hello to start the blog.
 title: First Post
 date: 2020-09-09 09:00:00
 tags:

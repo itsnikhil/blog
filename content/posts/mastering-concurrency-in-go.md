@@ -1,10 +1,10 @@
 +++
 categories = ["golang", "programming"]
 date = 2021-08-03T11:30:00Z
-description = ""
+description = "An introduction to Go concurrency through goroutines, channels and WaitGroups, with practical code examples."
 keywords = ["tutorial", "advanced", "programming", "rate limit", "speed", "performance", "concurrency", "goroutine", "go", "golang"]
 tags = ["performance", "goroutine", "concurrency"]
-title = "Understanding concurrency in go"
+title = "Understanding concurrency in Go"
 
 +++
 > Concurrency is about dealing with lots of things at once. Parallelism is about doing lots of things at once - Rob Pike

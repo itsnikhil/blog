@@ -1,4 +1,5 @@
 ---
+description: Mapping app screens and navigation paths with OmniParser, Gemini and a graph-based knowledge base.
 title: Screen to Screen Navigation Understanding with AI
 date: 2025-07-17 09:00:00
 tags:

@@ -1,4 +1,5 @@
 ---
+description: My eight-week Fidelity International internship in 2020, including blockchain work and the people I met.
 title: Fidelity Internship 2020
 date: 2020-09-10 00:00:00
 tags:

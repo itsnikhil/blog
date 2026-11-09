@@ -1,0 +1,192 @@
+{
+  "projects/journal/index.html": [
+    "milestone",
+    "v032",
+    "v1001",
+    "100th-5-star-rating",
+    "teased-first-promo",
+    "200th-rating",
+    "v200",
+    "150th-5-star-rating",
+    "200th-5-star-rating",
+    "v300",
+    "300th-rating",
+    "v400",
+    "follow-journal"
+  ],
+  "projects/gmbot/index.html": [
+    "introduction",
+    "overview",
+    "key-features",
+    "how-it-works",
+    "roles",
+    "research",
+    "online-gaming-communities",
+    "identifying-right-platform",
+    "concept-solution",
+    "diagrams",
+    "flow-diagram",
+    "tree-diagram",
+    "development-process",
+    "code-structure",
+    "list-of-commands",
+    "database-schema",
+    "analytics",
+    "google-analytics",
+    "play-testing"
+  ],
+  "projects/form-auto-submitter/index.html": [
+    "installation",
+    "manual-installation",
+    "steps-to-use",
+    "other-powerful-features"
+  ],
+  "projects/aquarex/index.html": [
+    "bending-of-light-using-water",
+    "requirements",
+    "procedure",
+    "experimentation"
+  ],
+  "posts/is-pythonic-way-the-better-way/index.html": [
+    "swapping-of-values",
+    "list-comprehension",
+    "compound-comparison-statements",
+    "distinguishing-multiple-exit-points-in-loops",
+    "ternary-operator",
+    "walrus-operator-available-from-python-38-pep-572",
+    "some-good-reads",
+    "thank-you"
+  ],
+  "posts/oai-app-composer/index.html": [
+    "the-developer-experience-today",
+    "the-idea-mock-the-chatgpt-environment-locally",
+    "the-result-a-storybook-like-ide-for-chatgpt-components",
+    "-features",
+    "how-it-works",
+    "quick-templates-for-faster-start",
+    "simulating-tool-calls-and-flows",
+    "why-i-built-it",
+    "try-it-yourself",
+    "final-thoughts"
+  ],
+  "posts/self-hosting/index.html": [
+    "introduction",
+    "hardware-setup",
+    "raspberry-pi-5-specifications",
+    "software-setup",
+    "security-and-access",
+    "application-deployment",
+    "favourite-application",
+    "immich",
+    "monitoring-and-logging",
+    "challenges-and-solutions",
+    "loose-pcie-ssd-hat-cable",
+    "solution",
+    "rootless-containers-exit-once-the-user-session-exits",
+    "solution-1",
+    "random-shutdowns",
+    "solution-2",
+    "too-many-open-files",
+    "conclusion",
+    "final-thoughts"
+  ],
+  "posts/year-in-pixel-with-journal/index.html": [
+    "step-by-step-guide-to-setup-journal-with-ifttt",
+    "make-sure-you-are-on-journal-v40-or-above",
+    "background",
+    "say-hello-to-ifttt",
+    "1-connect-to-journal-ifttt-applet",
+    "2-setup-google-sheet-template",
+    "3-test-everything-is-working"
+  ],
+  "posts/architecting-discord-bot-the-right-way/index.html": [
+    "past-gmbot",
+    "everything-was-very-monolithic",
+    "can-we-do-better-micro-services",
+    "advantages",
+    "much-easier-to-test-the-features",
+    "easy-and-quick-growthexpandability",
+    "backend-servers-can-be-horizontally-scaled",
+    "flexibility-to-experiment-and-optimize",
+    "freedom-to-try-out-new-technology",
+    "separate-deployments",
+    "leaner-teams-and-increased-productivity"
+  ],
+  "posts/clarify-function-calls-with-keyword-arguments-javascript/index.html": [
+    "common-options-pattern",
+    "from-the-library-developer-perspective",
+    "general-rule"
+  ],
+  "posts/screen-to-screen-navigation-understanding-with-ai/index.html": [
+    "processing-pipeline",
+    "1-video-frame-extraction",
+    "2-frame-management",
+    "3-ui-element-detection-with-omniparser-v2",
+    "4-screen-analysis-with-gemini",
+    "5-ai-powered-cleanup",
+    "6-final-data-structure",
+    "graph-based-path-discovery",
+    "building-navigation-intelligence-for-autonomous-systems",
+    "original-intent-knowledge-base-for-ai-agents",
+    "the-reality-ai-agents-and-immediate-action-bias",
+    "future-uncertainty-where-does-this-lead",
+    "results-and-implications"
+  ],
+  "posts/zomato-improvement-proposal-zip-gigs-system-matchings/index.html": [
+    "zomatos-gig-system",
+    "as-per-the-company-benefits-of-gigs-system-include",
+    "medals",
+    "problems-with-current-implementation-of-the-gig-system",
+    "1-booking-of-gigs-is-a-first-come-first-serve-process",
+    "2-preferred-gig-not-available",
+    "3-customer-feedback-do-not-affect-medal",
+    "improvement-proposal",
+    "better-matching-algorithm",
+    "benefits-of-this-new-match-making-algorithm",
+    "concerns",
+    "sources"
+  ],
+  "posts/mastering-concurrency-in-go/index.html": [
+    "concurrency-in-go",
+    "uncontrolled-concurrency",
+    "controlled-concurrency",
+    "benchmarks",
+    "learning-resources"
+  ],
+  "posts/algorithm-behind-tnb-analysis/index.html": [
+    "datasource",
+    "processing-json-files-efficiently",
+    "calculating-wealth-metrics"
+  ],
+  "posts/implementing-silent-refresh-of-jwt/index.html": [
+    "prerequisite-knowledge",
+    "session-ids",
+    "json-web-token-jwt",
+    "introduction-to-short-lived-token",
+    "where-to-store-the-token",
+    "localstorage",
+    "cookies",
+    "memory",
+    "servers-database",
+    "silent-refresh",
+    "the-bad-way",
+    "the-hasuras-good-way",
+    "references"
+  ],
+  "posts/done-is-better-than-perfect/index.html": [
+    "introduction",
+    "perfection",
+    "chasing-perfection",
+    "example",
+    "finding-the-balance",
+    "understand-the-requirements",
+    "know-your-customer",
+    "what-are-your-expertise",
+    "engineering-process-is-a-loop"
+  ],
+  "posts/fidelity-internship-2020/index.html": [
+    "hello-everyone",
+    "cryptoleague-2",
+    "cryptowallet"
+  ]
+}

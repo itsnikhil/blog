@@ -1,5 +1,5 @@
 ---
-title: Journal Fitit App
+title: Journal Fitbit App
 date: 2020-11-23 00:00:01
 tags:
     - Fitbit

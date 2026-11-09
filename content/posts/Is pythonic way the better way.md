@@ -1,4 +1,5 @@
 ---
+description: My thoughts on Pythonic coding styles and the trade-offs behind writing familiar code differently.
 title: Is pythonic way the better way?
 date: 2021-01-11 09:00:00
 tags:

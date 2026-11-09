@@ -1,7 +1,7 @@
 +++
 categories = ["algorithm", "proposal", "zomato"]
 date = 2022-05-01T00:30:00Z
-description = "Zomato Improvement Proposal (ZIP): Gigs system matchings - Many to many stable matching algorithm using the deferred-acceptance."
+description = "A proposal for matching Zomato delivery partners to gigs using a many-to-many stable matching algorithm."
 keywords = ["gigs", "matching", "engineering", "zip", "zomato", "proposal", "algorithm"]
 tags = ["engineering", "matching", "Gigs", "ZIP"]
 title = "Zomato Improvement Proposal (ZIP-001): Gigs system matchings"

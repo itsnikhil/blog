@@ -1,4 +1,5 @@
 ---
+description: A guide to connecting Journal v4 with IFTTT, including background on the calendar feature and earlier app issues.
 title: Year in Pixel with Journal
 date: 2020-09-21 00:00:00
 tags:

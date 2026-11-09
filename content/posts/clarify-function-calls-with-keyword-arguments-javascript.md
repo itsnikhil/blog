@@ -1,7 +1,7 @@
 +++
 categories = ["JavaScript", "Programming"]
 date = 2021-08-06T18:30:00Z
-description = "While working with many JavaScript libraries you might have come across this common pattern where in the function call you pass an object many-a-times often referred as options. There is a reason why this is a common good practice and in this article I will be giving the reasoning behind this practice."
+description = "How JavaScript options objects make function calls easier to read, using the idea of named arguments."
 keywords = ["parameter", "default", "options", "practice", "good", "beginner", "nodejs", "readability", "code", "javascript"]
 tags = ["Code readability ", "Good practice"]
 title = "Clarify function calls with keyword arguments - JavaScript"
