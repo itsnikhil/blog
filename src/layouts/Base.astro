@@ -1,15 +1,55 @@
 ---
-import {base,site,description as siteDescription,url} from '../lib/content.js';
-const {title='ItsNikhil',description=siteDescription,entry}=Astro.props;
-const canonical=new URL(Astro.url.pathname,site).href;
-const feedPath=Astro.url.pathname.replace(/\/page\/\d+\/$/,'/');
-const feed=entry?`${base}/index.xml`:`${feedPath.endsWith('/')?feedPath:feedPath+'/'}index.xml`;
-const isHome=Astro.url.pathname===url('');
-const active = path => path ? Astro.url.pathname.startsWith(url(path)) : isHome;
-const nav=[['Home',''],['Writings','posts'],['Projects','projects']];
+import BaseHead from "@/components/BaseHead.astro";
+import Footer from "@/components/layout/Footer.astro";
+import Header from "@/components/layout/Header.astro";
+import SkipLink from "@/components/SkipLink.astro";
+import ThemeProvider from "@/components/ThemeProvider.astro";
+import { siteConfig } from "@/site.config";
+import type { SiteMeta } from "@/types";
+
+interface Props {
+	meta: SiteMeta;
+}
+
+const {
+	meta: { articleDate, modifiedDate, article, tags, categories, description = siteConfig.description, ogImage, title },
+} = Astro.props;
 ---
-<!doctype html><html lang="en-us"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>{title}</title><meta name="description" content={description}/><link rel="canonical" href={canonical}/><meta property="og:title" content={title}/><meta property="og:description" content={description}/><meta property="og:url" content={canonical}/><meta property="og:site_name" content="ItsNikhil"/><meta property="og:type" content={entry?'article':'website'}/><meta name="twitter:card" content="summary"/><meta name="twitter:title" content={title}/><meta name="twitter:description" content={description}/>{entry?.date&&<meta property="article:modified_time" content={new Date(entry.lastmod||entry.date).toISOString()}/>} {entry?.tags?.map(t=><meta property="article:tag" content={t}/>)} {entry?.categories?.map(c=><meta property="article:section" content={c}/>)}{entry?.date&&<meta property="article:published_time" content={entry.date.toISOString()}/>}<link rel="stylesheet" href={`${base}/css/style-white.css`}/><link rel="stylesheet" href={`${base}/lib/font-awesome/css/all.min.css`}/><link rel="stylesheet" href={`${base}/css/carousel.css`}/><link rel="icon" href={`${base}/images/favicon.ico`}/><link rel="alternate" type="application/rss+xml" title="ItsNikhil" href={feed}/><link rel="stylesheet" href={`${base}/css/refinements.css`}/></head><body id="top" class="max-width mx-auto px3 ltr"><a class="skip-link" href="#main-content">Skip to content</a><div class="content index py4">
-{entry?<><a class="article-brand" href={url('')}>ItsNikhil</a><nav class="site-navigation" aria-label="Main navigation">{nav.map(([label,path])=><a href={url(path)} aria-current={active(path)?'page':undefined}>{label}</a>)}</nav></>:<header id="header"><a href={url('')}><div id="logo" style={`background-image:url(${base}/images/logo.png)`}></div><div id="title">{isHome?<h1>ItsNikhil</h1>:<p>ItsNikhil</p>}</div></a><nav id="nav" aria-label="Main navigation"><ul>{nav.map(([label,path])=><li><a href={url(path)} aria-current={active(path)?'page':undefined}>{label}</a></li>)}</ul></nav></header>}
-<main id="main-content" tabindex="-1"><slot/></main><footer id="footer"><div class="footer-left">Copyright © {new Date().getUTCFullYear()} ItsNikhil</div><div class="footer-right"><nav aria-label="Footer navigation"><ul>{nav.map(([label,path])=><li><a href={url(path)} aria-current={active(path)?'page':undefined}>{label}</a></li>)}</ul></nav></div></footer></div><script is:inline src={`${base}/js/carousel.js`}></script>
-{entry?.mathjax&&<><script is:inline>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']]},svg:{fontCache:'global'}};</script><script is:inline async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script></>}
-</body></html>
+
+<!doctype html>
+<html id="top" class="scroll-smooth" lang={siteConfig.lang}>
+	<head>
+		<BaseHead article={article} modifiedDate={modifiedDate} tags={tags} categories={categories} articleDate={articleDate} description={description} ogImage={ogImage} title={title} />
+		<ThemeProvider />
+	</head>
+	<body
+		class="bg-global-bg text-global-text mx-auto flex min-h-screen max-w-3xl flex-col px-4 pt-16 font-mono text-sm font-normal antialiased sm:px-8"
+	>
+		<SkipLink />
+		<Header />
+		<main id="main" tabindex="-1">
+			<slot />
+		</main>
+		<Footer />
+		<script is:inline type="speculationrules">
+			{
+				"prefetch": [
+					{
+						"where": {
+							"href_matches": "/*"
+						},
+						"eagerness": "immediate"
+					}
+				],
+				"prerender": [
+					{
+						"where": {
+							"href_matches": "/*"
+						},
+						"eagerness": "moderate"
+					}
+				]
+			}
+		</script>
+	</body>
+</html>

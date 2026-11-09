@@ -1,10 +1,23 @@
 ---
-import Base from '../layouts/Base.astro';
-import PostList from '../components/PostList.astro';
-import {posts,taxonomies,featured,url,description,topicLabel} from '../lib/content.js';
-const topicOrder=['chatgpt','genai','mcp','javascript','python','backend','homelab','security','performance','design','fitbit','developer-tools'];
-const topics=topicOrder.map(key=>taxonomies.tags.find(t=>t.slug===key)).filter(Boolean);
+import PageLayout from '@/layouts/Base.astro';
+import PostList from '@/components/PostList.astro';
+import SocialList from '@/components/SocialList.astro';
+import {posts,featured,url,description} from '@/lib/content.js';
 ---
-<Base><section id="about" aria-label="About Nikhil">{description}<p>Find me on <a href="https://github.com/itsnikhil">GitHub</a>, <a href="https://linkedin.com/in/taneja03">LinkedIn</a> and <a href="mailto:taneja.nikhil03@gmail.com">email</a>.</p></section>
-<section id="writing" aria-labelledby="writing-title"><h2 id="writing-title"><a href={url('posts')}>Writings</a></h2><h3>Most recent</h3><PostList entries={posts.slice(0,5)}/><a class="all-link" href={url('posts')}>Browse all writings →</a><h3>Explore topics</h3><ul class="topic-list">{topics.map(t=><li><a href={url(`tags/${t.slug}`)}>{topicLabel(t.name)} <span class="topic-count">{t.entries.length}<span class="sr-only">{t.entries.length===1?' entry':' entries'}</span></span></a></li>)}</ul><a class="all-link" href={url('tags')}>View all {taxonomies.tags.length} topics →</a></section>
-<section id="projects" aria-labelledby="projects-title"><h2 id="projects-title"><a href={url('projects')}>Projects</a></h2><ul class="project-list">{featured.map(p=><li class="project-item"><a href={p.url}>{p.name}</a><p>{p.desc}</p></li>)}</ul><a class="all-link" href={url('projects')}>Explore all projects →</a></section></Base>
+<PageLayout meta={{title:'Home'}}>
+ <section>
+  <h1 class="title mb-12">Hi, I’m Nikhil.</h1>
+  <p class="mb-4 leading-relaxed">{description}</p>
+  <SocialList />
+ </section>
+ <section class="mt-16">
+  <h2 class="title text-accent mb-6 text-xl"><a href={url('posts')}>Writings</a></h2>
+  <PostList entries={posts.slice(0,10)}/>
+  <p class="mt-6"><a class="cactus-link text-accent" href={url('posts')}>All writings →</a></p>
+ </section>
+ <section class="mt-16">
+  <h2 class="title text-accent mb-6 text-xl"><a href={url('projects')}>Projects</a></h2>
+  <ul class="space-y-6">{featured.map((p:{name:string;url:string;desc:string})=><li><a class="cactus-link font-semibold" href={p.url}>{p.name}</a><p class="text-muted mt-1 leading-relaxed">{p.desc}</p></li>)}</ul>
+  <p class="mt-6"><a class="cactus-link text-accent" href={url('projects')}>All projects →</a></p>
+ </section>
+</PageLayout>

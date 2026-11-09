@@ -1,0 +1,32 @@
+---
+import { siteConfig } from '@/site.config';
+import '@/styles/global.css';
+import '@/styles/adaptation.css';
+const { articleDate, modifiedDate, article, tags = [], categories = [], description = siteConfig.description, title = 'Home' } = Astro.props;
+const siteTitle = `${title} • ${siteConfig.title}`;
+const feedPath = Astro.url.pathname.replace(/\/page\/\d+\/$/, '/');
+const feedURL = article || /\/404(?:\.html)?\/?$/.test(Astro.url.pathname) ? '/blog/index.xml' : `${feedPath.endsWith('/') ? feedPath : feedPath + '/'}index.xml`;
+const canonicalURL = new URL(Astro.url.pathname, "https://itsnikhil.github.io").href;
+---
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>{siteTitle}</title>
+<link href="/blog/icon.svg" rel="icon" type="image/svg+xml" />
+<link href={canonicalURL} rel="canonical" />
+<meta content={description} name="description" />
+<meta content={siteConfig.author} name="author" />
+<meta content={article ? 'article' : 'website'} property="og:type" />
+<meta content={title} property="og:title" />
+<meta content={description} property="og:description" />
+<meta content={canonicalURL} property="og:url" />
+<meta content={siteConfig.title} property="og:site_name" />
+<meta content="summary" name="twitter:card" />
+<meta content={title} name="twitter:title" />
+<meta content={description} name="twitter:description" />
+{modifiedDate && <meta content={modifiedDate} property="article:modified_time" />}
+{tags.map((tag: string) => <meta content={tag} property="article:tag" />)}
+{categories.map((category: string) => <meta content={category} property="article:section" />)}
+{articleDate && <meta content={articleDate} property="article:published_time" />}
+<link href="/blog/sitemap.xml" rel="sitemap" />
+<link href={feedURL} title="ItsNikhil" rel="alternate" type="application/rss+xml" />
+<meta content={Astro.generator} name="generator" />

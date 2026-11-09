@@ -1,19 +1,51 @@
 ---
-import Base from '../layouts/Base.astro';
-import PostList from '../components/PostList.astro';
-import {routes} from '../lib/routes.js';
-import {url,base,site,slug,entries,plainText,topicLabel} from '../lib/content.js';
+import type {LegacyEntry,LegacyTerm} from '@/types';
+import Base from '@/layouts/Base.astro';
+import PostList from '@/components/PostList.astro';
+import TOC from '@/components/blog/TOC.astro';
+import {routes} from '@/lib/routes.js';
+import {url,site,slug,entries,plainText,topicLabel} from '@/lib/content.js';
 export function getStaticPaths(){return routes.map(p=>({params:{route:p.route},props:p}));}
 const {entry,archive,page,terms,type,redirect}=Astro.props;
 const title=entry?.title||archive?.title||Astro.props.title;
-const sortedProjects=archive?.route==='projects'?[...archive.entries].sort((a,b)=>a.categories.join().localeCompare(b.categories.join())):[];
-const siblings=entry?entries.filter(p=>p.route.split('/')[0]===entry.route.split('/')[0]):[];
-const position=siblings.indexOf(entry);
-const newer=siblings[position-1],older=siblings[position+1];
-const headings=entry?[...entry.html.matchAll(/<h2 id="([^"]+)">([\s\S]*?)<\/h2>/g)].map(m=>({id:m[1],title:plainText(m[2])})):[];
+const siblings=entry?entries.filter((p:LegacyEntry)=>p.route.split('/')[0]===entry.route.split('/')[0]):[];
+const position=siblings.indexOf(entry), newer=siblings[position-1], older=siblings[position+1];
+const headings=entry?[...entry.html.matchAll(/<h([2-3]) id="([^"]+)">([\s\S]*?)<\/h[2-3]>/g)].map(m=>({depth:Number(m[1]),slug:m[2],text:plainText(m[3])})):[];
 const totalPages=archive?Math.max(1,Math.ceil(archive.entries.length/10)):0;
 const canonical=site+url(entry?.route||'');
+const date = (d:Date|string) => new Date(d).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'});
+const readingTime=entry?Math.max(1,Math.ceil(plainText(entry.html).split(/\s+/).length/200)):0;
 ---
-{redirect!==undefined?<html lang="en"><head><meta charset="utf-8"/><meta http-equiv="refresh" content={`0; url=${url(redirect)}`}/><link rel="canonical" href={site+url(redirect)}/><title>Redirecting</title></head><body><a href={url(redirect)}>Continue</a></body></html>:<Base title={title} description={entry?.excerpt} entry={entry}>
-{entry?<><article class="post" itemscope itemtype="https://schema.org/BlogPosting"><header><h1 class="posttitle" itemprop="headline">{entry.title}</h1><div class="meta"><span class="author">ItsNikhil</span>{entry.date&&<div class="postdate"><time datetime={entry.date.toISOString()} itemprop="datePublished">{entry.date.toISOString().slice(0,10)}</time></div>}{entry.lastmod&&<div class="postdate updated">Updated <time datetime={new Date(entry.lastmod).toISOString()} itemprop="dateModified">{new Date(entry.lastmod).toISOString().slice(0,10)}</time></div>}{['categories','tags'].map(t=><div class={`article-${t==='tags'?'tag':'category'}`}>{entry[t].map(name=><a href={url(`${t}/${slug(name)}`)}>{topicLabel(name)} </a>)}</div>)}</div></header>{headings.length>=3&&<details class="article-toc"><summary>On this page</summary><ul>{headings.map(h=><li><a href={`#${h.id}`}>{h.title}</a></li>)}</ul></details>}<div class="content" itemprop="articleBody" set:html={entry.html}/></article><nav class="site-navigation article-navigation" aria-label="Article navigation"><a href={url(entry.route.startsWith("posts/")?"posts":"projects")}>← Back to {entry.route.startsWith('posts/')?'writings':'projects'}</a><a href="#top">Back to top ↑</a>{newer&&<a href={url(newer.route)}>← {newer.title}</a>}{older&&<a href={url(older.route)}>{older.title} →</a>}<a href={`mailto:?subject=${encodeURIComponent(entry.title)}&body=${encodeURIComponent(canonical)}`}>Share by email</a></nav>{entry.comments!==false&&<div class="blog-post-comments"><div id="disqus_thread"></div><p class="preview-note" data-preview-comments hidden>Comments are disabled in this preview. Your existing discussion remains on the <a href={canonical}>original article</a>.</p><script is:inline define:vars={{canonical}}>const note=document.querySelector('[data-preview-comments]');if(location.hostname!=='itsnikhil.github.io'&&note)note.hidden=false;if(location.hostname==='itsnikhil.github.io'){window.disqus_config=function(){this.page.url=canonical;};const s=document.createElement('script');s.src='https://itsnikhil.disqus.com/embed.js';s.async=true;document.head.appendChild(s);}</script><noscript>Please enable JavaScript to view comments.</noscript></div>}</>:archive?<section id="archive"><h1>{archive.title}</h1><p class="archive-position">{archive.entries.length} {archive.entries.length===1?'entry':'entries'} · Page {page} of {totalPages}</p>{archive.route==='projects'?<div class="project-cards">{sortedProjects.slice((page-1)*10,page*10).map((p,i)=><article>{(i===0||p.categories.join()!==sortedProjects[i-1].categories.join())&&<h2>{p.categories.join(", ")}</h2>}<h3><a href={url(p.route)}>{p.title}</a></h3><div class="project-preview">{p.cover&&<a href={url(p.route)}><img src={p.cover} width="100" alt={p.title} loading="lazy"/></a>}<p>{p.description||p.summary}</p></div></article>)}</div>:<PostList entries={archive.entries.slice((page-1)*10,page*10)} groupYears showSummaries/>}<nav class="pagination" aria-label="Pagination">{page>1&&<a href={url(archive.route+(page===2?'':`/page/${page-1}`))}>← Newer</a>}{page*10<archive.entries.length&&<a href={url(`${archive.route}/page/${page+1}`)}>Older →</a>}</nav></section>:<section><h1>{title}</h1><ul class="topic-list">{terms.map(t=><li><a href={url(`${type}/${t.slug}`)}>{topicLabel(t.name)} <span class="topic-count">{t.entries.length}<span class="sr-only">{t.entries.length===1?' entry':' entries'}</span></span></a></li>)}</ul></section>}
+{redirect!==undefined?<html lang="en"><head><meta charset="utf-8"/><meta name="robots" content="noindex,follow"/><meta http-equiv="refresh" content={`0; url=${url(redirect)}`}/><link rel="canonical" href={site+url(redirect)}/><title>Redirecting</title></head><body><a href={url(redirect)}>Continue</a></body></html>:
+<Base meta={{title,description:entry?.excerpt,article:!!entry,articleDate:entry?.date?.toISOString(),modifiedDate:entry?.date ? new Date(entry.lastmod||entry.date).toISOString() : undefined,tags:entry?.tags,categories:entry?.categories}}>
+{entry?<>
+ <article class="grow break-words" data-pagefind-body itemscope itemtype="https://schema.org/BlogPosting">
+  <header id="blog-hero" class="mb-12">
+   <h1 class="title mb-3" itemprop="headline">{entry.title}</h1>
+   <div class="flex flex-wrap items-center gap-x-3 gap-y-2 font-semibold">
+    {entry.date&&<p><time datetime={entry.date.toISOString()} itemprop="datePublished">{date(entry.date)}</time> / {readingTime} min read</p>}
+    {entry.lastmod&&<span class="bg-quote/5 text-quote rounded-lg px-2 py-1">Updated: <time datetime={new Date(entry.lastmod).toISOString()} itemprop="dateModified">{date(entry.lastmod)}</time></span>}
+   </div>
+   <div class="mt-3 flex flex-wrap gap-x-3 gap-y-2">{entry.tags.map((name:string)=><a class="cactus-link" data-pagefind-filter={`tag:${name}`} href={url('tags/'+slug(name))}>#{topicLabel(name)}</a>)}</div>
+   {entry.categories.length>0&&<p class="text-muted mt-2">{entry.categories.map((name:string)=><a class="cactus-link mr-3" href={url('categories/'+slug(name))}>{topicLabel(name)}</a>)}</p>}
+  </header>
+  <div class="article-layout flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
+   {headings.length>=3&&<TOC headings={headings}/>}
+   <div class="article-content prose prose-sm min-w-0 prose-headings:font-semibold prose-headings:text-accent-2" itemprop="articleBody" set:html={entry.html}/>
+  </div>
+ </article>
+ <nav class="article-navigation mt-12 border-t border-dashed pt-6" aria-label="Article navigation">
+  <div class="flex flex-wrap justify-between gap-4"><a class="cactus-link" href={url(entry.route.startsWith('posts/')?'posts':'projects')}>← Back to {entry.route.startsWith('posts/')?'writings':'projects'}</a><a class="cactus-link" href="#top">Back to top ↑</a><a class="cactus-link" href={`mailto:?subject=${encodeURIComponent(entry.title)}&body=${encodeURIComponent(canonical)}`}>Share by email</a></div>
+  <div class="mt-6 grid gap-6 sm:grid-cols-2">{newer&&<a class="cactus-link" href={url(newer.route)}>← {newer.title}</a>}{older&&<a class="cactus-link sm:text-right" href={url(older.route)}>{older.title} →</a>}</div>
+ </nav>
+ {entry.comments!==false&&<section class="mt-10" aria-label="Comments"><div id="disqus_thread"></div><p class="text-muted text-xs" data-preview-comments hidden>Comments are disabled in this local preview. <a class="cactus-link" href={canonical}>Read the discussion on the live article</a>.</p><script is:inline define:vars={{canonical}}>const note=document.querySelector('[data-preview-comments]');if(location.hostname!=='itsnikhil.github.io'&&note)note.hidden=false;if(location.hostname==='itsnikhil.github.io'){window.disqus_config=function(){this.page.url=canonical;};const s=document.createElement('script');s.src='https://itsnikhil.disqus.com/embed.js';s.async=true;document.head.appendChild(s);}</script><noscript>Please enable JavaScript to view comments.</noscript></section>}
+ <link rel="stylesheet" href="/blog/css/carousel.css"/>
+ <script is:inline src="/blog/js/carousel.js"></script>
+ {entry.mathjax&&<><script is:inline>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']]},svg:{fontCache:'global'}};</script><script is:inline async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script></>}
+</>:archive?<section>
+ <h1 class="title mb-4">{archive.title}</h1>
+ <p class="text-muted mb-10">{archive.entries.length} {archive.entries.length===1?'entry':'entries'} · Page {page} of {totalPages}</p>
+ {archive.route==='projects'?<ul class="space-y-10">{archive.entries.slice((page-1)*10,page*10).map((p:LegacyEntry)=><li><h2 class="text-lg font-semibold"><a class="cactus-link" href={url(p.route)}>{p.title}</a></h2><div class="mt-3 flex items-start gap-4">{p.cover&&<img class="h-16 w-16 rounded object-contain" src={p.cover} alt="" loading="lazy"/>}<p class="text-muted leading-relaxed">{p.description||p.summary}</p></div></li>)}</ul>:<PostList entries={archive.entries.slice((page-1)*10,page*10)} summaries/>}
+ <nav class="mt-10 flex justify-between gap-6" aria-label="Pagination">{page>1&&<a class="cactus-link" href={url(archive.route+(page===2?'':`/page/${page-1}`))}>← Newer</a>}{page*10<archive.entries.length&&<a class="cactus-link ml-auto" href={url(`${archive.route}/page/${page+1}`)}>Older →</a>}</nav>
+</section>:<section><h1 class="title mb-10">{title}</h1><ul class="flex flex-wrap gap-x-6 gap-y-5">{terms.map((t:LegacyTerm)=><li><a class="cactus-link" href={url(`${type}/${t.slug}`)}>#{topicLabel(t.name)} <span class="text-muted">({t.entries.length})</span></a></li>)}</ul></section>}
 </Base>}

@@ -1,3 +1,7 @@
+# Current release
+
+The Astro migration is live. The approved Astro Cactus design is now the production implementation; see README.md and CACTUS-ADAPTATION.md for current instructions. The historical migration notes below document prior review stages and do not describe the current deployment status or test coverage.
+
 # Hugo → Astro 7.4 migration
 
 ## Status
