@@ -17,8 +17,8 @@ jobs:
     env:
       ASTRO_TELEMETRY_DISABLED: 1
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: '24'
           cache: npm
@@ -26,9 +26,11 @@ jobs:
       - run: npm run check
       - run: npm run build
       - run: npm test
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: dist
+          # Preserve the existing published .forestry assets when upgrading from v3.
+          include-hidden-files: true
   deploy:
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/src'
     needs: build
@@ -42,4 +44,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
