@@ -42,7 +42,13 @@ assert(article.querySelector('#disqus_thread'));
 assert(read('posts/screen-to-screen-navigation-understanding-with-ai/index.html').includes('https://itsnikhil.disqus.com/embed.js'));
 assert(article.querySelector('[data-preview-comments][hidden]'));
 assert(article.querySelector('a[href^="mailto:?subject="]'));
-for (const link of article.querySelectorAll('toc-heading a[href^="#"]')) assert(article.getElementById(link.hash.slice(1)));
+const tocLinks = [...article.querySelectorAll('details nav a[href^="#"]')];
+assert(tocLinks.length > 0);
+for (const link of tocLinks) assert(article.getElementById(link.hash.slice(1)));
+const adaptationCSS = fs.readFileSync('src/styles/adaptation.css', 'utf8');
+assert(adaptationCSS.includes('#disqus_thread { color: #383838; background-color: #fafafa; }'));
+assert(adaptationCSS.includes('[data-theme="dark"] #disqus_thread a { color: #d480aa; }'));
+
 const archive = doc('posts/index.html');
 assert(archive.body.textContent.includes('Page 1 of 2'));
 assert.equal(archive.querySelector('link[rel="alternate"]').getAttribute('href'), '/blog/posts/index.xml');

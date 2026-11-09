@@ -13,3 +13,5 @@ Automated checks cover the 294 historical routes, 156 heading anchors, 22 publis
 No post content or external account settings are changed. External image hosts, Disqus, MathJax, and the legacy Forestry service retain their prior dependencies. Successful page checks do not certify external sign-in or publishing through Forestry.
 
 Release validation: npm ci, Astro check (zero errors/warnings), production build, and npm test passed. The local Playwright suite could not start Chromium because this workspace disallows its process-singleton socket; no automated browser assertions are claimed from that attempt. The approved preview had prior desktop/narrow-width interactive review. Production browser smoke checks are performed separately after deployment.
+
+Live smoke testing verified search-to-article navigation, dark-mode persistence, pagination and carousel interaction. Disqus’s legacy embed color parser did not accept OKLCH colors, so compatible hex colors are scoped to its host container and probe links without changing the theme palette elsewhere.

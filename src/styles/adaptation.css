@@ -27,3 +27,10 @@
 @media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition:none!important; animation:none!important; } }
 
 @media (max-width:360px) { #main-header > div > a > span {font-size:18px;} #main-header > div > a > svg {margin-inline-end:8px;} #main-header theme-toggle {margin-inline-start:4px;} #toggle-navigation-menu {margin-inline-start:4px;} }
+
+/* Disqus's embed parser accepts RGB/hex, not Cactus's OKLCH colors. Scope
+   compatible colors to its host and temporary probe links only. */
+#disqus_thread { color: #383838; background-color: #fafafa; }
+#disqus_thread a { color: #367a73; }
+[data-theme="dark"] #disqus_thread { color: #c9cacc; background-color: #1d1f21; }
+[data-theme="dark"] #disqus_thread a { color: #d480aa; }
