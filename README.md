@@ -7,10 +7,11 @@ Source for [Nikhil’s blog](https://itsnikhil.github.io/blog/), built with Astr
 Use Node 24 and run `npm ci`.
 
 - `npm run dev`: prepare static assets and start the development server.
-- `npm run build`: build the site and index its 22 published entries with Pagefind.
+- `npm run build`: build the site and index its published entries with Pagefind.
 - `npm run preview`: serve the production build at `/blog/`.
 - `npm run check`: check Astro templates and TypeScript.
 - `npm test`: check historical routes, headings, content, assets, production metadata, local links, and carousel behavior.
+- `npm run test:publishing`: build an isolated temporary copy with new posts and a draft, run the full tests across a pagination boundary, and confirm drafts stay unpublished.
 - `npm run test:browser`: Playwright smoke tests against a running preview; set `CHROMIUM_PATH` if using a system Chromium.
 
 Published Markdown/TOML is in `content/`. The existing renderer preserves published URLs, historical heading anchors, raw HTML, and custom carousels. The draft résumé is excluded. `static/` and the historical theme’s static assets are copied into generated `public/` by `scripts/prepare-assets.mjs`.

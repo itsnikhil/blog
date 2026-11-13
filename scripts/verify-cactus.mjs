@@ -46,5 +46,5 @@ for(const route of articles){
  const html=read(path.join(dist,route));
  if(!html.includes('rel="canonical"'))warnings.push(`No canonical ${route}`);
 }
-console.log(JSON.stringify({dist,legacyRoutes:routes.length,publishedEntries:22,historicalAnchors:Object.values(anchors).flat().length,sourceStaticFiles:staticFiles.length,errors,warnings},null,2));
+console.log(JSON.stringify({dist,legacyRoutes:routes.length,historicalPublishedEntries:22,historicalAnchors:Object.values(anchors).flat().length,sourceStaticFiles:staticFiles.length,errors,warnings},null,2));
 if(errors.length)process.exitCode=1;

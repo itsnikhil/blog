@@ -12,7 +12,8 @@
     "preview": "astro preview",
     "check": "ASTRO_TELEMETRY_DISABLED=1 astro check",
     "test": "node scripts/verify-build.mjs && node scripts/verify-cactus.mjs && node scripts/verify-carousel.mjs && node scripts/verify-quality.mjs",
-    "test:browser": "playwright test"
+    "test:browser": "playwright test",
+    "test:publishing": "node scripts/verify-publishing.mjs"
   },
   "dependencies": {
     "astro": "7.4.7",

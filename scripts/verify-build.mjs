@@ -4,8 +4,12 @@ import {entries,posts,taxonomies} from '../src/lib/content.js';
 const paths=JSON.parse(fs.readFileSync('tests/hugo-routes.json','utf8'));
 const missing=paths.filter(p=>!fs.existsSync(`dist/${p}`));
 assert.deepEqual(missing,[],`Missing Hugo routes: ${missing.join(', ')}`);
-assert.equal(entries.length,22,'All published content is retained');
-assert.equal(posts.length,14,'All blog posts are retained');
+// Preserve identities, not a frozen total: new published content is welcome.
+const historical=JSON.parse(fs.readFileSync('tests/historical-entries.json','utf8'));
+for(const {file,route} of historical){
+ assert(entries.some(entry=>entry.file===file&&entry.route===route),`Historical entry missing or moved: ${file} (${route})`);
+}
+assert.equal(new Set(entries.map(entry=>entry.route)).size,entries.length,'Published routes must be unique');
 assert(!fs.existsSync('dist/resume/index.html'),'Draft résumé must not be published');
 for(const entry of entries){
  assert.notEqual(entry.title,'Untitled',`Frontmatter missing in ${entry.file}`);

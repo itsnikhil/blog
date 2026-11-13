@@ -1,0 +1,90 @@
+[
+  {
+    "file": "content/posts/oai-app-composer.md",
+    "route": "posts/oai-app-composer"
+  },
+  {
+    "file": "content/posts/screen-to-screen-navigation-understanding-with-ai.md",
+    "route": "posts/screen-to-screen-navigation-understanding-with-ai"
+  },
+  {
+    "file": "content/posts/self-hosting.md",
+    "route": "posts/self-hosting"
+  },
+  {
+    "file": "content/posts/zomato-improvement-proposal-zip-gigs-system-matchings.md",
+    "route": "posts/zomato-improvement-proposal-zip-gigs-system-matchings"
+  },
+  {
+    "file": "content/posts/done-is-better-than-perfect.md",
+    "route": "posts/done-is-better-than-perfect"
+  },
+  {
+    "file": "content/posts/architecting-discord-bot-the-right-way.md",
+    "route": "posts/architecting-discord-bot-the-right-way"
+  },
+  {
+    "file": "content/posts/clarify-function-calls-with-keyword-arguments-javascript.md",
+    "route": "posts/clarify-function-calls-with-keyword-arguments-javascript"
+  },
+  {
+    "file": "content/posts/mastering-concurrency-in-go.md",
+    "route": "posts/mastering-concurrency-in-go"
+  },
+  {
+    "file": "content/posts/implementing-silent-refresh-of-jwt.md",
+    "route": "posts/implementing-silent-refresh-of-jwt"
+  },
+  {
+    "file": "content/posts/algorithm-behind-tnb-analysis.md",
+    "route": "posts/algorithm-behind-tnb-analysis"
+  },
+  {
+    "file": "content/posts/Is pythonic way the better way.md",
+    "route": "posts/is-pythonic-way-the-better-way"
+  },
+  {
+    "file": "content/projects/journal.md",
+    "route": "projects/journal"
+  },
+  {
+    "file": "content/projects/ieee-ncu.md",
+    "route": "projects/ieee-ncu"
+  },
+  {
+    "file": "content/projects/thecogpublication.md",
+    "route": "projects/thecogpublication"
+  },
+  {
+    "file": "content/projects/aquarex.md",
+    "route": "projects/aquarex"
+  },
+  {
+    "file": "content/projects/secret-coded-lock.md",
+    "route": "projects/secret-coded-lock"
+  },
+  {
+    "file": "content/form-auto-submitter/privacy.md",
+    "route": "form-auto-submitter/privacy"
+  },
+  {
+    "file": "content/projects/form-auto-submitter.md",
+    "route": "projects/form-auto-submitter"
+  },
+  {
+    "file": "content/posts/Year in Pixel with Journal.md",
+    "route": "posts/year-in-pixel-with-journal"
+  },
+  {
+    "file": "content/posts/fidelity internship 2020.md",
+    "route": "posts/fidelity-internship-2020"
+  },
+  {
+    "file": "content/posts/first.md",
+    "route": "posts/first"
+  },
+  {
+    "file": "content/projects/gmbot.md",
+    "route": "projects/gmbot"
+  }
+]

@@ -50,14 +50,25 @@ assert(adaptationCSS.includes('#disqus_thread { color: #383838; background-color
 assert(adaptationCSS.includes('[data-theme="dark"] #disqus_thread a { color: #d480aa; }'));
 
 const archive = doc('posts/index.html');
-assert(archive.body.textContent.includes('Page 1 of 2'));
+const totalPages = Math.max(1, Math.ceil(posts.length / 10));
+for (let page = 1; page <= totalPages; page++) {
+  const archivePage = doc(page === 1 ? 'posts/index.html' : `posts/page/${page}/index.html`);
+  assert(archivePage.body.textContent.includes(`Page ${page} of ${totalPages}`));
+  const pagination = archivePage.querySelector('nav[aria-label="Pagination"]');
+  const previous = page === 2 ? '/blog/posts/' : `/blog/posts/page/${page - 1}/`;
+  if (page > 1) assert(pagination.querySelector(`a[href="${previous}"]`));
+  if (page < totalPages) assert(pagination.querySelector(`a[href="/blog/posts/page/${page + 1}/"]`));
+  assert.equal(pagination.querySelectorAll('a').length, Number(page > 1) + Number(page < totalPages));
+  for (const post of posts.slice((page - 1) * 10, page * 10)) {
+    assert(archivePage.querySelector(`main a[href="/blog/${post.route}/"]`), `Missing archive entry ${post.route}`);
+  }
+}
 assert.equal(archive.querySelector('link[rel="alternate"]').getAttribute('href'), '/blog/posts/index.xml');
 assert.equal(article.querySelector('link[rel="alternate"]').getAttribute('href'), '/blog/index.xml');
 const projects = doc('projects/index.html');
 assert(projects.body.textContent.includes('Journal Fitbit App'));
 assert(projects.body.textContent.includes('total internal reflection'));
 for (const img of projects.querySelectorAll('main img[src^="/"]')) assert(img.getAttribute('src').startsWith('/blog/'));
-assert.equal(posts.length, 14);
 for (const entry of entries) assert(entry.excerpt.length <= 180);
 const composer = doc('posts/oai-app-composer/index.html');
 assert(composer.querySelector('time[itemprop="dateModified"]'));
